@@ -17,15 +17,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/', indexRouter);
 app.use('/api/users', usersRouter);
-const root = require('path').join(__dirname, 'client', 'build')
-app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
