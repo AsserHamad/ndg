@@ -1,0 +1,330 @@
+.about-container {
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.about-container-ar {
+  direction: rtl
+}
+
+.main-about-container {
+  /* grid-area: 1 / 1 / 2 / 2; */
+  color: black;
+  width: 58%;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  padding: 7% 3% 0 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-about-container-ar {
+  direction: rtl;
+  text-align: right;
+  padding: 7% 3% 0 3%;
+}
+
+.list {
+  margin: 5vh;
+  list-style-type: square;
+}
+
+
+.about-div img{
+  width: 100%;
+}
+
+
+.about-us-container {
+  /* grid-area: 1 / 2 / 2 / 3; */
+  color: black;
+  position: fixed;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background-image: url(/images/aboutus.png);
+  background-size: cover;
+  z-index: 10;
+}
+
+.about-us-container-ar {
+  right: auto;
+  left: 7%;
+}
+
+.abtus {
+  border-top: 3px solid #F9BF26;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 80% 0% 0 10%;
+  font-size: 7vh;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.2vh;
+}
+
+.abtus-ar {
+  text-align: right;
+  direction: rtl;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.todo-brownies-ar {
+  margin: 0 7vh 0 22vh;
+  direction: rtl;
+  text-align: right;
+  border-top: 1px solid rgba(255,255,255,0.6);
+  border-left: 1px solid rgba(255,255,255,0.6);
+  border-right: none;
+  padding: 5vh 0 0 10vh;
+}
+
+@media (max-width: 1024px) {
+  .about-container {
+      flex-direction: column;
+  }
+  .main-about-container {
+      width: 100%;
+      position: initial;
+  }
+  .about-us-container {
+      position: initial;
+      width: 100%;
+      height: 100vh;
+  }
+
+  .todo-brownies {
+      margin: 0 5vh 0 7vh;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .about-us-container {
+      background-position-y: 100vh;
+  }
+
+  .abtus {
+      padding: 5% 10% 0 8vh;
+  }
+
+  .todo-brownies {
+      font-size: 4vh;
+  }
+  
+}
+
+
+
+/* Left Side */
+.titleText {
+  border-right: 3px solid #F9BF26;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+/* Motivation Button */
+.button {
+  transform: translate(30vw, -50%);
+  background-color: transparent;
+  display: flex;
+  height: 8vh;
+  width: 14vw;
+  transition-duration: 0.2s;
+}
+
+.button-ar {
+  transform: translate(-30vw, -50%);
+}
+
+.button-about-us {
+  color: white;
+  background-color: #F9BF26;
+  text-transform: uppercase;
+  font-size: 0.7vw;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.button-play {
+  background-color: #2D2D32;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  width: 30%;
+  color: white;
+  transition-duration: 0.2s;
+}
+
+.button-play:hover {
+  color: #F9BF26;
+}
+
+.button:hover{
+  color: yellow;
+  width: 17.5vw;
+}
+
+@media(max-width: 1024px){
+  .button {
+    width: 50%;
+    font-size: 3vh;
+  }
+
+  .button-about-us {
+    font-size: 1.5vh;
+  }
+
+  .button:hover{
+    color: yellow;
+    width: 55%;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .button-about-us {
+    height: 10vh;
+    font-size: 1em;
+  }
+  .button-play {
+    height: 10vh;
+  }
+}
+
+.corporate-overview {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 0px;
+}
+
+.div11 {
+  grid-area: 1 / 1 / 2 / 2;
+  font-size: 1.7vw;
+  font-weight: bold;
+}
+
+.div22 {
+  padding-top: 1vh;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
+  grid-area: 1 / 2 / 2 / 3;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1vw;
+  color: rgba(0,0,0,0.6);
+}
+
+.countup-div {
+  display: flex;
+  margin-top: 15vh;
+}
+.countups {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 6vh;
+  font-weight: bolder;
+}
+
+.bua {
+  color: #666;
+  font-size: 0.7em;
+  padding: 0.2vw 1vw;
+  border-left: 2px solid #F9BF26;
+}
+
+@media (max-width: 1024px) {
+  .corporate-overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .div11 {
+    font-size: 1.7em;
+  }
+
+  .div22 {
+    font-size: 0.8em;
+    padding: 5%;
+  }
+}
+
+
+
+
+
+/* Modal Shit */
+/* Modal */
+/* Style the Image Used to Trigger the Modal */
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* Modal Content (Image) */
+  .modal {
+    margin: auto;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Add Animation - Zoom in the Modal */
+  .modal-content {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    width: 60%;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: fixed;
+    top: 30px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 60%;
+    }
+  }
+
+.motivation-video {
+  width: 50%;
+}

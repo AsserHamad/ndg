@@ -1,0 +1,38 @@
+.aside-container {
+    margin-top: 2.2em;
+    position: fixed;
+}
+
+@media (max-width: 1024px) {
+  .aside-container {
+    display: none;
+    margin-left: auto;
+  }
+
+}
+.header {
+    transform: rotate(-90deg);
+    position: absolute;
+    margin-top: 100px;
+    margin-left: -100px;
+    border-right: 140px solid #35353A;
+    border-left: 1px solid #F9BF26;
+    padding: 10px 10px 0 150px;
+    height: 2em;
+}
+
+.header p {
+    color: #525256;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 70%;
+    letter-spacing: 4px;
+    position: fixed;
+    margin-left: -5em;
+    display: inline;
+}
+
+.ar p{
+    letter-spacing: 0;
+    font-size: 90%
+}

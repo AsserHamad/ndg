@@ -1,0 +1,135 @@
+.services-container {
+    display: flex;
+}
+
+.services-container-ar {
+    direction: rtl
+}
+
+.main-services-container {
+    /* grid-area: 1 / 1 / 2 / 2; */
+    color: black;
+    width: 58%;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    margin: 5vh;
+    list-style-type: square;
+}
+
+
+.service-div img{
+    width: 100%;
+}
+
+.service-title {
+    font-size: 4vh;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-top: 3px solid #F9BF26;
+    padding: 4vh 0;
+}
+.service-title-ar {
+    text-align: right;
+}
+
+.list-ar {
+    direction: rtl;
+    text-align: right;
+}
+
+
+.what-we-do-container {
+    /* grid-area: 1 / 2 / 2 / 3; */
+    color: black;
+    position: fixed;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    background-image: url(/images/what-we-do.png);
+    background-size: cover;
+    z-index: 10;
+}
+
+.what-we-do-container-ar {
+    right: auto;
+    left: 7%;
+}
+
+.wwd {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 5% 10% 0 10%;
+    font-size: 7vh;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.2vh;
+}
+
+.wwd-ar {
+    text-align: right;
+    direction: rtl;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.todo-brownies {
+    border-top: 1px solid rgba(255,255,255,0.6);
+    border-right: 1px solid rgba(255,255,255,0.6);
+    margin: 0 22vh 0 7vh;
+    color: rgba(255,255,255,0.8);
+    font-weight: bold;
+    font-size: 2vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 5vh 10vh 0 0;
+    text-shadow: 0px 0px 2px black;
+}
+
+.todo-brownies-ar {
+    margin: 0 7vh 0 22vh;
+    direction: rtl;
+    text-align: right;
+    border-top: 1px solid rgba(255,255,255,0.6);
+    border-left: 1px solid rgba(255,255,255,0.6);
+    border-right: none;
+    padding: 5vh 0 0 10vh;
+}
+
+@media (max-width: 1024px) {
+    .services-container {
+        flex-direction: column;
+    }
+    .main-services-container {
+        width: 100%;
+        margin-top: 100vh;
+    }
+    .what-we-do-container {
+        position: initial;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .todo-brownies {
+        margin: 0 5vh 0 7vh;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    .what-we-do-container {
+        background-position-y: 100vh;
+    }
+
+    .wwd {
+        padding: 5% 10% 0 8vh;
+    }
+
+    .todo-brownies {
+        font-size: 4vh;
+    }
+    
+}

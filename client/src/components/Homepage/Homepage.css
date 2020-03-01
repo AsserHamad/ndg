@@ -1,0 +1,21 @@
+#videoDiv {
+  position: absolute;
+}
+
+video {
+    width: 100%;
+    float: left;
+    /* margin-left: 7%; */
+}
+
+#videoDiv video {
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  video {
+      width: 100%;
+      float: left;
+  }
+}
+

@@ -1,0 +1,136 @@
+.black-box {
+  background-color: #2A2A2E;
+  color: white;
+  transform: translate(60%, -80%);
+  width: 50%;
+  padding: 6%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8vw;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.black-box-ar {
+  transform: translate(-60%, -80%);
+}
+
+.black-box span {
+  margin-right: 1vh;
+}
+
+.black-box-text {
+  margin-top: 3vh;
+}
+
+.black-box-text span:nth-child(1) {
+  color: #717173;
+}
+
+.black-box-text span:nth-child(3) {
+  color: #F9BF26;
+}
+
+.black-box-text span:nth-child(3):hover {
+  color: white;
+  cursor: pointer;
+}
+
+.getInTouch {
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.7em;
+  color: #999;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100%;
+  }
+  
+  .contact-form div:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+    padding: 1vw;
+  }
+  .contact-form div:nth-child(2) {
+    grid-area: 1 / 2 / 2 / 3;
+    padding: 1vw;
+  }
+  .contact-form div:nth-child(3) {
+    grid-area: 2 / 1 / 3 / 2;
+    padding: 1vw;
+  }
+  .contact-form div:nth-child(4) {
+    grid-area: 2 / 2 / 3 / 3;
+    padding: 1vw;
+  }
+  .contact-form div:nth-child(5) {
+    grid-area: 3 / 1 / 5 / 3;
+    padding: 1vw;
+  }
+  .contact-form div:nth-child(6) {
+    grid-area: 5 / 1 / 6 / 2;
+    padding: 1vw;
+  }
+
+  .contact-form input, .contact-form textarea, .contact-form select {
+    border: 1px solid #EEEEEE;
+    padding: 1vw;
+    width: 100%;
+  }
+
+  .contact-form input::placeholder, .contact-form textarea::placeholder, .select-placeholder {
+    font-weight: bold;
+    font-size: 0.7em;
+  }
+
+  .submitButton {
+    background-color: #2A2A2E;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.9em;
+    width: 50%;
+    transition-duration: 0.3s;
+    padding: 5% 10%;
+  }
+  .submitButton:hover {
+    background-color: #F9BF26;
+  }
+
+.contact-form textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+  resize: none;
+}
+
+@media (max-width: 1024px) {
+  .black-box {
+    transform: none;
+    width: 100%;
+    font-size: 3vw;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-form div {
+    height: 10vh;
+  }
+
+  .contact-form div input {
+    width: 100%;
+    height: 90%;
+  }
+}

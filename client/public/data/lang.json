@@ -1,0 +1,150 @@
+{
+  "en": {
+    "navbar": {
+      "home": "Home",
+      "projects": "Projects",
+      "services": "Services",
+      "about": "About Us",
+      "contact": "Contact Us"
+    },
+    "pageNames": {
+      "home": "Home",
+      "projects": "Projects",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "projects": {
+      "description": "As a multidisciplinary firm, we maintain considerable experience, skills and resources to undertake a wide variety of projects. NDG was started in 1999 and serves a local and national client base. Customers recognize the firm’s ability to provide and coordinate a broad spectrum of specialized professional services through our highly qualified staff  and the use of an extensive professional",
+      "viewProjectsButton": "View All Projects",
+      "viewProjectLink": "View Project",
+      "startExploring": "Start Exploring",
+      "back": "back",
+      "next": "next"
+    },
+    "projectDetails": {
+      "projectDetails": "Project Details",
+      "owner": "Owner",
+      "location": "Location",
+      "area": "Area",
+      "builtUpArea": "Built Up Area",
+      "year": "Date of Completion",
+      "gallery": "Gallery",
+      "videoPresentations": "Video Presentations",
+      "images": "Images",
+      "videos": "Videos"
+    },
+    "services": {
+      "whatWeDo": "What We Do",
+      "description": "NATURE Design Group (NDG) is a full-service professional firm that provides Strategic & regional planning ,urban design, landscape architecture, architecture, interior design and, engineering services in all key engineering disciplines: mechanical, electrical, structural, civil, sanitary, and fire protection. Known as a leader in Smart Growth and sustainable planning and building practices, the firm designs redevelopment and revitalization plans for cities and towns that have all the elements needed to create vibrant and economically vital urban environments."
+    },
+    "about": {
+      "aboutUs": "About Us",
+      "corporateOverview": "Corporate Overview",
+      "corporateOverviewText": "The Firm NATURE Design Group (NDG) is a full-service professional firm that provides Architecture service, Strategic & regional planning, Urban planning, urban design, landscape architecture, and infrastructure planning/ Engineering service in all key engineering disciplines: mechanical, electrical, structural, civil, sanitary, and fire protection. Known as a leader in Smart Growth and sustainable planning and building practices, the firm designs redevelopment and revitalization plans for cities and towns that have all the elements needed to create vibrant and economically vital urban environments. As a multidisciplinary firm, we maintain considerable experience, skills and resources to undertake a wide variety of projects. NDG was started in 1999 and serves a local and national client base. Customers recognize the firm’s ability to provide and coordinate a broad spectrum of specialized professional services through our highly qualified staff and the use of an extensive professional network of service companies. We offer expertise in all aspects of statutory planning including site analysis, planning applications and scheme amendments, appeals representation and evidence and landscape design. The firm’s statutory planning expertise is complemented by its urban design and landscape design skills, enabling a comprehensive approach to the resolution of planning issues. The key to our approach is the understanding of our clients’ current needs and future requirements. We appreciate that every client is unique and each project requires an individually tailored strategy to enable suitable solutions, NATURE Design Group (NDG).",
+      "motivation": "Motivation",
+      "motivationText": "Work Motivations the NDG team is motivated by the high level of expertise and experience we can give to our Clients. Where Partnering Agreements exist, NDG are specifically focused on delivering the Agreed Maximum Prices at the earliest time and endeavor to coordinate an early input from the Constructor and preferred Sub Constructors where appropriate. In addition, our Sub Consultants, where required, are very familiar too with the design process surrounding future Local Authority projects. NDG employ a serious approach to whole life costs for the projects. We are familiar with WLC process and have the commitment to deliver on all our projects. We will explore functional effectiveness a response to context along with exploitation of natural resources such as views, light, sun etc.",
+      "bua": "Millions BUA",
+      "projects": "90+ Projects",
+      "years": "18+ Years"
+    },
+    "contact": {
+      "contactUs": "Contact Us:",
+      "write": "write:",
+      "call": "call:",
+      "visit": "visit:",
+      "visitText": "F41, 4TH FLOOR, BUILDING NO.6 AL‐GIHAD ST., LEBANON SQUARE, MOHANDESSIN ,GIZA, EGYPT",
+      "getInTouch": "GET IN TOUCH",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "orderProject": "Order Project",
+      "support": "Support",
+      "otherQuestions": "Other Questions",
+      "message": "Message",
+      "send": "Send",
+      "getInTouchText0" : "NATURE DESIGN GROUP CO. - N.D.G",
+      "getInTouchText1" : "SINCE 1999",
+      "getInTouchText2" : "ARCHITECTURE–URBAN PLANNING –INFRASTRUCTURE PLANNING -URBAN DESIGN – LANDSCAPE ARCHITECTURE",
+      "getInTouchText3" : "STRUCTURAL ENGINEERING – FEASIBILITY STUDIES ADDRESS: F41, 4TH FLOOR, BUILDING NO.6 AL‐GIHAD ST.,LEBANON SQUARE, MOHANDESSIN ,GIZA, EGYPT",
+      "getInTouchText4" : "POSTAL CODE 12411",
+      "getInTouchText5" : "DUBAI :OFFICE NO. 503‐06 ACICO GULF REAL ESTATE DUBAI BRANCH ,PORTSAID.",
+      "getInTouchText6" : "POSTAL CODE : 393210"
+    }
+  },
+  "ar": {
+    "navbar": {
+      "home": "الرئيسية",
+      "projects": "المشاريع",
+      "services": "الخدمات",
+      "about": "نبذة عنا",
+      "contact": "إتصل بنا"
+    },
+    "pageNames": {
+      "home": "الرئيسية",
+      "projects": "المشاريع",
+      "services": "الخدمات",
+      "about": "نبذة عنا",
+      "contact": "إتصل بنا"
+    },
+    "projects": {
+      "description": "بصفتنا شركة متعددة التخصصات ، فإننا نحافظ على خبرة ومهارات وموارد كبيرة للقيام بمجموعة واسعة من المشاريع. بدأت NDG في عام 1999 وتخدم قاعدة عملاء محلية ووطنية. يدرك العملاء قدرة الشركة على توفير وتنسيق مجموعة واسعة من الخدمات المهنية المتخصصة من خلال موظفينا المؤهلين تأهيلا عاليا واستخدام محترف واسع النطاق",
+      "viewProjectsButton": "عرض جميع المشاريع",
+      "viewProjectLink": "عرض مشروع",
+      "startExploring": "ابدأ الاستكشاف",
+      "back": "عودة",
+      "next": "التالى"
+    },
+    "projectDetails": {
+      "projectDetails": "تفاصيل المشروع",
+      "owner": "صاحب المشروع",
+      "location": "الموقع",
+      "area": "المنطقة",
+      "builtUpArea": "المساحة المبنية",
+      "year": "تاريخ الانتهاء",
+      "gallery": "صور",
+      "videoPresentations": "عروض الفيديو",
+      "images": "صور",
+      "videos": "فيديو"
+    },
+    "services": {
+      "whatWeDo": "الذي نفعله",
+      "description": "مجموعة NATURE Design Group (NDG) هي شركة محترفة تقدم خدمات كاملة ، حيث توفر التخطيط الاستراتيجي والإقليمي ، والتصميم الحضري ، والهندسة المعمارية للمناظر الطبيعية ، والهندسة المعمارية ، والتصميم الداخلي ، والخدمات الهندسية في جميع التخصصات الهندسية الرئيسية: الميكانيكية والكهربائية والهيكلية والمدنية والصحية ، والحماية من الحرائق. تُعرف الشركة ، التي تُعرف بأنها رائدة في مجال النمو الذكي وممارسات التخطيط والبناء المستدامين ، خطط إعادة التطوير والتنشيط للمدن والبلدات التي تحتوي على جميع العناصر اللازمة لإنشاء بيئات حضرية حيوية وحيوية من الناحية الاقتصادية."
+    },
+    "about": {
+      "aboutUs": "معلومات عنا",
+      "corporateOverview": "لمحة عن الشركة",
+      "corporateOverviewText": "مجموعة تصميم الطبيعة (NDG) هي شركة محترفة تقدم خدمات كاملة للهندسة المعمارية ، والتخطيط الاستراتيجي والإقليمي ، والتخطيط الحضري ، وهندسة المناظر الطبيعية ، و تخطيط البنية التحتية / الخدمة الهندسية في جميع التخصصات الهندسية الرئيسية: الميكانيكية والكهربائية ، الهيكلية والمدنية والصحية والحماية من الحرائق. معروف كرائد في النمو الذكي والمستدام. بصفتنا شركة متعددة التخصصات ، نحافظ على خبرة ومهارات كبيرة. بدأت NDG في عام 1999 وتخدم قاعدة عملاء محلية ووطنية. شبكة واسعة النطاق من الشركات المتخصصة في تقديم الخدمات. نحن نقدم لك الخبرة في جميع جوانب التخطيط القانوني. نحن نرغب في تجربة الشركة في التخطيط القانوني. مفتاح نهجنا هو فهم احتياجاتك الحالية والمتطلبات المستقبلية. نحن نقدر أن كل عميل فريد من نوعه.",
+      "motivation": "التحفيز",
+      "motivationText": "دوافع العمل يحفز فريق NDG على المستوى العالي من الخبرة والخبرة التي يمكن أن نقدمها لعملائنا. في حالة وجود اتفاقيات شراكة ، تركز NDG بشكل خاص على تقديم الأسعار القصوى المتفق عليها في أقرب وقت ، وتسعى إلى تنسيق المدخلات المبكرة من المُنشئ والبناء الفرعي المفضل عند الاقتضاء. بالإضافة إلى ذلك ، فإن مستشارينا من الباطن ، عند الاقتضاء ، على دراية كبيرة بعملية التصميم المحيطة بمشاريع السلطة المحلية المستقبلية. تستخدم NDG مقاربة جادة لتكاليف الحياة الكاملة للمشروعات. نحن على دراية بعملية WLC ، ونحن ملتزمون بتنفيذ جميع مشاريعنا. سوف نستكشف الفعالية الوظيفية استجابة للسياق إلى جانب استغلال الموارد الطبيعية مثل المناظر ، الضوء ، الشمس ، إلخ.",
+      "bua": "ملايين المساحة المبنية",
+      "projects": "90+ المشاريع",
+      "years": "18+ سنوات"
+    },
+    "contact": {
+      "contactUs": "اتصل بنا:",
+      "write": "إرسال:",
+      "call": "مكالمة:",
+      "visit": "زيارة:",
+      "visitText": "F41 ، الطابق الرابع ، مبنى رقم 6 شارع الجهاد ، ميدان لبنان ، المهندسين ، الجيزة ، مصر",
+      "getInTouch": "ابقى على تواصل",
+      "name": "اسم",
+      "email": "البريد الإلكتروني",
+      "phone": "هاتف",
+      "subject": "موضوع",
+      "orderProject": "طلب مشروع",
+      "support": "الدعم",
+      "otherQuestions": "اسئلة اخرى",
+      "message": "الرسالة",
+      "send": "أرسل",
+      "getInTouchText0" : "مجموعة تصميم الطبيعة - N.D.G",
+      "getInTouchText1" : "منذ 1999",
+      "getInTouchText2" : "العمارة - التخطيط الحضري - تخطيط البنية التحتية - التصميم الأوروبي - هندسة المناظر الطبيعية",
+      "getInTouchText3" : "الهندسة الهيكلية - عنوان دراسات الجدوى: F41 ، الطابق الرابع ، مبنى رقم 6 شارع الجهاد ، ميدان لبنان ، المهندسين ، الجيزة ، مصر",
+      "getInTouchText4" : "الرمز البريدي 12411",
+      "getInTouchText5" : "دبي: المكتب رقم 503 - 06 أسيكو الخليج العقارية فرع دبي ، بورتسعيد.",
+      "getInTouchText6" : "الرمز البريدي: 393210"
+    }
+  }
+}
