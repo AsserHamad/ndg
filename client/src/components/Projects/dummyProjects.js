@@ -3,7 +3,7 @@ const projects = {
     {
         id: 0,
         title: {
-            en: "SunPark (Maasara)",
+            en: "Sun Park (Maasara)",
             ar:  "سان بارك (المعصرة)"
         },
         description: {
@@ -41,7 +41,7 @@ const projects = {
     {
         id: 1,
         title: {
-            en: "AlAqeer archeologyDistrict",
+            en: "AlAqeer archeology District",
             ar:  "العقير الأثرية"
         },
         description: {
