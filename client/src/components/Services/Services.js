@@ -14,7 +14,7 @@ function Services(){
         .then(res => {
             setServicesText(res[lang].services);
         });
-        fetch('http://localhost:5000/api/services')
+        fetch('/api/services')
         .then(res => res.json())
         .then(res => setServices(res));
       }, [lang]);
