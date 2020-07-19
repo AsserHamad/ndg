@@ -23,7 +23,7 @@ function Projects() {
           .then(res => setProjectsText(res[lang].projects));
     }, [])
     useEffect(() => {
-        fetch("http://localhost:5000/api/projects/")
+        fetch("/api/projects/")
           .then(res => res.json())
           .then(res => setProjects(res));
     }, [])

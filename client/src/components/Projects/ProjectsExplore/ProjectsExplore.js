@@ -11,7 +11,7 @@ function ProjectsExplore(props) {
         if(props.location.projects){
             setProjects(props.location.projects);
         } else {
-            fetch("http://localhost:5000/api/projects/")
+            fetch("/api/projects/")
             .then(res => res.json())
             .then(res => setProjects(res));
         }

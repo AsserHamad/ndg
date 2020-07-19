@@ -24,7 +24,7 @@ function ProjectDetails(props){
         if(props.location.projectBlock){
             setProject(props.location.projectBlock.project);
         } else {
-            fetch(`http://localhost:5000/api/projects/${id}`)
+            fetch(`/api/projects/${id}`)
             .then(res => res.json())
             .then(proj => setProject(proj));
         }
