@@ -1,14 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProjectsExplore.css";
 import useGlobalState from "../../../useGlobalState";
 import ProjectBlock from "./ProjectBlock/ProjectBlock";
 import dp from "../dummyProjects";
 
 function ProjectsExplore(props) {
-    console.log(props);
+    const [projects, setProjects] = useState([]);
+    useEffect(() => {
+
+        if(props.location.projects){
+            setProjects(props.location.projects);
+        } else {
+            fetch("http://localhost:5000/api/projects/")
+            .then(res => res.json())
+            .then(res => setProjects(res));
+        }
+    }, [])
     const globalState = useGlobalState();
     const lang = globalState.lang.lang;
-    const projects = dp.projects, categories = dp.categories, subcategories = dp.subcategories;
+    const categories = dp.categories, subcategories = dp.subcategories;
     useEffect(() => {
         globalState.setPage({ page: 'projects'});
     }, []);
@@ -18,21 +28,11 @@ function ProjectsExplore(props) {
     return(
         <div>
             <div className="projectBlocks">
-                {[1,2,3,4,5,6,7,8,9].map((element) => 
+                {[...Array(projects.length).keys()].map((element) => 
                     <ProjectBlock
                         key={element}
                         _className={`div${element}`}
-                        lang={lang} project={projects[++count % 8]}
-                        category={categories[lang][projects[0].category]}
-                        subcategory={subcategories[lang][projects[0].subcategory]} />
-                )}
-            </div>
-            <div className="projectBlocks">
-                {[1,2,3,4,5,6,7,8,9].map((element) => 
-                    <ProjectBlock
-                        key={element}
-                        _className={`div${element}`}
-                        lang={lang} project={projects[++count % 8]}
+                        lang={lang} project={projects[++count % projects.length]}
                         category={categories[lang][projects[0].category]}
                         subcategory={subcategories[lang][projects[0].subcategory]} />
                 )}
