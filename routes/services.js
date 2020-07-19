@@ -6,6 +6,7 @@ const validation = require('../middleware/validation');
 
 router.get("/", services.getServices);
 router.post("/", validation.adminAuth, services.createService);
-router.delete("/", validation.adminAuth, services.deleteAllServices);
+router.put("/", validation.adminAuth, services.updateService);
+router.delete("/", validation.adminAuth, services.deleteService);
 
 module.exports = router;

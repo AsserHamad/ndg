@@ -38,7 +38,7 @@ exports.createProject = (req, res, next) => {
 };
 
 exports.updateProject = (req, res, next) => {
-    Project.findOneAndUpdate({_id: req.body.id}, req.body.project, {new: true})
+    Project.updateOne({_id: req.body.id}, req.body.project, {new: true})
     .then(resp => resp ? res.json(resp) : next(new Errors.NotFoundError()))
     .catch(err => {
         next(new Errors.BaseError({

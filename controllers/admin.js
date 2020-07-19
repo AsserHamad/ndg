@@ -49,7 +49,7 @@ exports.adminLogin = (req, res, next) => {
 exports.adminUpdateEmail = (req, res, next) => {
     const payload = req.body.data,
           email = req.body.email;
-    Admin.findOneAndUpdate({payload}, {email}, {new: true})
+    Admin.updateOne({payload}, {email}, {new: true})
     .then(resp => resp.toJSON())
     .then(admin => {
         delete admin.password;
