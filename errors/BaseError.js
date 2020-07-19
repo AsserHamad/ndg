@@ -1,7 +1,7 @@
 class BaseError {
-    constructor(error, code) {
-        this.error = error;
-        this.code = code;
+    constructor(message, status) {
+        this.message = message;
+        this.status = status;
     }
 }
 

@@ -90,6 +90,7 @@ a {
   transition: transform 0.5s ease-out;
   -webkit-transition: transform 0.5s ease-out;
 }
+
 #navbar ul.menu-ar {
   margin-top: 10px;
   float: right;

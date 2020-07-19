@@ -9,18 +9,18 @@ const mongoose = require('mongoose');
 
 // require('dotenv').config();
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
 const projectRouter = require('./routes/projects');
 const servicesRouter = require('./routes/services');
 
 var app = express();
 
-mongoose.connect("mongodb://asserhamad:abc123456@ds217799.mlab.com:17799/ndg-website", {useNewUrlParser: true});
+mongoose.connect("mongodb://asserhamad:abc123456@ds217799.mlab.com:17799/ndg-website", {useNewUrlParser: true, useUnifiedTopology: true,});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.set('secretKey', "abcd1234");
 
 app.use(cors());
 app.use(logger('dev'));
@@ -29,8 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.use('/api/', indexRouter);
-app.use('/api/users', usersRouter);
+app.use('/api/admin', adminRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/services', servicesRouter);
 
@@ -46,6 +45,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  console.log(err)
   res.status(err.status || 500);
   res.json({ message: err.message });
 });

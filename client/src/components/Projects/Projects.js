@@ -7,9 +7,14 @@ import { Link } from "react-router-dom";
 import dp from "./dummyProjects";
 
 function Projects() {
-    const projects = dp.projects, categories = dp.categories, subcategories = dp.subcategories;
+    const categories = dp.categories, subcategories = dp.subcategories;
     const globalState = useGlobalState(),
           [projectsText, setProjectsText] = useState({}),
+          [projects, setProjects] = useState([{
+              category: 0,
+              title: {},
+              isLoaded: false
+          }]),
           [previewNum, setPreviewNum] = useState(0),
           lang = globalState.lang.lang;
     useEffect(() => {
@@ -19,8 +24,16 @@ function Projects() {
               setProjectsText(res[lang].projects);
           });
     }, [])
-    function changePreviewNum() {
-        setPreviewNum((previewNum + 1) % 3);
+    useEffect(() => {
+        fetch("http://localhost:5000/api/projects/explore")
+          .then(res => res.json())
+          .then(res => {
+              console.log(res);
+              setProjects(res);
+          });
+    }, [])
+    function changePreviewNum(num) {
+        setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
     }
     return(
     <div>
@@ -46,7 +59,7 @@ function Projects() {
                     <span>{projects[previewNum].title[lang]}</span>
                     <div>
                     <Link className="link" to={{
-                        pathname: `/projects/${projects[previewNum].id}`,
+                        pathname: `/projects/${previewNum}`,
                         projectBlock:{
                             project: projects[previewNum],
                             category: categories[lang][projects[previewNum].category],
@@ -75,8 +88,8 @@ function Projects() {
                 </button>
             </Link>
             <div className={`previewNavigatingDiv previewNavigatingDiv-${lang}`}>
-                <button onClick={changePreviewNum} className="previewNavigatingButtons">&lt; {projectsText.back}</button>
-                <button onClick={changePreviewNum} className="previewNavigatingButtons">{projectsText.next} &gt;</button>
+                <button onClick={() => changePreviewNum(-1)} className="previewNavigatingButtons">&lt; {projectsText.back}</button>
+                <button onClick={() => changePreviewNum(1)} className="previewNavigatingButtons">{projectsText.next} &gt;</button>
             </div>
     </div>
     )

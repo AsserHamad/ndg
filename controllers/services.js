@@ -15,7 +15,7 @@ exports.createService = (req, res, next) => {
     .catch(err => {
         next(new Errors.BaseError({
             reason: err.message,
-            code: 400
+            status: 400
         }));
     });
 };

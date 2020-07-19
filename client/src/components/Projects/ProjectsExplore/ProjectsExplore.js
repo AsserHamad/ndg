@@ -4,7 +4,8 @@ import useGlobalState from "../../../useGlobalState";
 import ProjectBlock from "./ProjectBlock/ProjectBlock";
 import dp from "../dummyProjects";
 
-function ProjectsExplore() {
+function ProjectsExplore(props) {
+    console.log(props);
     const globalState = useGlobalState();
     const lang = globalState.lang.lang;
     const projects = dp.projects, categories = dp.categories, subcategories = dp.subcategories;

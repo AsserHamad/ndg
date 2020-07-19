@@ -4,12 +4,13 @@
 
 video {
     width: 100%;
+    min-height: 100%;
     float: left;
     /* margin-left: 7%; */
 }
 
-#videoDiv video {
-  opacity: 0.4;
+.videoDiv video {
+  opacity: 0.5;
 }
 
 @media (max-width: 768px) {

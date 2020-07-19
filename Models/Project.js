@@ -100,4 +100,22 @@ var projectSchema = new Schema({
   }]
 */
 
-module.exports = mongoose.model('Project', projectSchema);
+//Checking for duplicate titles
+// projectSchema.pre('save', function(next){
+//   console.log('currently saving project')
+//   projectModel.findOne(
+//     {$or: [
+//       {title: {en: this.title.en}},
+//       {title: {ar: this.title.ar}}
+//   ]}, function(err, project) {
+//     console.log(project);
+//     console.log(err);
+//     if(!project)
+//       return next();
+//     else return next(new BaseError("Project title already exists", 400));
+//   })
+// })
+
+const projectModel = mongoose.model('Project', projectSchema);
+
+module.exports = projectModel;

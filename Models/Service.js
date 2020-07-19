@@ -16,13 +16,11 @@ var serviceSchema = new Schema({
         required: true
       }
     },
-    description: {
-      en: String,
-      ar: String
-    },
-    category: Number,
-    images: [String],
-    videos: [String]
+    image: String,
+    items: {
+      en: [String],
+      ar: [String]
+    }
 });
 
 module.exports = mongoose.model('Service', serviceSchema);

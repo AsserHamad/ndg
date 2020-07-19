@@ -1,28 +1,55 @@
 const Project = require('../Models/Project');
 const Errors = require('../errors/Errors');
+const { response } = require('express');
 
 exports.getProjects = (req, res, next) => {
-    console.log("yo")
     Project.find({})
-    .then(resp => {console.log(res);res.json(resp)})
+    .then(resp => res.json(resp))
+    .catch(err => {
+        next(new Errors.InternalServerError());
+    });
+}
+
+exports.getProject = (req, res, next) => {
+    Project.findOne({_id: req.params.id})
+    .then(resp => (resp) ? res.json(resp) : next(new Errors.NotFoundError()))
+    .catch(err => next(new Errors.BaseError(err.message, 404)))
+}
+
+exports.getExampleProjects = (req, res, next) => {
+    Project.find({})
+    .limit(3)
+    .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.InternalServerError());
     });
 }
 
 exports.createProject = (req, res, next) => {
-    Project.create(req.body)
+    Project.create(req.body.project)
+    .then(resp => resp.toJSON())
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.BaseError({
             reason: err.message,
-            code: 400
+            status: 400
+        }));
+    });
+};
+
+exports.updateProject = (req, res, next) => {
+    Project.findOneAndUpdate({_id: req.body.id}, req.body.project, {new: true})
+    .then(resp => resp ? res.json(resp) : next(new Errors.NotFoundError()))
+    .catch(err => {
+        next(new Errors.BaseError({
+            reason: err.message,
+            status: 400
         }));
     });
 };
 
 exports.deleteProject = (req, res, next) => {
-    Project.deleteOne(req.body)
+    Project.deleteOne(req.body.project)
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.NotFoundError({
