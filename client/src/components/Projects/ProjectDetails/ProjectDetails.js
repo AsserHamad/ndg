@@ -7,19 +7,28 @@ import { FaAngleDown } from 'react-icons/fa';
 import ProjectMainDetails from './ProjectMainDetails/ProjectMainDetails';
 
 function ProjectDetails(props){
+    let id = props.location.pathname.split('/')[2];
     const globalState = useGlobalState(),
           lang = globalState.lang.lang,
-          [projectDetails, setProjectDetails] = useState({});
-    const [project, category, subcategory] = getProject();
+          [projectDetails, setProjectDetails] = useState({}),
+          [project, setProject] = useState({
+            title: {en: "" ,ar: ""},
+            location: {en: "" ,ar: ""},
+            owner: {en: "" ,ar: ""},
+            description: {en: "" ,ar: ""},
+            images: [],
+            videos: []
+        });
   
-    function getProject(){
+    useEffect(() => {
         if(props.location.projectBlock){
-            return [props.location.projectBlock.project, props.location.projectBlock.category, props.location.projectBlock.subproject];
+            setProject(props.location.projectBlock.project);
         } else {
-            let proj = projects.projects.filter((proj) => proj.id==props.match.params.id)[0];
-            return [proj, projects.categories[lang][proj.category], projects.subcategories[lang][proj.subcategory]]
+            fetch(`http://localhost:5000/api/projects/${id}`)
+            .then(res => res.json())
+            .then(proj => setProject(proj));
         }
-    }
+    },[]);
 
     useEffect(() => {
         fetch("/data/lang.json")
@@ -43,7 +52,7 @@ function ProjectDetails(props){
                 <div className="video-container">
                     <video className="background-video" autoPlay loop muted>
                     <source src={
-                        project.videoPreview || "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                        project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"
                         } type="video/mp4" />
                     Your browser does not support the video tag.
                     </video>
@@ -51,8 +60,6 @@ function ProjectDetails(props){
             </div>
             <ProjectMainDetails
                 project={project}
-                category={category}
-                subcategory={subcategory}
                 projectDetails={projectDetails}
                 lang={lang}
             />

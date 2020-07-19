@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Services.css';
 import useGlobalState from "../../useGlobalState";
-import services from './dummyServices';
+// import services from './dummyServices';
 
 function Services(){
     const globalState = useGlobalState(),
             [servicesText, setServicesText] = useState({}),
+            [services, setServices] = useState([]),
             lang = globalState.lang.lang;
       useEffect(() => {
-          fetch("/data/lang.json")
-            .then(res => res.json())
-            .then(res => {
-                setServicesText(res[lang].services);
-            });
+        fetch("/data/lang.json")
+        .then(res => res.json())
+        .then(res => {
+            setServicesText(res[lang].services);
+        });
+        fetch('http://localhost:5000/api/services')
+        .then(res => res.json())
+        .then(res => setServices(res));
       }, [lang]);
     return(
         <div className={`services-container services-container-${lang}`}>

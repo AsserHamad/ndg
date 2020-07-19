@@ -40,6 +40,7 @@ var projectSchema = new Schema({
     builtupArea: Number,
     year: String,
     preview: String,
+    videoPreview: String,
     category: Number,
     subcategory: Number,
     images: [String],

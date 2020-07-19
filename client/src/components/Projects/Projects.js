@@ -54,7 +54,7 @@ function Projects() {
                     <span>{projects[previewNum].title[lang]}</span>
                     <div>
                     <Link className="link" to={{
-                        pathname: `/projects/${previewNum}`,
+                        pathname: `/projects/${projects[previewNum]._id}`,
                         projectBlock:{
                             project: projects[previewNum],
                             category: categories[lang][projects[previewNum].category],
