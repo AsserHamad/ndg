@@ -24,7 +24,8 @@ function ProjectDetails(props){
         if(props.location.projectBlock){
             setProject(props.location.projectBlock.project);
         } else {
-            fetch(`/api/projects/${id}`)
+            const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
+            fetch(`${api}/api/projects/${id}`)
             .then(res => res.json())
             .then(proj => setProject(proj));
         }

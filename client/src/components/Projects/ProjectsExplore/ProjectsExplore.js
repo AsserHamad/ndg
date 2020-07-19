@@ -11,7 +11,8 @@ function ProjectsExplore(props) {
         if(props.location.projects){
             setProjects(props.location.projects);
         } else {
-            fetch("/api/projects/")
+            const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
+            fetch(`${api}/api/projects/`)
             .then(res => res.json())
             .then(res => setProjects(res));
         }

@@ -9,12 +9,14 @@ function Services(){
             [services, setServices] = useState([]),
             lang = globalState.lang.lang;
       useEffect(() => {
+          console.log("NODE ENV is currently", process.env.NODE_ENV)
+        const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
         fetch("/data/lang.json")
         .then(res => res.json())
         .then(res => {
             setServicesText(res[lang].services);
         });
-        fetch('/api/services')
+        fetch(`${api}/api/services`)
         .then(res => res.json())
         .then(res => setServices(res));
       }, [lang]);

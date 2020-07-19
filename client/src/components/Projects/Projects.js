@@ -23,7 +23,8 @@ function Projects() {
           .then(res => setProjectsText(res[lang].projects));
     }, [])
     useEffect(() => {
-        fetch("/api/projects/")
+        const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`
+        fetch(api)
           .then(res => res.json())
           .then(res => setProjects(res));
     }, [])
