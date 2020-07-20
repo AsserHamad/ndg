@@ -1,0 +1,21 @@
+.viewed-project {
+    width: 80%;
+    margin: 2vh 3vh;
+    background-color: white;
+    display: flex;
+}
+
+.preview-div img{
+    width: 20vw;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.viewed-project-div {
+    width: 45vw;
+    padding: 3vh 3vw;
+}
+
+.viewed-project-title {
+    font-size: 1.5em;
+}

@@ -1,0 +1,74 @@
+.padding {
+    width:35%;
+}
+
+.admin-body{
+    display:flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #E4E5E6;
+}
+
+.login-details{
+    background-color: white;
+    display: flex;
+    width: 100%;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    margin: auto;
+}
+
+.login-div {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 3vw;
+    width: 60%;
+    text-align: left;
+}
+
+.login-text {
+    font-weight: bold;
+    font-size: 5vh;
+}
+
+.login-subtitle {
+    color: rgba(0,0,0,0.6);
+}
+
+.login-error {
+    color: rgb(255, 24, 24);
+}
+
+.input-entry {
+    margin-bottom: 5vh;
+}
+
+.input-entry input {
+    border: 1px solid gray;
+    height: 5vh;
+    padding-left: 10px;
+}
+
+.input-entry p {
+    margin-bottom: 1vh;
+}
+
+.submit {
+    background-color: #21A8D9;
+    padding: 1vh 2vh;
+    color: white;
+}
+
+.login-info {
+    width: 40%;
+    color: white;
+    background-color: #21A8D9;
+    display: flex;
+    justify-content: center;
+}
+
+.ndg-div {
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+}

@@ -4,6 +4,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
+exports.verifyValidity = (req, res, next) => {
+    const token = req.get('token');
+    jwt.verify(token, req.app.get('secretKey'), (err, decoded) => {
+        if(err)
+            next(new Errors.BaseError(err.message, 500))
+        res.json(decoded)
+    })
+}
+
 exports.adminRegister = (req, res, next) => {
     const pass = req.body.password;
     const saltRounds = 10;
@@ -27,7 +36,8 @@ exports.adminRegister = (req, res, next) => {
 }
 
 exports.adminLogin = (req, res, next) => {
-    Admin.findOne({username: req.body.username})
+    console.log(req.body);
+    Admin.findOne({username: req.body.username.toLowerCase()})
     .then(resp => resp.toJSON())
     .then(admin => {
         bcrypt.compare(req.body.password, admin.password, function(err, result){
@@ -43,7 +53,7 @@ exports.adminLogin = (req, res, next) => {
             }
         })
     })
-    .catch((err) => next(new Errors.BaseError({message: err.message, status: 401})));
+    .catch((err) => next(new Errors.BaseError('Username does not exist', 401)));
 }
 
 exports.adminUpdateEmail = (req, res, next) => {

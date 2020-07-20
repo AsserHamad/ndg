@@ -10,7 +10,7 @@ exports.getServices = (req, res, next) => {
 }
 
 exports.createService = (req, res, next) => {
-    Service.create(req.body.service)
+    Service.create(req.body)
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.BaseError({
@@ -21,7 +21,7 @@ exports.createService = (req, res, next) => {
 };
 
 exports.updateService = (req, res, next) => {
-    Service.updateOne({_id: req.body.id}, req.body.service, {new: true})
+    Service.updateOne({_id: req.body._id}, req.body.service, {new: true})
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.BaseError(err.message, err.status));
@@ -29,7 +29,7 @@ exports.updateService = (req, res, next) => {
 };
 
 exports.deleteService = (req, res, next) => {
-    Service.deleteOne({_id: req.body.id})
+    Service.deleteOne(req.body)
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.BaseError(err.message, err.status));
@@ -37,7 +37,7 @@ exports.deleteService = (req, res, next) => {
 };
 
 exports.deleteAllServices = (req, res, next) => {
-    Service.deleteMany(req.body)
+    Service.deleteMany({_id: req.body._id})
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.NotFoundError({

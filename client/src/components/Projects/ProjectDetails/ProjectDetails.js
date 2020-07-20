@@ -27,7 +27,8 @@ function ProjectDetails(props){
             const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
             fetch(`${api}/api/projects/${id}`)
             .then(res => res.json())
-            .then(proj => setProject(proj));
+            .then(proj => setProject(proj))
+            .catch((err) => props.history.push('/projects'));
         }
     },[]);
 

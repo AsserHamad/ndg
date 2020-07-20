@@ -9,7 +9,6 @@ function Services(){
             [services, setServices] = useState([]),
             lang = globalState.lang.lang;
       useEffect(() => {
-          console.log("NODE ENV is currently", process.env.NODE_ENV)
         const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
         fetch("/data/lang.json")
         .then(res => res.json())
@@ -32,12 +31,12 @@ function Services(){
             </div>
             <div className="main-services-container">
                 {services.map((element) => 
-                    <div className="service-div">
+                    <div key={element._id} className="service-div">
                         <p className={`service-title service-title-${lang}`}>{element.title[lang]}</p>
                         <img alt="services pic" src={element.image} />
                         <ul className={`list list-${lang}`}>
                         {element.items[lang].map((item) =>
-                            <li>{item}</li>
+                            <li key={`item${Math.random()}`}>{item}</li>
                         )}
                         </ul>
                     </div>

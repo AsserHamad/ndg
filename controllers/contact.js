@@ -17,7 +17,7 @@ exports.sendMessage = (req, res, next) => {
 }
 
 exports.deleteMessage = (req, res, next) => {
-    Contact.deleteOne({_id: req.body.id})
+    Contact.deleteOne({_id: req.body._id})
     .then(resp => res.json(resp))
     .catch(err => next(new Errors.BaseError(err.message, err.code)))
 }

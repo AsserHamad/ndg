@@ -14,11 +14,14 @@ import ProjectsExplore from './components/Projects/ProjectsExplore/ProjectsExplo
 import ProjectDetails from './components/Projects/ProjectDetails/ProjectDetails';
 import Services from './components/Services/Services';
 import Contact from './components/Contact/Contact';
+import Admin from './components/Admin/Admin';
 import Footer from './components/Footer/Footer';
 
 function App() {
   const globalState = useGlobalState();
-  return (
+  return ((/^admin.*$/.test(globalState.page.page)) ? 
+    <Route exact path="/admin" component={Admin} />
+  :
     <div>
       <NavBar />
       <Aside page={globalState.page.page}/>
@@ -36,6 +39,7 @@ function App() {
                   <Route exact path="/projects/:id" component={ProjectDetails} />
                   <Route exact path="/services" component={Services} />
                   <Route exact path="/contact" component={Contact} />
+                  <Route exact path="/admin" component={Admin} />
                   <Route path="/*" component={() => <Redirect to='/' />} />
                 </Switch>
               {/* </AnimatedSwitch> */}
