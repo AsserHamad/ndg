@@ -3,7 +3,6 @@
     display:flex;
     justify-content: left;
     padding: 10px;
-    width: 80%;
     position: absolute;
 }
 
@@ -13,9 +12,11 @@
     color: #788096;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: left;
-    padding: 10px;
+    padding: 8px 8px 8px 8px;
+    font-size: 15px;
+    width: 280px;
 
 }
 
@@ -24,6 +25,8 @@
     border: none;
     color: white;
     margin-left: 15px;
+    font-size: 15px;
+    width: 100%;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #788096;
@@ -40,7 +43,7 @@
   }
 
 .projects-view-title {
-    padding: 3vh 2vw;
+    padding: 0 2vw;
     padding-top: 70px;
     font-size: 1em;
     font-weight: bold;
@@ -54,7 +57,7 @@
 
 .viewed-project {
     width: 85vw;
-    height: 130px;
+    height: 110px;
     margin: 2vh 3vh;
     background-color: #0A1121;
     display: flex;
@@ -70,39 +73,40 @@
 }
 
 .preview-div img{
-    width: 20vw;
-    height: 130px;
+    width: 15vw;
+    height: 110px;
     object-fit: cover;
 }
 
 .viewed-project-div {
-    width: 45vw;
-    padding: 0.5vh 1.3vw;
+    width: 100%;
+    padding: 0.7vh 1.3vw;
 }
 
 .viewed-project-title {
     padding-top: 7px;
-    font-size: 1.3em;
+    font-size: 1.1em;
     line-height: 30px;
 }
 
 .viewed-project-sub-title {
     color: #ff6464;
-    margin-left: 15px;
-    font-size: 0.8em;
+    margin-left: 10px;
+    font-size: 0.7em;
 }
 
 .viewed-project-subtitle {
     color: #696FFB;
     line-height: 10px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 
 
 .viewed-project-description {
     font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.514);
 }
 
 .viewed-project-delete-div {
@@ -179,4 +183,24 @@
 
 .projects-back-arrow:hover {
     color: #4a7ff1;
+}
+
+.new-project {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 200px;
+    background-color: #696FFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.new-project:hover {
+    background-color: #8b8fff;
 }

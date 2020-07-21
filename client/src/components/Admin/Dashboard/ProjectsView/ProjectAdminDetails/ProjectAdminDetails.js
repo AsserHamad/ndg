@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './ProjectAdminDetails.css';
 import { FaCheck } from 'react-icons/fa';
+import swal from 'sweetalert';
+
 
 function ProjectAdminDetails(props){
 
@@ -55,10 +57,13 @@ function ProjectAdminDetails(props){
             else throw new Error();
           })
           .then(res => {
-              alert('Project edited successfully');
-              refreshProjects();
-              window.scrollTo(0,0); 
-              setViewingProject(undefined);
+            swal({
+                title: 'Project edited successfully',
+                icon: "success"
+            });
+            refreshProjects();
+            window.scrollTo(0,0); 
+            setViewingProject(undefined);
           })
           .catch(err => console.log(err));
     }
