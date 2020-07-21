@@ -31,7 +31,7 @@ function ProjectMainDetails(props){
                     <p><span className="titles">{projectDetails.area}:<br /> </span>{project.area}</p>
                 </div>
                 <div className="detail">
-                    <p><span className="titles">{projectDetails.builtUpArea}:<br /> </span>{project.builtUpArea}</p>
+                    {/* <p><span className="titles">{projectDetails.builtUpArea}:<br /> </span>{project.builtUpArea}</p> */}
                 </div>
                 <div className="detail">
                     <p><span className="titles">{projectDetails.year}:<br /> </span>{project.year}</p>

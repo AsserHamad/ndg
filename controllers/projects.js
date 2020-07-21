@@ -48,7 +48,7 @@ exports.updateProject = (req, res, next) => {
 };
 
 exports.deleteProject = (req, res, next) => {
-    Project.deleteOne(req.body)
+    Project.deleteOne({_id: req.body._id})
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.NotFoundError({

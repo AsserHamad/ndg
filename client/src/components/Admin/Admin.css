@@ -7,11 +7,11 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #E4E5E6;
+    background-color: #141B2D;
 }
 
 .login-details{
-    background-color: white;
+    background-color: #0A1121;
     display: flex;
     width: 100%;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
@@ -29,10 +29,11 @@
 .login-text {
     font-weight: bold;
     font-size: 5vh;
+    color: white;
 }
 
 .login-subtitle {
-    color: rgba(0,0,0,0.6);
+    color: rgb(202, 202, 202);
 }
 
 .login-error {
@@ -45,16 +46,27 @@
 
 .input-entry input {
     border: 1px solid gray;
-    height: 5vh;
+    background-color: transparent;
+    height: 35px;
+    width: 20vw;
     padding-left: 10px;
+    color: white;
+    border-radius: 10px;
+    transition-duration: 0.2s;
+}
+
+.input-entry input:focus{
+    border: 1px solid #3864C5;
+    box-shadow: 0px 0px 5px #3864C5;
 }
 
 .input-entry p {
     margin-bottom: 1vh;
+    color: white;
 }
 
 .submit {
-    background-color: #21A8D9;
+    background-color: #3864C5;
     padding: 1vh 2vh;
     color: white;
 }
@@ -62,7 +74,7 @@
 .login-info {
     width: 40%;
     color: white;
-    background-color: #21A8D9;
+    background-color: #3864C5;
     display: flex;
     justify-content: center;
 }

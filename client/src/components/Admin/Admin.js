@@ -53,7 +53,6 @@ function Admin(){
                 if(res.status === 'success'){
                     localStorage.setItem('token', res.data.token);
                     localStorage.setItem('admin', JSON.stringify(res.data.admin));
-                    globalState.setPage('admin');
                     setAdmin(res.data.admin);
                     setToken(res.data.token);
                 }
