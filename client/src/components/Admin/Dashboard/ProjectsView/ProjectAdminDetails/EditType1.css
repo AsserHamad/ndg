@@ -1,0 +1,102 @@
+/* Images Editor */
+
+.project-edit-headers {
+    font-weight: bold;
+    font-size: 1.5m !important;
+}
+
+.project-edit-subheader {
+    font-size: 0.8em !important;
+}
+
+.project-images-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.project-preview-img {
+    width: 300px;
+    display: flex;
+}
+
+.edit-preview-div {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.edit-preview-input {
+    width: 300px;
+    font-size: 0.8em;
+    height: 34px;
+    padding: 7px;
+    background-color: #1F2940;
+    color: white;
+    /* margin-bottom: 20px; */
+}
+
+.project-images-img {
+    width: 300px;
+    object-fit: cover;
+    height: 170px;
+}
+
+.edit-images-input {
+    width: 300px;
+    font-size: 0.8em;
+    height: 34px;
+    padding: 7px;
+    background-color: #1F2940;
+    color: white;
+    /* margin-bottom: 20px; */
+}
+
+.edit-images-div{
+    width: 300px;
+    margin: 10px 10px 0 0;
+}
+
+.project-image-delete {
+    position: absolute;
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+    margin: 5px;
+    color: red;
+    border-radius: 200px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.project-image-delete:hover {
+    transform: scale(1.3);
+    z-index: 200;
+    /* text-shadow: 0px 5px 0px black; */
+}
+
+.project-image-add {
+    width: 300px;
+    height: 95%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    /* border: 2px solid white; */
+    background-color: #315ab160;
+    margin: 10px 10px 0 0;
+}
+
+.project-add-plus {
+    /* border: 2px solid white; */
+    font-size: 20px;
+    padding: 20px 30px 25px 30px;
+    border-radius: 200px;
+}
+
+.project-image-add:hover {
+    background-color: rgba(71, 126, 245, 0.664) ;
+    /* color: #3159B1; */
+}

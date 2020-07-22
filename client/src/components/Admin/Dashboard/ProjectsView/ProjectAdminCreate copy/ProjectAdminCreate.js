@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ProjectAdminDetails.css';
+import './ProjectAdminCreate.css';
 import './EditType0.css';
 import './EditType1.css';
 import './EditType2.css';
@@ -7,52 +7,36 @@ import { FaCheck, FaTrash, FaPlus } from 'react-icons/fa';
 import swal from 'sweetalert';
 
 
-function ProjectAdminDetails(props){
+function ProjectAdminCreate(props){
     const 
         api = props.api,
         refreshProjects = props.refreshProjects,
         token = localStorage.getItem('token'),
-        project = props.project,
         setViewingProject = props.setViewingProject,
         initialInputVal = {
-            title_en: project.title.en,
-            title_ar: project.title.ar,
-            description_en: project.description.en,
-            description_ar: project.description.ar,
-            location_en: project.location.en,
-            location_ar: project.location.ar,
-            owner_en: project.owner.en,
-            owner_ar: project.owner.ar,
-            category: project.category,
-            subcategory: project.subcategory,
-            year: project.year,
-            area: project.area,
-            preview: project.preview,
-            videoPreview: project.videoPreview || 'https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1'
+            title_en: '',
+            title_ar: '',
+            description_en: '',
+            description_ar: '',
+            location_en: '',
+            location_ar: '',
+            owner_en: '',
+            owner_ar: '',
+            category: 0,
+            subcategory: 0, 
+            year: 0,
+            area: 0,
+            preview: 'https://images.hdqwalls.com/wallpapers/fire-minimalist-1f.jpg',
+            videoPreview:  'https://static.videezy.com/system/resources/previews/000/043/910/original/Ball.mp4'
         },
         [inputVal, setInputVal] = useState(initialInputVal),
         [imagesVal, setImagesVal] = useState({}),
         [videosVal, setVideosVal] = useState({}),
         [editType, setEditType] = useState(0),
-        [currCategory, setCurrCategory] = useState(project.category),
-        [currSubcategory, setCurrSubcategory] = useState(project.subcategory);
-    useEffect(() => {
-        window.scrollTo(0,0);
-        let x = {};
-        for(let i = 0; i < project.images.length; i++){
-            x = ({...x, [i] : project.images[i]});
-        }
-        setImagesVal(x)
-
-        
-        x = {};
-        for(let i = 0; i < project.videos.length; i++){
-            x = ({...x, [i] : project.videos[i]});
-        }
-        setVideosVal(x)
-    }, []);
+        [currCategory, setCurrCategory] = useState(0),
+        [currSubcategory, setCurrSubcategory] = useState(0);
     
-    const updateProject = () => {
+    const createProject = () => {
         let images = Object.keys(imagesVal).map(key => imagesVal[key]);
         let videos = Object.keys(videosVal).map(key => videosVal[key]);
         const updatedProject = {
@@ -82,9 +66,9 @@ function ProjectAdminDetails(props){
             videos
         }
         fetch(`${api}/projects`,  {
-            method: 'put',
+            method: 'post',
             headers: {'Content-Type': 'application/json', token},
-            body: JSON.stringify({_id: project._id, project: updatedProject})
+            body: JSON.stringify(updatedProject)
           })
           .then(res => {
             if(res.ok)
@@ -93,7 +77,7 @@ function ProjectAdminDetails(props){
           })
           .then(res => {
             swal({
-                title: 'Project edited successfully',
+                title: 'Project created successfully',
                 icon: "success"
             });
             refreshProjects();
@@ -101,34 +85,6 @@ function ProjectAdminDetails(props){
             setViewingProject(undefined);
           })
           .catch(err => console.log(err));
-    }
-    
-    const deleteProject = () => {
-        swal({
-            title: `Deleting ${project.title.en}`,
-            text: `Are you sure that you want to delete this project?`,
-            icon: "warning",
-            dangerMode: true,
-            buttons: {
-                cancel: true,
-                confirm: true,
-            },
-        })
-        .then(willDelete => {
-            if(willDelete){
-                fetch(`${api}/projects`,  {
-                    method: 'delete',
-                    headers: {'Content-Type': 'application/json', token},
-                    body: JSON.stringify({_id: project._id})
-                })
-                .then(res => res.json())
-                .then(res => {
-                    refreshProjects();
-                    window.scrollTo(0,0); 
-                    setViewingProject(undefined);
-                });
-            }
-        })
     }
     
     const deleteImg = (key) => {
@@ -354,11 +310,10 @@ function ProjectAdminDetails(props){
             </div>}
             
             <div className="project-edit-buttons">
-                <div onClick={updateProject} className="save-button">Save&nbsp;&nbsp;<FaCheck /></div>
-                <div onClick={deleteProject} className="delete-button">Delete&nbsp;&nbsp;<FaTrash /></div>
+                <div onClick={createProject} className="save-button">Create&nbsp;&nbsp;<FaCheck /></div>
             </div>
         </div>
     )
 }
 
-export default ProjectAdminDetails;
+export default ProjectAdminCreate;

@@ -27,7 +27,7 @@ function ProjectDetails(props){
             const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
             fetch(`${api}/api/projects/${id}`)
             .then(res => res.json())
-            .then(proj => setProject(proj))
+            .then(proj => {console.log(proj);setProject(proj)})
             .catch((err) => props.history.push('/projects'));
         }
     },[]);
@@ -51,13 +51,8 @@ function ProjectDetails(props){
                         </div>
                     </div>
                 </div>
-                <div className="video-container">
-                    <video className="background-video" autoPlay loop muted>
-                    <source src={
-                        project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"
-                        } type="video/mp4" />
-                    Your browser does not support the video tag.
-                    </video>
+                <div className="video-container">{console.log(project.videoPreview)}
+                    <video className="background-video" autoPlay loop muted src={project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"}/>
                 </div>
             </div>
             <ProjectMainDetails

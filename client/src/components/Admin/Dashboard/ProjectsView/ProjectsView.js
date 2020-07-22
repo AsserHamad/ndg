@@ -3,6 +3,7 @@ import './ProjectsView.css';
 import { FaTrash, FaMapPin, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa';
 import ProjectAdminDetails from './ProjectAdminDetails/ProjectAdminDetails';
 import swal from 'sweetalert';
+import ProjectAdminCreate from './ProjectAdminCreate copy/ProjectAdminCreate';
 
 function ProjectsView(props){
     const
@@ -15,7 +16,7 @@ function ProjectsView(props){
     useEffect(() => {
         fetch(`${api}/projects`)
         .then(res => res.json())
-        .then(res => {setProjects(res); setViewedProjects(res)});
+        .then(res => {setProjects(res); setViewedProjects(res);});
     }, []);
    const categories = [
        'Urban Design', 
@@ -76,7 +77,7 @@ function ProjectsView(props){
     return((!projects.length) ? <div>Loading...</div> :
         (!viewingProject) ? 
         <div>
-            <div className="new-project"><FaPlus /></div>
+            <div className="new-project" onClick={() => setViewingProject({})}><FaPlus /></div>
             <div>
             <div className="projects-search">
                 <div className="projects-search-div">
@@ -88,8 +89,8 @@ function ProjectsView(props){
             <div className="viewed-projects-container">
                 {viewedProjects.map((element) => {
                     let description = element.description.en;
-                if (description.length > 200)
-                    description = description.substr(0, 200) + '...';
+                if (description.length > 150)
+                    description = description.substr(0, 150) + '...';
                     return(
                         <div className="viewed-project" key={element._id}>
                             <div onClick={() => {setViewingProject(element)}} className="preview-div">
@@ -114,9 +115,15 @@ function ProjectsView(props){
             </div>
         </div>
         :
+        (Object.keys(viewingProject).length !== 0) ?
         <div>
-            <FaArrowLeft className="projects-back-arrow" onClick={() => setViewingProject(undefined)} />
+            <div className="projects-back-arrow-div"><FaArrowLeft className="projects-back-arrow" onClick={() => setViewingProject(undefined)} /></div>
             <ProjectAdminDetails project={viewingProject} api={api} setViewingProject={setViewingProject} refreshProjects={refreshProjects}/>
+        </div>
+        :
+        <div>
+            <div className="projects-back-arrow-div"><FaArrowLeft className="projects-back-arrow" onClick={() => setViewingProject(undefined)} /></div>
+            <ProjectAdminCreate project={viewingProject} api={api} setViewingProject={setViewingProject} refreshProjects={refreshProjects}/>
         </div>
     )
 }

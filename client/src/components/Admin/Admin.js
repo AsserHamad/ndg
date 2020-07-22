@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css';
 import useGlobalState from "../../useGlobalState";
-import { render } from '@testing-library/react';
 import Dashboard from './Dashboard/Dashboard';
+import swal from 'sweetalert';
 
 function Admin(){
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`
@@ -33,7 +33,14 @@ function Admin(){
                 setAdmin(JSON.parse(admin));
             })
             .catch((err) => {
-                alert("Token expired, please log in again");
+                swal({
+                    text: 'Please log in again',
+                    icon: "warning",
+                    dangerMode: true,
+    
+                });
+                localStorage.removeItem('token');
+                localStorage.removeItem('admin');
                 setToken(undefined);
                 setAdmin(undefined);
             })
@@ -63,7 +70,7 @@ function Admin(){
           })
     };
     return ((token) ? 
-        <Dashboard admin={admin} />
+        <Dashboard setToken={setToken} token={token} admin={admin} />
         :
         <div className="admin-body">
             <div className="padding"></div>
@@ -85,7 +92,7 @@ function Admin(){
                     </form>
                 </div>
                 <div className="login-info">
-                    <div class="ndg-div">
+                    <div className="ndg-div">
                         <img src="/ndg.png" />
                         <p>NATURE DESIGN GROUP</p>
                     </div>

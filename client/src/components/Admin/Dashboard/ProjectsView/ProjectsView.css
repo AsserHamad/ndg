@@ -53,6 +53,7 @@
 .viewed-projects-container {
     background-color: #141B2D;
     padding-bottom: 20px;
+    height: 100%;
 }
 
 .viewed-project {
@@ -171,6 +172,12 @@
     color: white;
     /* font-weight: bold; */
     background-color: #F34541;
+}
+
+.projects-back-arrow-div {
+    width: 100%;
+    background-color: #141B2D;
+    position: fixed;
 }
 
 .projects-back-arrow {

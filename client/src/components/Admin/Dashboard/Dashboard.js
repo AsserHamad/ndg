@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import ProjectsView from './ProjectsView/ProjectsView';
+import swal from 'sweetalert';
 
 function Dashboard(props){
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;

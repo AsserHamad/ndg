@@ -1,0 +1,40 @@
+/* Main Details File */
+
+.project-edit-container p {
+    font-size: 20px;
+}
+
+.project-detail-titles {
+    display: flex;
+}
+
+.project-detail-titles-divs {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.project-detail-titles-divs p{
+    font-size: 13px;
+    color: rgb(201, 202, 253);
+}
+
+.project-detail-titles-divs input {
+    width: 90%;
+    height: 40px;
+    padding: 5px;
+    background-color: #1F2940;
+    color: white;
+}
+
+.project-detail-titles-divs textarea {
+    width: 90%;
+    height: 180px;
+    padding: 5px;
+    background-color: #1F2940;
+    color: white;
+    resize: none;
+}
+
+.project-detail-misc{
+    font-size: 20px !important;
+}
