@@ -3,20 +3,30 @@ import './Contact.css';
 import useGlobalState from "../../useGlobalState";
 import WrappedMap from './MyMapComponent/MyMapComponent';
 import { useForm } from 'react-hook-form'
+import swal from 'sweetalert';
 
-function Contact(){
+function Contact(props){
     const globalState = useGlobalState(),
             lang = globalState.lang.lang,
-            [contactText, setContactText] = useState({});
-      useEffect(() => {
-          fetch("/data/lang.json")
-            .then(res => res.json())
-            .then(res => {
-              setContactText(res[lang].contact);
-            });
-      }, [lang]);
+            contactText = props.text;
+
+    const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}`;
     const { register, handleSubmit, watch, errors } = useForm()
-    const onSubmit = data => { console.log(data) }
+    const onSubmit = body => {
+      fetch(`${api}/api/contact`, {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
+
+      })
+      .then(res => res.json())
+      .then(res => {
+        swal({
+            title: 'Message Sent Successfully',
+            icon: "success"
+        });
+      })
+     }
     return(
         <div className={`about-container about-container-${lang}`}>
             <div className={`about-us-container about-us-container-${lang}`}>
@@ -60,10 +70,10 @@ function Contact(){
                     <div><input required placeholder={contactText.email} name="email" ref={register} /></div>
                     <div><input required placeholder={contactText.phone} name="phone" ref={register} /></div>
                     <div><select className={`select-placeholder`} id="subject" name="subject" defaultValue="subject" ref={register}>
-                      <option value="subject" disabled hidden>{contactText.subject}</option>
-                      <option value="saab">{contactText.orderProject}</option>
-                      <option value="fiat">{contactText.support}</option>
-                      <option value="audi">{contactText.otherQuestions}</option>
+                      <option value="2" disabled hidden>{contactText.subject}</option>
+                      <option value="0">{contactText.orderProject}</option>
+                      <option value="1">{contactText.support}</option>
+                      <option value="2">{contactText.otherQuestions}</option>
                     </select></div>
                     <div><textarea required placeholder={contactText.message} name="message" ref={register} /></div>
                     <div><button className={`submitButton`}type="submit" >{contactText.send}</button></div>

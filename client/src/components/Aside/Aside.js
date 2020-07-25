@@ -5,16 +5,15 @@ import useGlobalState from '../../useGlobalState';
 function Aside(props) {
   const globalState = useGlobalState();
   const lang = globalState.lang.lang;
-  const [pageName, setPageName] = useState("");
+  const pageName = props.text;
+  const [name, setName] = useState(pageName)
   useEffect(() => {
-    fetch('/data/lang.json')
-      .then(res => res.json())
-      .then(res => setPageName(res[lang].pageNames[props.page]));
-  }, [globalState.page]);
+    setName(globalState.page.page);
+  }, [globalState.page])
   return (
       <div className={`aside-container aside-container-${lang}`}>
         <div className={"header " + lang}>
-          <p>{pageName ? pageName : lang === 'en' ? "Home" : "الرئيسية"}</p>
+          <p>{name}</p>
         </div>
       </div>
   );

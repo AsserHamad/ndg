@@ -1,7 +1,11 @@
+@keyframes reveal-cover {
+    from {width: 110%}
+    to {width: 0}
+}
+
 .project-block-container {
     width: 100%;
-    height: 100%;
-    background-color: white;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,17 +13,37 @@
     z-index: 1;
     position: relative;
 }
+
+.projectBlocks-cover {
+    float: right;
+    width: 110%;
+    height: 120%;
+    position: absolute;
+    z-index: 101;
+    background-color: #2D2D32;
+    border: none;
+    animation-name: reveal-cover;
+    animation-duration: 0.9s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
 .project-block-container img {
     flex-shrink: 0;
     width: 100%;
     height: 100%;
     transition-duration: 0.2s;
     object-fit: cover;
+    transition-duration: 1s;
+}
+
+.project-block-container:hover img{
+    transform: scale(1.1);
 }
 
 .project-brief {
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
     background-color: rgba(45,45,50,0.81);
     padding: 8%;
     width: 90%;
@@ -48,10 +72,10 @@
 @media (max-width: 411px){
     .project-block-container {
         width: 100%;
-        height: 30vh;
-    }  
-    .project-brief-categories {
-
+        /* height: 30vh; */
+    }
+    .projectBlocks {
+        height: 50px;
     }
 }
 

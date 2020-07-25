@@ -6,22 +6,17 @@ import useGlobalState from "../../useGlobalState";
 import { Link } from "react-router-dom";
 import dp from "./dummyProjects";
 
-function Projects() {
+function Projects(props) {
     const categories = dp.categories, subcategories = dp.subcategories;
     const globalState = useGlobalState(),
-          [projectsText, setProjectsText] = useState({}),
+          projectsText = props.text,
           [projects, setProjects] = useState([{
               category: 0,
-              title: {},
+              title: {en:'Loading...', ar:'Loading...'},
               isLoaded: false
           }]),
           [previewNum, setPreviewNum] = useState(0),
           lang = globalState.lang.lang;
-    useEffect(() => {
-        fetch("/data/lang.json")
-          .then(res => res.json())
-          .then(res => setProjectsText(res[lang].projects));
-    }, [])
     useEffect(() => {
         const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`
         fetch(api)

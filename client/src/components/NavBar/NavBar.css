@@ -70,7 +70,13 @@ a {
 
 @media (max-width: 820px) {
   .logo {
-          margin-left: 25px;
+    margin-top: 5px;
+    margin-left: 15px;
+    height: 30px;
+  }
+
+  #navbar {
+    height: 50px;
   }
 
   .logo-ar {

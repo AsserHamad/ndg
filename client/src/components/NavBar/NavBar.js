@@ -5,16 +5,11 @@ import Burger from "../Burger/Burger";
 import NavBarLink from "./NavBarLink/NavBarLink";
 import { Link } from 'react-router-dom';
 
-function NavBar() {
+function NavBar(props) {
   const globalState = useGlobalState(),
-        [navbar, setNavbar] = useState({}),
+        navbar = props.text,
         lang = globalState.lang.lang,
         page = globalState.page.page;
-  useEffect(() => {
-    fetch("/data/lang.json")
-      .then(res => res.json())
-      .then(res => setNavbar(res[lang].navbar));
-  }, []);
 
   return (
     <div>

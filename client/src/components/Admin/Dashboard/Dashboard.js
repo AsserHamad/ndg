@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import ProjectsView from './ProjectsView/ProjectsView';
-import swal from 'sweetalert';
+import ServicesView from './ServicesView/ServicesView';
 
 function Dashboard(props){
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;
     const admin = props.admin;
-    const [page, setPage] = useState('projects');
+    const [page, setPage] = useState('services');
     return (
         <div className="dashboard-body">
             <div className="admin-sidebar">
@@ -21,7 +21,9 @@ function Dashboard(props){
                 {(page==='home') ? 
                     <h1>Hello, {admin.username}</h1>
                 :(page==='projects') ? 
-                    <ProjectsView admin={admin} api={api} /> :
+                    <ProjectsView admin={admin} api={api} />
+                :(page==='services') ? 
+                    <ServicesView admin={admin} api={api} /> :
                 <div>The rest</div>
                 }
             </div>

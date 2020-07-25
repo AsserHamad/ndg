@@ -8,16 +8,12 @@ function Admin(){
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`
     const globalState = useGlobalState(),
             lang = globalState.lang.lang;
-    const [adminText, setAdminText] = useState({}),
-          [formData, setFormData] = useState({}),
+    const 
           [error, setError] = useState(""),
           [token, setToken] = useState(localStorage.getItem('token')),
           [admin, setAdmin] = useState(localStorage.getItem('admin'));
 
     useEffect(() => {
-        fetch("/data/adminLang.json")
-        .then(res => res.json())
-        .then(res => setAdminText(res));
         /*Check for expired token*/
         if(token){
             fetch(`${api}/admin/verify`, {method: 'get', headers: {token}})
@@ -76,8 +72,8 @@ function Admin(){
             <div className="padding"></div>
             <div className="login-details">
                 <div className="login-div">
-                    <p className="login-text">{adminText.login}</p>
-                    <p className="login-subtitle">{adminText.login_subtitle}</p>
+                    <p className="login-text">Login</p>
+                    <p className="login-subtitle">Please enter your admin credentials</p>
                     <p className="login-error">{error}</p>
                     <form onSubmit={handleChange} >
                         <div className="input-entry">

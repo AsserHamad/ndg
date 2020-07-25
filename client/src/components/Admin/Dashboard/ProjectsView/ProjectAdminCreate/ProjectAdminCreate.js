@@ -152,7 +152,7 @@ function ProjectAdminCreate(props){
                     </div>
                     <div className="project-detail-titles-divs">
                         <p>Arabic Title</p>
-                        <input name="title_ar" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.title_ar} />
+                        <input style={{direction: 'rtl'}} name="title_ar" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.title_ar} />
                     </div>
                 </div>
 

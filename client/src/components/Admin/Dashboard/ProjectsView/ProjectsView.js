@@ -3,7 +3,7 @@ import './ProjectsView.css';
 import { FaTrash, FaMapPin, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa';
 import ProjectAdminDetails from './ProjectAdminDetails/ProjectAdminDetails';
 import swal from 'sweetalert';
-import ProjectAdminCreate from './ProjectAdminCreate copy/ProjectAdminCreate';
+import ProjectAdminCreate from './ProjectAdminCreate/ProjectAdminCreate';
 
 function ProjectsView(props){
     const
@@ -84,7 +84,6 @@ function ProjectsView(props){
                     <span><FaSearch /></span><input onChange={filterProjects} placeholder="Search title, owner, location" type="text" />
                 </div>
             </div>
-            <p className="projects-view-title">Viewing projects</p>
             </div>
             <div className="viewed-projects-container">
                 {viewedProjects.map((element) => {
@@ -117,7 +116,9 @@ function ProjectsView(props){
         :
         (Object.keys(viewingProject).length !== 0) ?
         <div>
-            <div className="projects-back-arrow-div"><FaArrowLeft className="projects-back-arrow" onClick={() => setViewingProject(undefined)} /></div>
+            <div className="projects-back-arrow-div">
+                <FaArrowLeft className="projects-back-arrow" onClick={() => setViewingProject(undefined)} />
+            </div>
             <ProjectAdminDetails project={viewingProject} api={api} setViewingProject={setViewingProject} refreshProjects={refreshProjects}/>
         </div>
         :

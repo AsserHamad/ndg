@@ -75,10 +75,10 @@
 }
 .burger .bm-burger-button {
   position: fixed;
-  width: 30px;
-  height: 25px;
-  left: 85%;
-  top: 30px;
+  width: 25px;
+  height: 20px;
+  left: 90%;
+  top: 15px;
 }
 .burger-ar .bm-burger-button {
   right: 85%;

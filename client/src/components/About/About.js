@@ -1,31 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './About.css';
 import useGlobalState from "../../useGlobalState";
 import { FaPlay } from 'react-icons/fa';
 import CountUp from 'react-countup';
+import Loading from '../Loading/Loading';
 
-function About(){
+function About(props){
     const globalState = useGlobalState(),
-            [aboutText, setAboutText] = useState({}),
+            aboutText = props.text,
             lang = globalState.lang.lang,
             [modal, setModal] = useState({
                 display: 'none'
             });
-      useEffect(() => {
-          fetch("/data/lang.json")
-            .then(res => res.json())
-            .then(res => {
-                setAboutText(res[lang].about);
-            });
-      }, [lang]);
     return(
+      (!aboutText) ?
+      <Loading />
+      :
         <div className={`about-container about-container-${lang}`}>
 
             {/* Modal Shit */}
             <div className="modal" style={{display: modal.display}}>
                 <span className="close" onClick={() => setModal({display: 'none'})}>&times;</span>
                 <video className={`motivation-video`} controls>
-                    <source src={`https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4`} type="video/mp4" />
+                    <source src={`https://static.videezy.com/system/resources/previews/000/043/910/original/Ball.mp4`} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -112,48 +109,3 @@ function About(){
 }
 
 export default About;
-
-
-// import React, { useState, useEffect } from "react";
-// import "./About.css";
-// import useGlobalState from "../../useGlobalState";
-// import about from "./dummyabout";
-
-// function About() {
-//   const globalState = useGlobalState(),
-//     [aboutText, setaboutText] = useState({}),
-//     lang = globalState.lang.lang;
-//   useEffect(() => {
-//     fetch("/data/lang.json")
-//       .then(res => res.json())
-//       .then(res => {
-//         setaboutText(res[lang].about);
-//       });
-//   }, [lang]);
-//   return (
-//     <div className="about-container">
-//       <div className="about-us-container">
-//         <p className={`wwd wwd-${lang}`}>{aboutText.aboutUs}</p>
-//         <div className={`todo-brownies todo-brownies-${lang}`}>
-//           <p>{aboutText.corporateOverview}</p>
-//         </div>
-//       </div>
-//       <div className="main-about-container">
-//         {about.map(element => (
-//           <div className="about-div">
-//             <p className={`about-title about-title-${lang}`}>
-//               {element.title[lang]}
-//             </p>
-//             <img alt="About Page" src={element.image} />
-//             <div className={`list list-${lang}`}>
-//               {element.text[lang].map(item => (
-//                 <li>{item}</li>
-//               ))}
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-// export default About;

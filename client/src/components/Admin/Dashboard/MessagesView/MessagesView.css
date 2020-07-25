@@ -1,12 +1,12 @@
 /* Search Bar */
-.projects-search {
+.services-search {
     display:flex;
     justify-content: left;
     padding: 10px;
     position: absolute;
 }
 
-.projects-search-div{
+.services-search-div{
     background-color: #1F2940;
     border-radius: 100px;
     color: #788096;
@@ -20,7 +20,7 @@
 
 }
 
-.projects-search-div > input{
+.services-search-div > input{
     background-color: transparent;
     border: none;
     color: white;
@@ -42,17 +42,26 @@
     color: #788096;
   }
 
-.viewed-projects-container {
+.services-view-title {
+    padding: 0 2vw;
     padding-top: 70px;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.viewed-services-container {
     background-color: #141B2D;
     padding-bottom: 20px;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.viewed-project {
-    width: 85vw;
+.viewed-service {
+    width: 450px;
     height: 110px;
-    margin: 5px 20px;
+    margin: 2vh 3vh;
     background-color: #0A1121;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,60 +69,39 @@
     color: white;
     cursor: pointer;
     transition-duration: 0.2s;
-    border-bottom: 1px solid #375fbd15;
 }
 
-.viewed-project:hover {
+.viewed-service:hover {
     background-color: #060a13;
 }
 
 .preview-div img{
-    width: 15vw;
+    width: 12vw;
     height: 110px;
     object-fit: cover;
 }
 
-.viewed-project-div {
+.viewed-service-div {
     width: 100%;
     padding: 0.7vh 1.3vw;
 }
 
-.viewed-project-title {
-    padding-top: 7px;
-    font-size: 1.1em;
-    line-height: 30px;
+.viewed-service-title {
+    /* padding-top: 7px; */
+    font-size: 0.9em;
+    line-height: 5px;
 }
 
-.viewed-project-sub-title {
-    color: #ff6464;
-    margin-left: 10px;
-    font-size: 0.7em;
-}
-
-.viewed-project-subtitle {
-    color: #696FFB;
-    line-height: 10px;
-    /* margin-top: 10px; */
-    font-weight: bold;
-    font-size: 0.7em;
-}
-
-
-.viewed-project-description {
-    font-size: 0.8em;
-    color: rgba(255, 255, 255, 0.514);
-}
-
-.viewed-project-delete-div {
+.viewed-service-delete-div {
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     padding: 1%;
 }
-.viewed-project-delete {
+.viewed-service-delete {
     float: right;
-    width: 200px;
+    width: 50px;
     height: 50px;
     background-color: #1C242B;
     justify-content: center;
@@ -123,7 +111,7 @@
     margin: 7px;
 }
 
-.viewed-project-edit-icon {
+.viewed-service-edit-icon {
     color:  #3159B1;
     width: 30%;
     height: 100%;
@@ -133,7 +121,7 @@
     display: flex;
 }
 
-.viewed-project-edit-text {
+.viewed-service-edit-text {
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -145,7 +133,7 @@
     background-color: #3159B1;
 }
 
-.viewed-project-delete-icon {
+.viewed-service-delete-icon {
     background-color: #1C242B;
     color:  #F34541;
     width: 30%;
@@ -156,7 +144,7 @@
     display: flex;
 }
 
-.viewed-project-delete-text {
+.viewed-service-delete-text {
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -168,14 +156,13 @@
     background-color: #F34541;
 }
 
-.projects-back-arrow-div {
+.services-back-arrow-div {
     width: 100%;
     background-color: #141B2D;
     position: fixed;
-    z-index: 99;
 }
 
-.projects-back-arrow {
+.services-back-arrow {
     cursor: pointer;
     color: #3159B1;
     margin: 20px;
@@ -183,11 +170,11 @@
     transition-duration: 0.2s;
 }
 
-.projects-back-arrow:hover {
+.services-back-arrow:hover {
     color: #4a7ff1;
 }
 
-.new-project {
+.new-service {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -203,6 +190,6 @@
     transition-duration: 0.2s;
 }
 
-.new-project:hover {
+.new-service:hover {
     background-color: #8b8fff;
 }

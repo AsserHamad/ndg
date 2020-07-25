@@ -21,7 +21,9 @@ function ProjectBlock(props) {
                 pathname: `/projects/${project._id}`,
                 projectBlock:{ project, category, subcategory}
             }}
+            style={props.style}
             className={props._className + " project-block-container"}>
+            <div className="projectBlocks-cover"></div>
             <div className="project-brief">
                 <div className="project-brief-categories">
                     <span>{category}</span>

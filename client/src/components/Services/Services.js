@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './Services.css';
 import useGlobalState from "../../useGlobalState";
+import Loading from '../Loading/Loading';
 // import services from './dummyServices';
 
-function Services(){
+function Services(props){
     const globalState = useGlobalState(),
-            [servicesText, setServicesText] = useState({}),
+            servicesText = props.text,
             [services, setServices] = useState([]),
             lang = globalState.lang.lang;
       useEffect(() => {
         const api = (process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : '';
-        fetch("/data/lang.json")
-        .then(res => res.json())
-        .then(res => {
-            setServicesText(res[lang].services);
-        });
         fetch(`${api}/api/services`)
         .then(res => res.json())
         .then(res => setServices(res));
-      }, [lang]);
+      }, []);
     return(
+        (services.length === 0) ?
+        <Loading />
+        :
         <div className={`services-container services-container-${lang}`}>
             <div className={`what-we-do-container what-we-do-container-${lang}`}>
                 <p className={`wwd wwd-${lang}`}>{servicesText.whatWeDo}</p>

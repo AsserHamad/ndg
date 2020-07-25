@@ -36,6 +36,7 @@ function ProjectAdminDetails(props){
         [editType, setEditType] = useState(0),
         [currCategory, setCurrCategory] = useState(project.category),
         [currSubcategory, setCurrSubcategory] = useState(project.subcategory);
+
     useEffect(() => {
         window.scrollTo(0,0);
         let x = {};
@@ -185,7 +186,7 @@ function ProjectAdminDetails(props){
 
         {/* Start of editing types */}
         {(editType === 0) ?
-            // Type 0: Details
+        // Type 0: Details
             <div>
                 {/* Titles */}
                 <p>Title</p>
@@ -262,7 +263,7 @@ function ProjectAdminDetails(props){
             </div>
         :
         (editType === 1) ?
-            // Type 1: Media 
+        // Type 1: Media 
             <div className="project-images-container">
                 {/* Images */}
                 <div>
@@ -317,7 +318,8 @@ function ProjectAdminDetails(props){
                 </div>
                 </div>
             </div>
-            :
+        :
+        //Type 2: Categories
             <div className="project-categories-container">
                 <p className="project-edit-headers">Categories</p>
                 <div className="project-categories-div">

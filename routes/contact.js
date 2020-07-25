@@ -7,5 +7,6 @@ const { adminAuth } = require('../middleware/validation');
 router.post("/", contact.sendMessage);
 router.get("/", adminAuth, contact.getContactMessages);
 router.delete("/", adminAuth, contact.deleteMessage);
+router.post("/email", adminAuth, contact.sendEmail);
 
 module.exports = router;

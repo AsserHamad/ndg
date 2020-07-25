@@ -20,6 +20,7 @@ body::-webkit-scrollbar {
 
 @media(max-width: 1024px) {
   #container {
+    margin-top: 46px;
     margin-left: 0;
   }
 }

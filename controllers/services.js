@@ -29,7 +29,7 @@ exports.updateService = (req, res, next) => {
 };
 
 exports.deleteService = (req, res, next) => {
-    Service.deleteOne(req.body)
+    Service.deleteOne({_id: req.body._id})
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.BaseError(err.message, err.status));
