@@ -22,11 +22,17 @@ import Loading from './components/Loading/Loading';
 function App() {
   const globalState = useGlobalState(),
         lang = globalState.lang.lang,
-        [text, setText] = useState({});
+        [text, setText] = useState({}),
+        api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;
   useEffect(() => {
-    fetch(`/languages/${lang}.json`)
+    fetch(`${api}/admin/language`, {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({lang: lang})
+    })
     .then(res => res.json())
       .then(res => {
+        console.log('setting text')
           setText(res);
       })
       .catch(err => console.log(err));

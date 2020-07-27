@@ -22,7 +22,8 @@ var adminSchema = new Schema({
           validator: (v) => /.{8,15}/.test(v),
           message: props => `Password should contain between 8 and 15 characters`
         },
-    }
+    },
+    name: String
 });
 
 adminSchema.pre('save', function(next){

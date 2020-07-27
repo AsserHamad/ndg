@@ -46,11 +46,11 @@ function ProjectMainDetails(props){
                 <div className="gallery">
                     {(currGallery === 0) ?
                         <div className="image-div">
-                            <ImageGallery items={images} />
+                            <ImageGallery items={images} showFullscreenButton={images.length > 0} showPlayButton={false} />
                         </div>
                     :
                     <div className="image-div">
-                        <ImageGallery items={videos} showThumbnails={false} showFullscreenButton={true} showPlayButton={false} />
+                        <ImageGallery items={videos} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} />
                     </div>}
                 </div>
             </div>

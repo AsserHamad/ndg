@@ -4,6 +4,7 @@ import { FaTrash, FaMapPin, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa
 import ProjectAdminDetails from './ProjectAdminDetails/ProjectAdminDetails';
 import swal from 'sweetalert';
 import ProjectAdminCreate from './ProjectAdminCreate/ProjectAdminCreate';
+import Loading from '../../../Loading/Loading';
 
 function ProjectsView(props){
     const
@@ -74,7 +75,7 @@ function ProjectsView(props){
    });
 
     
-    return((!projects.length) ? <div>Loading...</div> :
+    return((!projects.length) ? <Loading /> :
         (!viewingProject) ? 
         <div>
             <div className="new-project" onClick={() => setViewingProject({})}><FaPlus /></div>

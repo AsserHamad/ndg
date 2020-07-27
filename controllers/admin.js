@@ -2,7 +2,8 @@ const Admin = require('../Models/Admin');
 const Errors = require('../errors/Errors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const path = require('path');
+const fs = require('fs');
 
 exports.verifyValidity = (req, res, next) => {
     const token = req.get('token');
@@ -23,6 +24,7 @@ exports.adminRegister = (req, res, next) => {
         const admin = {
             username: req.body.username,
             email: req.body.email,
+            name: req.body.name,
             password: hash
         };
         Admin.create(admin)
@@ -36,7 +38,6 @@ exports.adminRegister = (req, res, next) => {
 }
 
 exports.adminLogin = (req, res, next) => {
-    console.log(req.body);
     Admin.findOne({username: req.body.username.toLowerCase()})
     .then(resp => resp.toJSON())
     .then(admin => {
@@ -65,4 +66,32 @@ exports.adminUpdateEmail = (req, res, next) => {
         delete admin.password;
         res.json(admin);
     })
+}
+
+exports.getAllLanguage = (req, res, next) => {
+    const en = require(path.join(__dirname,`../public/languages/en.json`));
+    const ar = require(path.join(__dirname,`../public/languages/ar.json`));
+    res.json({en, ar});
+}
+
+exports.getLanguage = (req, res, next) => {
+    const lang = require(path.join(__dirname,`../public/languages/${req.body.lang}.json`));
+    res.json(lang);
+}
+
+exports.adminUpdateLanguageText = (req, res, next) => {
+    const en = req.body.en;
+    const ar = req.body.ar;
+
+    fs.writeFile(path.join(__dirname,`../public/languages/en.json`), JSON.stringify(en), (err) => {
+      if (err) next(new Errors.BaseError(err, 500))
+      else {
+        fs.writeFile(path.join(__dirname,`../public/languages/ar.json`), JSON.stringify(ar), (err) => {
+          if (err) next(new Errors.BaseError(err, 500))
+          else {
+            res.json({success: true})
+          }
+        });
+      }
+    });
 }

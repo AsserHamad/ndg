@@ -1,0 +1,47 @@
+.admin-home-container {
+    padding: 20px;
+}
+
+.admin-home-welcome {
+    text-transform: capitalize;
+}
+
+.admin-functions-container {
+    display: flex;
+}
+
+.admin-functions {
+    width: 200px;
+    margin: 20px 10px;
+    background-color: #0A1121;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    height: 50px;
+}
+
+.admin-functions-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    width: 35%;
+    background-color: #3159B1;
+    height: 100%;
+}
+
+.admin-functions-title {
+    width: 65%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    display: flex;
+    background-color: #457aeb;
+    height: 100%;
+}

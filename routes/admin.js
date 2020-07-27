@@ -8,5 +8,8 @@ router.get("/verify", admin.verifyValidity);
 router.post("/register", adminAuth, admin.adminRegister);
 router.post("/login", admin.adminLogin);
 router.put("/update", adminAuth, admin.adminUpdateEmail);
+router.get("/language", admin.getAllLanguage);
+router.post("/language", admin.getLanguage);
+router.put("/language", adminAuth, admin.adminUpdateLanguageText);
 
 module.exports = router;

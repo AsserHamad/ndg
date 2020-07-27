@@ -4,6 +4,7 @@ import { FaTrash, FaMapPin, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa
 import ServiceAdminDetails from './ServiceAdminDetails/ServiceAdminDetails';
 import swal from 'sweetalert';
 import ServiceAdminCreate from './ServiceAdminCreate/ServiceAdminCreate';
+import Loading from '../../../Loading/Loading';
 
 function ServicesView(props){
     const
@@ -59,7 +60,7 @@ function ServicesView(props){
    });
 
     
-    return((!services.length) ? <div>Loading...</div> :
+    return((!services.length) ? <Loading /> :
         (!viewingService) ? 
         <div>
             <div className="new-service" onClick={() => setViewingService({})}><FaPlus /></div>

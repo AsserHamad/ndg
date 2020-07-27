@@ -5,6 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { GlobalStateProvier } from './useGlobalState';
 import { BrowserRouter } from 'react-router-dom';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Oswald:700,400', 'sans-serif']
+  }
+});
 
 ReactDOM.render(
     <GlobalStateProvier>

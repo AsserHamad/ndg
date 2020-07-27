@@ -1,0 +1,69 @@
+.textedit-container {
+    background-color: #141B2D;
+    padding: 30px;
+}
+
+.textedit-text-container {
+    display: flex;
+    width: 70%;
+    margin: 20px 0;
+}
+
+.textedit-select-language {
+    display: flex;
+}
+
+.textedit-language {
+    margin: 10px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: #050911;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.textedit-language:hover {
+    background-color: #315ab1;
+}
+
+.textedit-language-highlight {
+    background-color: #3159B1;
+}
+
+.textedit-key {
+    width: 30%;
+}
+
+.textedit-input {
+    padding: 5px;
+    border-radius: 5px;
+    width: 70%;
+    background-color: #0A1121;
+    color: white;
+}
+
+.textedit-input-ar {
+    direction: rtl;
+}
+
+.textedit-submit {
+    border: 2px solid #3159B1;
+    color: #3159B1;
+    width: 110px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-right: 10px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.textedit-submit:hover {
+    background-color: #3159B1;
+    color: white;
+}

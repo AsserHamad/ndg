@@ -5,6 +5,7 @@ import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import useGlobalState from "../../useGlobalState";
 import { Link } from "react-router-dom";
 import dp from "./dummyProjects";
+import Loading from '../Loading/Loading';
 
 function Projects(props) {
     const categories = dp.categories, subcategories = dp.subcategories;
@@ -12,7 +13,7 @@ function Projects(props) {
           projectsText = props.text,
           [projects, setProjects] = useState([{
               category: 0,
-              title: {en:'Loading...', ar:'Loading...'},
+              title: {en:'', ar:''},
               isLoaded: false
           }]),
           [previewNum, setPreviewNum] = useState(0),
@@ -27,10 +28,11 @@ function Projects(props) {
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
     }
     return(
+        (projects.length === 1) ? <Loading /> :
     <div>
         <div className={`ndg-info ndg-info-${lang}`}>
             <div id="ndg-info-text">
-                {projectsText.description}
+                {projectsText.projectDescription}
             </div>
             <Link id="ndg-info-button" className="link" to={{pathname: "/projects/explore", projects}}>
                 <button>
