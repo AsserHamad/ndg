@@ -21,7 +21,8 @@ function ProjectMainDetails(props){
                     }
                 }
             });
-            const details = ['description', 'owner', 'location', 'area', 'year'].map(detail => {
+            console.log(projectDetails)
+            const details = ['owner', 'location', 'area', 'year'].map(detail => {
                 return (
                     <div key={detail} className="detail">
                         <p><span className="titles">{projectDetails[detail]}<br /> </span>{project[detail][lang] || project[detail]}</p>
@@ -31,7 +32,12 @@ function ProjectMainDetails(props){
 
     return(
         <div className={`main-container main-container-${lang}`}>
-            <div className="project-details">{details}</div>
+            <div className="project-details">
+                    <div className="detail-description">
+                        <p>{project.description[lang] || project.description}</p>
+                    </div>
+                    {details}
+            </div>
             <div className="project-media">
                 <div className="select">
                     <div className="gallery-navbar">

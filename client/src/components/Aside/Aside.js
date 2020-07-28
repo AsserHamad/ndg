@@ -6,9 +6,12 @@ function Aside(props) {
   const globalState = useGlobalState();
   const lang = globalState.lang.lang;
   const pageName = props.text;
-  const [name, setName] = useState(pageName)
+  console.log(pageName)
+  const [name, setName] = useState(pageName.home)
   useEffect(() => {
-    setName(globalState.page.page);
+    console.log(globalState.page)
+    console.log(pageName)
+    setName(pageName[globalState.page.page]);
   }, [globalState.page])
   return (
       <div className={`aside-container aside-container-${lang}`}>

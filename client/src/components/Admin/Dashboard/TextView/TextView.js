@@ -10,7 +10,7 @@ function TextView(props) {
             [englishText, setEnglishText] = useState({}),
             [englishInnerText, setEnglishInnerText] = useState({}),
             [arabicText, setArabicText] = useState({}),
-            [selectedLanguage, setSelectedLanguage] = useState(1),
+            [selectedLanguage, setSelectedLanguage] = useState(0),
             [arabicInnerText, setArabicInnerText] = useState({});
     useEffect(() => {
         fetch(`${api}/admin/language`)

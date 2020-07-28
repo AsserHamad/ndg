@@ -37,8 +37,14 @@
 }
 
 .detail {
+    margin-top: 0.5vh;
+    font-size: 0.8em;
+}
+
+.detail-description {
     margin-top: 1vh;
     font-size: 1em;
+    color: #83888C;
 }
 
 .project-media {

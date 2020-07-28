@@ -76,6 +76,8 @@ exports.getAllLanguage = (req, res, next) => {
 
 exports.getLanguage = (req, res, next) => {
     const lang = require(path.join(__dirname,`../public/languages/${req.body.lang}.json`));
+    console.log(req.body.lang)
+    console.log(lang)
     res.json(lang);
 }
 

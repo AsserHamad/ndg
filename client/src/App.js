@@ -45,7 +45,7 @@ function App() {
   :
     <div>
       <NavBar text={text.pageNames} />
-      <Aside text={globalState.page.page} />
+      <Aside text={text.pageNames} />
           <div id="container">
               {/* <AnimatedSwitch
                 atEnter={{opacity: 0}}
