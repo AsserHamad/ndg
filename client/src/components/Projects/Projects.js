@@ -17,6 +17,7 @@ function Projects(props) {
               isLoaded: false
           }]),
           [previewNum, setPreviewNum] = useState(0),
+          [loadedImage, setLoadedImage] = useState(false),
           lang = globalState.lang.lang;
     useEffect(() => {
         const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`
@@ -25,6 +26,7 @@ function Projects(props) {
           .then(res => setProjects(res));
     }, [])
     function changePreviewNum(num) {
+        setLoadedImage(false)
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
     }
     return(
@@ -48,8 +50,8 @@ function Projects(props) {
                 <div id="title-box">
                 <div id="box-1" />
                 <div className={`yellow-box yellow-box-${lang}`}>
-                    <p>{categories[lang][projects[previewNum].category]}</p>
-                    <span>{projects[previewNum].title[lang]}</span>
+                    <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{categories[lang][projects[previewNum].category]}</p>
+                    <span className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{projects[previewNum].title[lang]}</span>
                     <div>
                     <Link className="link" to={{
                         pathname: `/projects/${projects[previewNum]._id}`,
@@ -68,7 +70,14 @@ function Projects(props) {
                 <div id="box-2" />
             </div>
             </div>
-            <div className={`project-image project-image-${lang}`} style={{backgroundImage: `url(${projects[previewNum].preview})`}} />
+            {/* <div className={`project-image project-image-${lang}`} style={{backgroundImage: `url()`}} /> */}
+            <div className={`project-image project-image-${lang}`}>
+                {!loadedImage ? <Loading /> : null}
+                <img 
+                    className={`project-image-img ${!loadedImage ? `project-image-loading` : `project-image-loaded`}`} 
+                    onLoad={() => setLoadedImage(true)}
+                    src={projects[previewNum].preview} />
+            </div>
         </div>
             <Link to={{pathname: "/projects/explore", projects}}>
                 <button className={`explore-button explore-button-${lang}`}>
