@@ -42,6 +42,18 @@
     color: #788096;
   }
 
+.add-multiple {
+    display: flex;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 50px;
+    background-color: #3159B1;
+}
+
+.add-multiple > div {
+    padding: 5px;
+}
+
 .viewed-projects-container {
     padding-top: 70px;
     background-color: #141B2D;

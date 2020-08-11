@@ -5,6 +5,7 @@ import ProjectAdminDetails from './ProjectAdminDetails/ProjectAdminDetails';
 import swal from 'sweetalert';
 import ProjectAdminCreate from './ProjectAdminCreate/ProjectAdminCreate';
 import Loading from '../../../Loading/Loading';
+import ProjectAdminCreateButton from './ProjectAdminCreateButton/ProjectAdminCreateButton';
 
 function ProjectsView(props){
     const
@@ -74,16 +75,21 @@ function ProjectsView(props){
        setViewedProjects(p)
    });
 
+   const uploadExcel = ((e) => {
+        console.log(e.target.files[0]);
+   })
+
     
     return((!projects.length) ? <Loading /> :
         (!viewingProject) ? 
         <div>
-            <div className="new-project" onClick={() => setViewingProject({})}><FaPlus /></div>
+            <ProjectAdminCreateButton setViewingProject={setViewingProject} />
             <div>
             <div className="projects-search">
                 <div className="projects-search-div">
                     <span><FaSearch /></span><input onChange={filterProjects} placeholder="Search title, owner, location" type="text" />
                 </div>
+                {/* <input type="file" name="file" id="file" onChange={(e) => uploadExcel(e)} className="add-multiple" /> */}
             </div>
             </div>
             <div className="viewed-projects-container">

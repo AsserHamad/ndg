@@ -73,7 +73,7 @@ function Projects(props) {
             {/* <div className={`project-image project-image-${lang}`} style={{backgroundImage: `url()`}} /> */}
             <div className={`project-image project-image-${lang}`}>
                 {!loadedImage ? <Loading /> : null}
-                <img 
+                <img
                     className={`project-image-img ${!loadedImage ? `project-image-loading` : `project-image-loaded`}`} 
                     onLoad={() => setLoadedImage(true)}
                     src={projects[previewNum].preview} />
