@@ -75,7 +75,7 @@ function ServiceAdminCreate(props){
           })
           .then(res => {
             swal({
-                title: 'Service edited successfully',
+                title: 'Service added successfully',
                 icon: "success"
             });
             refreshServices();
@@ -94,34 +94,7 @@ function ServiceAdminCreate(props){
         x = {...itemsAr, [Object.keys(itemsAr).length]: ''};
         setItemsAr(x);
     }
-    
-    const deleteService = () => {
-        swal({
-            title: `Deleting ${service.title.en}`,
-            text: `Are you sure that you want to delete this service?`,
-            icon: "warning",
-            dangerMode: true,
-            buttons: {
-                cancel: true,
-                confirm: true,
-            },
-        })
-        .then(willDelete => {
-            if(willDelete){
-                fetch(`${api}/services`,  {
-                    method: 'delete',
-                    headers: {'Content-Type': 'application/json', token},
-                    body: JSON.stringify({_id: service._id})
-                })
-                .then(res => res.json())
-                .then(res => {
-                    refreshServices();
-                    window.scrollTo(0,0); 
-                    setViewingService(undefined);
-                });
-            }
-        })
-    }
+
     return(
         <div className="service-edit-container">
             <div>
@@ -181,7 +154,7 @@ function ServiceAdminCreate(props){
                 <div>
                     <p className="service-edit-subheader">Preview Image</p>
                     <div className="edit-preview-div">
-                        <input className="edit-preview-input" name="preview" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.image} />
+                        <input className="edit-preview-input" name="image" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.image} />
                         <img className="service-preview-img" src={inputVal.image} alt="Preview" />
                     </div>
                 </div>
@@ -192,7 +165,6 @@ function ServiceAdminCreate(props){
             
             <div className="service-edit-buttons">
                 <div onClick={updateService} className="save-button">Save&nbsp;&nbsp;<FaCheck /></div>
-                <div onClick={deleteService} className="delete-button">Delete&nbsp;&nbsp;<FaTrash /></div>
             </div>
         </div>
     )

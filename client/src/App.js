@@ -25,18 +25,21 @@ function App() {
         [text, setText] = useState({}),
         api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;
   useEffect(() => {
+    /* Check if preexisting language settings exist */
+    const _lang = localStorage.getItem('language');
+    if(_lang)
+      globalState.setLang(_lang);
+    
     fetch(`${api}/admin/language`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({lang: lang})
     })
     .then(res => res.json())
-      .then(res => {
-        console.log('setting text')
-          setText(res);
-      })
-      .catch(err => console.log(err));
+    .then(res => setText(res))
+    .catch(err => console.log(err));
   }, [lang]);
+
   return ((/^admin.*$/.test(globalState.page.page)) ? 
     <Route exact path="/admin" component={Admin} />
   :
@@ -46,26 +49,19 @@ function App() {
     <div>
       <NavBar text={text.pageNames} />
       <Aside text={text.pageNames} />
-          <div id="container">
-              {/* <AnimatedSwitch
-                atEnter={{opacity: 0}}
-                atLeave={{opacity: 0}}
-                atActive={{opacity: 1}}
-              > */}
-                <Switch>
-                  <Route exact path="/" component={Homepage} />
-                  <Route exact path="/about" render={(props) => <About {...props} text={text.about}/>} />
-                  <Route exact path="/projects" render={(props) => <Projects {...props} text={text.projects} />} />
-                  <Route exact path="/projects/explore" render={(props) => <ProjectsExplore {...props} text={text.projects} />} />
-                  <Route exact path="/projects/:id" render={(props) => <ProjectDetails {...props} text={text.projectDetails} />} />
-                  <Route exact path="/services" render={(props) => <Services {...props} text={text.services} />} />
-                  <Route exact path="/contact" render={(props) => <Contact {...props} text={text.contact} />} />
-                  <Route exact path="/admin" render={(props) => <Admin {...props} />} />
-                  <Route path="/*" component={() => <Redirect to='/' />} />
-                </Switch>
-              {/* </AnimatedSwitch> */}
-          </div>
-          {/* <Footer /> */}
+      <div id="container">
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/about" render={(props) => <About {...props} text={text.about}/>} />
+          <Route exact path="/projects" render={(props) => <Projects {...props} text={text.projects} />} />
+          <Route exact path="/projects/explore" render={(props) => <ProjectsExplore {...props} text={text.projects} />} />
+          <Route exact path="/projects/:id" render={(props) => <ProjectDetails {...props} text={text.projectDetails} />} />
+          <Route exact path="/services" render={(props) => <Services {...props} text={text.services} />} />
+          <Route exact path="/contact" render={(props) => <Contact {...props} text={text.contact} />} />
+          <Route exact path="/admin" render={(props) => <Admin {...props} />} />
+          <Route path="/*" component={() => <Redirect to='/' />} />
+        </Switch>
+      </div>
     </div>
   );
 }

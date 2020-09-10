@@ -9,7 +9,7 @@ import TextView from './TextView/TextView';
 function Dashboard(props){
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;
     const admin = props.admin;
-    const [page, setPage] = useState('projects');
+    const [page, setPage] = useState('home');
     return (
         <div className="dashboard-body">
             <div className="admin-sidebar">

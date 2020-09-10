@@ -5,14 +5,13 @@ import useGlobalState from '../../useGlobalState';
 function Aside(props) {
   const globalState = useGlobalState();
   const lang = globalState.lang.lang;
-  const pageName = props.text;
+  let pageName = props.text;
   console.log(pageName)
   const [name, setName] = useState(pageName.home)
   useEffect(() => {
-    console.log(globalState.page)
-    console.log(pageName)
+    console.log(`changing aside page text to ${pageName[globalState.page.page]}`)
     setName(pageName[globalState.page.page]);
-  }, [globalState.page])
+  }, [pageName, globalState.page])
   return (
       <div className={`aside-container aside-container-${lang}`}>
         <div className={"header " + lang}>

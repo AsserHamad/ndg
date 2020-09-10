@@ -8,7 +8,7 @@ const SET_PAGE = 'SET_PAGE';
 
 const initialState = {
     lang: {
-        lang: 'en'
+        lang: 'ar'
     },
     page: {
         page: window.location.pathname.substr(1, window.location.pathname.length) || 'home'

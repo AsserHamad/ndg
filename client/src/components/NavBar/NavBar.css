@@ -181,3 +181,22 @@ a {
   width: 100%;
   /* transition: 1s; */
 }
+
+.change-language {
+}
+
+.change-language {
+  /* margin-left: 35vw !important; */
+  font-size: 0.8em !important;
+  transition: none !important;
+  cursor: pointer;
+}
+
+@media(min-width: 1367px) {
+  .change-language-en {
+    /* margin-left: 50vw !important; */
+  }
+  .change-language-ar {
+    /* margin-right: 50vw !important; */
+  }
+}

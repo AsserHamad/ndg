@@ -15,11 +15,13 @@ exports.verifyValidity = (req, res, next) => {
 }
 
 exports.adminRegister = (req, res, next) => {
+    console.log('adding admin')
+    console.log(req.body.username)
     const pass = req.body.password;
     const saltRounds = 10;
     bcrypt.hash(pass, saltRounds, function(err, hash){
         if(err)
-            next(new Errors.InternalServerError());
+            next(new Errors.InternalServerError(err));
 
         const admin = {
             username: req.body.username,

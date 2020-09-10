@@ -192,7 +192,7 @@ function ServiceAdminDetails(props){
                 <div>
                     <p className="service-edit-subheader">Preview Image</p>
                     <div className="edit-preview-div">
-                        <input className="edit-preview-input" name="preview" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.image} />
+                        <input className="edit-preview-input" name="image" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.image} />
                         <img className="service-preview-img" src={inputVal.image} alt="Preview" />
                     </div>
                 </div>
