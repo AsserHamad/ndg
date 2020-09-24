@@ -15,8 +15,6 @@ exports.verifyValidity = (req, res, next) => {
 }
 
 exports.adminRegister = (req, res, next) => {
-    console.log('adding admin')
-    console.log(req.body.username)
     const pass = req.body.password;
     const saltRounds = 10;
     bcrypt.hash(pass, saltRounds, function(err, hash){
@@ -82,8 +80,6 @@ exports.adminUploadExcelFile = (req, res, next) => {
 
 exports.getLanguage = (req, res, next) => {
     const lang = require(path.join(__dirname,`../public/languages/${req.body.lang}.json`));
-    console.log(req.body.lang)
-    console.log(lang)
     res.json(lang);
 }
 

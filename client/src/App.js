@@ -22,6 +22,7 @@ import Loading from './components/Loading/Loading';
 function App() {
   const globalState = useGlobalState(),
         lang = globalState.lang.lang,
+        page = globalState.page.page,
         [text, setText] = useState({}),
         api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;
   useEffect(() => {
@@ -29,7 +30,6 @@ function App() {
     const _lang = localStorage.getItem('language');
     if(_lang)
       globalState.setLang(_lang);
-    
     fetch(`${api}/admin/language`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -39,6 +39,7 @@ function App() {
     .then(res => setText(res))
     .catch(err => console.log(err));
   }, [lang]);
+  console.log(page);
 
   return ((/^admin.*$/.test(globalState.page.page)) ? 
     <Route exact path="/admin" component={Admin} />
@@ -49,7 +50,7 @@ function App() {
     <div>
       <NavBar text={text.pageNames} />
       <Aside text={text.pageNames} />
-      <div id="container">
+      <div className={`app-container ${page === 'home' ? 'app-container-home' : ''}`}>
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/about" render={(props) => <About {...props} text={text.about}/>} />

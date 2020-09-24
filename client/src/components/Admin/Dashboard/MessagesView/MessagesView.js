@@ -23,7 +23,7 @@ function MessagesView(props){
             {messages.map(msg => 
                 <div key={msg._id} className="contact-message-container">
                     <div>
-                        From: {msg.name}
+                        From: {msg.name} &lt;{msg.email}&gt;
                     </div>
                     <div>
                         Message: {msg.message}

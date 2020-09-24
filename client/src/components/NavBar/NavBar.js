@@ -19,7 +19,7 @@ function NavBar(props) {
 
   return (
     <div>
-      <nav id="navbar">
+      <nav className={`navbar ${page === 'home' ? 'navbar-special' : ''}`}>
         <div className={`nav-wrapper nav-wrapper${lang}`}>
         <Link
         className={`logo logo-${lang}`}

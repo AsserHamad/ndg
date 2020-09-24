@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-#container {
+.app-container {
   /* margin: 80px auto; */
   margin-top: 80px;
   margin-left: 7%;
@@ -18,8 +18,13 @@ body::-webkit-scrollbar {
   color: white;
 }
 
+.app-container-home {
+  margin-left: 0;
+  margin-top: 0px;
+}
+
 @media(max-width: 1024px) {
-  #container {
+  .container {
     margin-top: 46px;
     margin-left: 0;
   }
