@@ -32,6 +32,7 @@ a {
   ======================================================*/
 .navbar {
   background: #2d2d32;
+  transition-duration: 1s;
   color: white;
   position: fixed;
   top: 0;
@@ -42,6 +43,7 @@ a {
 }
 
 .navbar-special {
+  transition-duration: 0.5s;
   background: url(/dots-bg.png) left top;
   border-bottom: black 1px solid;
 }

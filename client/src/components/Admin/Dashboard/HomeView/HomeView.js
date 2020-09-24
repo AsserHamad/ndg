@@ -6,7 +6,7 @@ import AddAdmin from './AddAdmin/AddAdmin';
 function HomeView(props) {
     const api = props.api,
         admin = props.admin,
-        [currAdminPage, setCurrAdminPage] = useState(`add`);
+        [currAdminPage, setCurrAdminPage] = useState(``);
     
         const changeAdminPage = (newPage) => {
             setCurrAdminPage(newPage);
