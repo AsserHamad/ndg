@@ -12,8 +12,7 @@ var serviceSchema = new Schema({
         required: true
       },
       ar: {
-        type: String,
-        required: true
+        type: String
       }
     },
     image: String,

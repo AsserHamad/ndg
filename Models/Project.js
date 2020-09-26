@@ -20,8 +20,7 @@ var projectSchema = new Schema({
         required: true
       },
       ar: {
-        type: String,
-        required: true
+        type: String
       }
     },
     description: {
@@ -36,8 +35,8 @@ var projectSchema = new Schema({
       en: String,
       ar: String
     },
-    area: Number,
-    builtupArea: Number,
+    area: String,
+    builtUpArea: String,
     year: String,
     preview: String,
     videoPreview: String,
