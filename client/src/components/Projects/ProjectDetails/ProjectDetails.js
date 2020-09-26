@@ -39,7 +39,7 @@ function ProjectDetails(props){
         <Loading />
         :
         <div className={`project-details-container project-details-container-${lang}`}>
-            <div>
+            <div className="project-header">
                 <div className={`project-title title-${lang}`}>
                     <div>
                         <p>{project.title[lang]}</p>
@@ -48,8 +48,9 @@ function ProjectDetails(props){
                         </div>
                     </div>
                 </div>
-                <div className="video-container">
-                    <video className="background-video" autoPlay loop muted src={project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"}/>
+                <div className="preview-container">
+                    <img className="preview-image" src={project.preview} />
+                    {/* <video className="background-video" autoPlay loop muted src={project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"}/> */}
                 </div>
             </div>
             <ProjectMainDetails

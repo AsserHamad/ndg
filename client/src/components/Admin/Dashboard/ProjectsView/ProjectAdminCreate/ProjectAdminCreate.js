@@ -25,7 +25,8 @@ function ProjectAdminCreate(props){
             category: 0,
             subcategory: 0, 
             year: 0,
-            area: 0,
+            area: '',
+            builtUpArea: '',
             preview: 'https://images.hdqwalls.com/wallpapers/fire-minimalist-1f.jpg',
             videoPreview:  'https://static.videezy.com/system/resources/previews/000/043/910/original/Ball.mp4'
         },
@@ -58,6 +59,7 @@ function ProjectAdminCreate(props){
             },
             year: inputVal.year,
             area: inputVal.area,
+            builtUpArea: inputVal.builtUpArea,
             preview: inputVal.preview,
             category: inputVal.category,
             subcategory: inputVal.subcategory,
@@ -213,6 +215,15 @@ function ProjectAdminCreate(props){
                     <div className="project-detail-titles-divs">
                         <p className="project-detail-misc">Area</p>
                         <input name="area" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.area} />
+                    </div>
+                </div>
+
+
+                {/* Built Up Area */}
+                <div className="project-detail-titles">
+                    <div className="project-detail-titles-divs">
+                        <p className="project-detail-misc">Built Up Area</p>
+                        <input name="builtUpArea" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})} value={inputVal.builtUpArea} />
                     </div>
                 </div>
             </div>
