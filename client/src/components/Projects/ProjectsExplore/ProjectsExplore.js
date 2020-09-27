@@ -9,9 +9,10 @@ function ProjectsExplore(props) {
     const filter = props.text.filter;
     const [projects, setProjects] = useState([]),
           [viewedProjects, setViewedProjects] = useState([]),
-          [selectedCategory, setSelectedCategory] = useState(-1);
+          [selectedCategory, setSelectedCategory] = useState(-1),
+          globalState = useGlobalState();
     useEffect(() => {
-        setViewedProjects(projects.filter(project => (project.category == selectedCategory || selectedCategory == -1) ? project : false))
+        setViewedProjects(projects.filter(project => (project.subcategory == selectedCategory || selectedCategory == -1) ? project : false))
     }, [selectedCategory])
     useEffect(() => {
         if(props.location.projects){
@@ -23,8 +24,7 @@ function ProjectsExplore(props) {
             .then(res => res.json())
             .then(res => {setProjects(res); setViewedProjects(res)});
         }
-    }, [])
-    const globalState = useGlobalState();
+    }, []);
     const lang = globalState.lang.lang;
     let categories = dp.categories[lang], subcategories = dp.subcategories[lang];
     useEffect(() => {
@@ -43,7 +43,6 @@ function ProjectsExplore(props) {
             `${3 + x} / 2 / ${4 + x} / 3`,
             `${3 + x} / 1 / ${4 + x} / 2`,
         ];
-        console.log(arrs[position % 9])
         return arrs[position % 9];
     }
     
@@ -52,7 +51,7 @@ function ProjectsExplore(props) {
         <Loading />
         :
         <div>
-            <div className="projectBlocks" style={{height: `${(Math.ceil(projects.length/9))*30}em`, gridTemplateRows: `repeat(${3*Math.ceil(projects.length/9)}, 1fr)`}}>
+            <div className="projectBlocks" style={{height: `${(Math.ceil(viewedProjects.length/9))*30}em`, gridTemplateRows: `repeat(${3*Math.ceil(viewedProjects.length/9)}, 1fr)`}}>
                 {[...Array(viewedProjects.length).keys()].map((element) => 
                     <ProjectBlock
                         key={element}
@@ -66,13 +65,13 @@ function ProjectsExplore(props) {
                 <div className="explore-works-filter">{filter}</div>
                 <div className="explore-filter-categories">
                     <div className={`explore-filter-categories-item ${(selectedCategory == -1) ? `explore-filter-categories-item-highlight` : ``}`} onClick={() => {setSelectedCategory(-1)}}>All Works</div>
-                    {Object.keys(categories).map(key => {
+                    {Object.keys(subcategories).map(key => {
                         return(
                             <div 
                                 key={key}
                                 className={`explore-filter-categories-item ${(selectedCategory == key) ? `explore-filter-categories-item-highlight` : ``}`}
                                 onClick={() => {setSelectedCategory(key)}}>
-                                    {categories[key]}</div>
+                                    {subcategories[key]}</div>
                         )
                     })}
                 </div>

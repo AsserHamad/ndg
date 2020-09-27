@@ -186,13 +186,34 @@ function ProjectAdminDetails(props){
             <div className="change-edit-type">
                 <div className={`change-edit-type-div ${(editType===0 ? 'edit-type-selected' : '')}`} onClick={() => setEditType(0)}>Details</div>
                 <div className={`change-edit-type-div ${(editType===1 ? 'edit-type-selected' : '')}`} onClick={() => setEditType(1)}>Media</div>
-                <div className={`change-edit-type-div ${(editType===2 ? 'edit-type-selected' : '')}`} onClick={() => setEditType(2)}>Categories</div>
             </div>
 
         {/* Start of editing types */}
         {(editType === 0) ?
         // Type 0: Details
             <div>
+                {/* Categories */}
+                <div className="project-categories-container">
+
+                    <p className="project-edit-headers">Categories</p>
+                    <div className="project-categories-div">
+                    {/*
+                    const subcategories = [
+                        'Urban Design', 
+                        'Landscape', 
+                        'Urban Planning', 
+                        'Housing', 
+                        'Interior Design', 
+                        'Architecture'
+                        ]; */}
+                        <div onClick={() => changeSubcategory(0)} className={`project-category-select ${(currSubcategory === 0) ? 'project-category-select-selected' : ''}`}>Urban Design</div>
+                        <div onClick={() => changeSubcategory(1)} className={`project-category-select ${(currSubcategory === 1) ? 'project-category-select-selected' : ''}`}>Landscape</div>
+                        <div onClick={() => changeSubcategory(2)} className={`project-category-select ${(currSubcategory === 2) ? 'project-category-select-selected' : ''}`}>Urban Planning</div>
+                        <div onClick={() => changeSubcategory(3)} className={`project-category-select ${(currSubcategory === 3) ? 'project-category-select-selected' : ''}`}>Housing</div>
+                        <div onClick={() => changeSubcategory(4)} className={`project-category-select ${(currSubcategory === 4) ? 'project-category-select-selected' : ''}`}>Interior Design</div>
+                        <div onClick={() => changeSubcategory(5)} className={`project-category-select ${(currSubcategory === 5) ? 'project-category-select-selected' : ''}`}>Architecture</div>
+                    </div>
+                </div>
                 {/* Titles */}
                 <p>Title</p>
                 <div className="project-detail-titles">
@@ -338,42 +359,7 @@ function ProjectAdminDetails(props){
                 </div>
                 </div>
             </div>
-        :
-        //Type 2: Categories
-            <div className="project-categories-container">
-                <p className="project-edit-headers">Categories</p>
-                <div className="project-categories-div">
-                {/* 
-                    const categories = [
-                        'Urban Design', 
-                        'Master Planning', 
-                        'Architecture'
-                    ];
-                */}
-                    <div onClick={() => changeCategory(0)} className={`project-category-select ${(currCategory === 0) ? 'project-category-select-selected' : ''}`}>Urban Design</div>
-                    <div onClick={() => changeCategory(1)} className={`project-category-select ${(currCategory === 1) ? 'project-category-select-selected' : ''}`}>Master Planning</div>
-                    <div onClick={() => changeCategory(2)} className={`project-category-select ${(currCategory === 2) ? 'project-category-select-selected' : ''}`}>Architecture</div>
-                </div>
-
-                <p className="project-edit-headers">Subcategories</p>
-                <div className="project-categories-div">
-                {/*
-                const subcategories = [
-                    'Urban Design', 
-                    'Landscape', 
-                    'Urban Planning', 
-                    'Housing', 
-                    'Interior Design', 
-                    'Architecture'
-                    ]; */}
-                    <div onClick={() => changeSubcategory(0)} className={`project-category-select ${(currSubcategory === 0) ? 'project-category-select-selected' : ''}`}>Urban Design</div>
-                    <div onClick={() => changeSubcategory(1)} className={`project-category-select ${(currSubcategory === 1) ? 'project-category-select-selected' : ''}`}>Landscape</div>
-                    <div onClick={() => changeSubcategory(2)} className={`project-category-select ${(currSubcategory === 2) ? 'project-category-select-selected' : ''}`}>Urban Planning</div>
-                    <div onClick={() => changeSubcategory(3)} className={`project-category-select ${(currSubcategory === 3) ? 'project-category-select-selected' : ''}`}>Housing</div>
-                    <div onClick={() => changeSubcategory(4)} className={`project-category-select ${(currSubcategory === 4) ? 'project-category-select-selected' : ''}`}>Interior Design</div>
-                    <div onClick={() => changeSubcategory(5)} className={`project-category-select ${(currSubcategory === 5) ? 'project-category-select-selected' : ''}`}>Architecture</div>
-                </div>
-            </div>}
+        :''}
             
             <div className="project-edit-buttons">
                 <div onClick={updateProject} className="save-button">Save&nbsp;&nbsp;<FaCheck /></div>

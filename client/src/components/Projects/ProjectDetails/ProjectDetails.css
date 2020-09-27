@@ -54,6 +54,15 @@
     }
 }
 
+@keyframes project-title-entrance-mobile {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .project-subtitle {
     border-top: 3px solid #F9BF26;
     font-weight: 400;
@@ -100,6 +109,7 @@
         height: 100%;
         font-size: 7vh;
         justify-content: left;
+        animation: project-title-entrance-mobile 1s forwards;
     }
 
     .downArrow {

@@ -1,5 +1,6 @@
 .services-container {
     display: flex;
+    margin-top: 80px;
 }
 
 .services-container-ar {
@@ -9,7 +10,7 @@
 .main-services-container {
     /* grid-area: 1 / 1 / 2 / 2; */
     color: black;
-    width: 58%;
+    width: 65%;
     background-color: white;
     position: absolute;
     z-index: 1;
@@ -104,6 +105,7 @@
 @media (max-width: 1024px) {
     .services-container {
         flex-direction: column;
+        margin-top: 0;
     }
     .main-services-container {
         width: 100%;

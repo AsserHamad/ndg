@@ -75,10 +75,6 @@ function ProjectsView(props){
        setViewedProjects(p)
    });
 
-   const uploadExcel = ((e) => {
-        console.log(e.target.files[0]);
-   })
-
     
     return((!projects.length) ? <Loading /> :
         (!viewingProject) ? 
@@ -95,6 +91,7 @@ function ProjectsView(props){
             <div className="viewed-projects-container">
                 {viewedProjects.map((element) => {
                     let description = element.description.en;
+                    description = description.replace(/<\/?[^>]+(>|$)/g, "");
                 if (description.length > 150)
                     description = description.substr(0, 150) + '...';
                     return(

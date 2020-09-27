@@ -39,7 +39,6 @@ function App() {
     .then(res => setText(res))
     .catch(err => console.log(err));
   }, [lang]);
-  console.log(page);
 
   return ((/^admin.*$/.test(globalState.page.page)) ? 
     <Route exact path="/admin" component={Admin} />
