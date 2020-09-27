@@ -154,16 +154,15 @@ function ProjectAdminCreate(props){
                 const subcategories = [
                     'Urban Design', 
                     'Landscape', 
-                    'Urban Planning', 
+                    'Master Planning', 
                     'Housing', 
                     'Interior Design', 
                     'Architecture'
                     ]; */}
                     <div onClick={() => changeSubcategory(0)} className={`project-category-select ${(currSubcategory === 0) ? 'project-category-select-selected' : ''}`}>Urban Design</div>
                     <div onClick={() => changeSubcategory(1)} className={`project-category-select ${(currSubcategory === 1) ? 'project-category-select-selected' : ''}`}>Landscape</div>
-                    <div onClick={() => changeSubcategory(2)} className={`project-category-select ${(currSubcategory === 2) ? 'project-category-select-selected' : ''}`}>Urban Planning</div>
+                    <div onClick={() => changeSubcategory(2)} className={`project-category-select ${(currSubcategory === 2) ? 'project-category-select-selected' : ''}`}>Master Planning</div>
                     <div onClick={() => changeSubcategory(3)} className={`project-category-select ${(currSubcategory === 3) ? 'project-category-select-selected' : ''}`}>Housing</div>
-                    <div onClick={() => changeSubcategory(4)} className={`project-category-select ${(currSubcategory === 4) ? 'project-category-select-selected' : ''}`}>Interior Design</div>
                     <div onClick={() => changeSubcategory(5)} className={`project-category-select ${(currSubcategory === 5) ? 'project-category-select-selected' : ''}`}>Architecture</div>
                 </div>
 

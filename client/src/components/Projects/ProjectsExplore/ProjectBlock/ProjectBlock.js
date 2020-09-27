@@ -31,7 +31,6 @@ function ProjectBlock(props) {
             <div className="projectBlocks-cover"></div>
             <div className="project-brief">
                 <div className="project-brief-categories">
-                    <span>{category}</span>
                     <span>{subcategory}</span>
                 </div>
                 <div className="project-brief-description">

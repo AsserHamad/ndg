@@ -64,9 +64,9 @@ function ServiceAdminCreate(props){
             image: inputVal.image
         }
         fetch(`${api}/services`,  {
-            method: 'put',
+            method: 'post',
             headers: {'Content-Type': 'application/json', token},
-            body: JSON.stringify({_id: service._id, service: updatedService})
+            body: JSON.stringify(updatedService)
           })
           .then(res => {
             if(res.ok)

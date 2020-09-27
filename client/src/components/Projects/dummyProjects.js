@@ -15,9 +15,8 @@ const projects = {
         en: {
             0 : "Urban Design",
             1 : "Landscape",
-            2 : "Urban Planning",
+            2 : "Master Planning",
             3 : "Housing",
-            4 : "Interior Design",
             5 : "Architecture"
         },
         ar: {
@@ -25,7 +24,6 @@ const projects = {
             1 : "المناظر الطبيعيه",
             2 : "التخطيط العمراني",
             3 : "الإسكان",
-            4 : "تصميم داخلي",
             5 : "هندسة معمارية"
         }
     }

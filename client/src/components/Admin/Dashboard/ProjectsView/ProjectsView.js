@@ -28,7 +28,7 @@ function ProjectsView(props){
    const subcategories = [
        'Urban Design', 
        'Landscape', 
-       'Urban Planning', 
+       'Master Planning', 
        'Housing', 
        'Interior Design', 
        'Architecture'

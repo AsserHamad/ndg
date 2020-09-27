@@ -57,8 +57,8 @@ function ProjectsExplore(props) {
                         key={element}
                         style={{gridArea: returnGridLayout(element)}}
                         lang={lang} project={viewedProjects[element]}
-                        category={categories[projects[0].category]}
-                        subcategory={subcategories[projects[0].subcategory]} />
+                        category={categories[viewedProjects[0].category]}
+                        subcategory={subcategories[viewedProjects[0].subcategory]} />
                 )}
             </div>
             <div className="explore-filter">
