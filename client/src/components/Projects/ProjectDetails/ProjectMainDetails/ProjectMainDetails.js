@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './ProjectMainDetails.css';
 import ImageGallery from 'react-image-gallery';
 
+import ReactHtmlParser from 'react-html-parser';
+
 
 function ProjectMainDetails(props){
     const  project = props.project,
@@ -34,7 +36,7 @@ function ProjectMainDetails(props){
             <div className="project-details">
                     {details}
                     <div className="detail-description">
-                        <p>{project.description[lang] || project.description}</p>
+                        {ReactHtmlParser(project.description[lang]) || ReactHtmlParser(project.description)}
                     </div>
             </div>
             <div className="project-media">

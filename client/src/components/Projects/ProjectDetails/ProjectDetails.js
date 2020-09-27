@@ -21,7 +21,7 @@ function ProjectDetails(props){
             videos: []
         });
     useEffect(() => {
-        globalState.setPage({ page: 'projects'});
+        globalState.setPage({ page: 'project-details'});
         
         if(props.location.projectBlock){
             setProject(props.location.projectBlock.project);

@@ -10,16 +10,30 @@ function NavBar(props) {
   const globalState = useGlobalState(),
         navbar = props.text,
         lang = globalState.lang.lang,
-        page = globalState.page.page;
+        page = globalState.page.page,
+        [scrollPos, setScrollPos] = useState(0);
 
   const changeLanguage = (language) => {
       localStorage.setItem('language', language);
       globalState.setLang(language);
   }
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPos(position);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  })
+
   return (
     <div>
-      <nav className={`navbar ${page === 'home' ? 'navbar-special' : ''}`}>
+      <nav className={`navbar ${(page === 'home' || page == 'project-details') && !scrollPos ? 'navbar-special' : ''}`}>
         <div className={`nav-wrapper nav-wrapper${lang}`}>
         <Link
         className={`logo logo-${lang}`}
@@ -35,7 +49,7 @@ function NavBar(props) {
             <NavBarLink page={page} pageName="about" navbar={navbar} link="/about" lang={lang} />
             <NavBarLink page={page} pageName="services" navbar={navbar} link="/services" lang={lang} />
             <NavBarLink page={page} pageName="contact" navbar={navbar} link="/contact" lang={lang} />
-            <li onClick={() => changeLanguage(lang==='en' ? 'ar':'en')}><span className={` ${lang} change-language change-language-${lang}`}>{(lang === 'en') ? 'العربية' : 'English'}</span></li>
+            {/* <li onClick={() => changeLanguage(lang==='en' ? 'ar':'en')}><span className={` ${lang} change-language change-language-${lang}`}>{(lang === 'en') ? 'العربية' : 'English'}</span></li> */}
           </ul>
         </div>
       </nav>

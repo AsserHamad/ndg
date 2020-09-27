@@ -9,7 +9,7 @@ function Homepage() {
         <source src="https://i.imgur.com/83NMbaF.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
-      <img className={`homepage-img`} src="http://www.naturedesigngroup.com/web_test/public/Uploads/projects/en/bab_mecca_main1555173303.jpg" />
+      <img className={`homepage-img`} src="https://res.cloudinary.com/duiexwi8t/image/upload/v1601205231/NDG%20Projects/Urban%20Design/Al%20Aqeer%20archeology%20District/photo_a_kcgfvl.jpg" />
     </div>
   );
 }

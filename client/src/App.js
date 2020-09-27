@@ -49,7 +49,7 @@ function App() {
   :
     <div>
       <NavBar text={text.pageNames} />
-      <Aside text={text.pageNames} />
+      {/* <Aside text={text.pageNames} /> */}
       <div className={`app-container ${page === 'home' ? 'app-container-home' : ''}`}>
         <Switch>
           <Route exact path="/" component={Homepage} />

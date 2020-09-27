@@ -6,6 +6,9 @@ import './EditType2.css';
 import { FaCheck, FaTrash, FaPlus } from 'react-icons/fa';
 import swal from 'sweetalert';
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 function ProjectAdminCreate(props){
     const 
@@ -36,7 +39,6 @@ function ProjectAdminCreate(props){
         [editType, setEditType] = useState(0),
         [currCategory, setCurrCategory] = useState(0),
         [currSubcategory, setCurrSubcategory] = useState(0);
-    
     const createProject = () => {
         let images = Object.keys(imagesVal).map(key => imagesVal[key]);
         let videos = Object.keys(videosVal).map(key => videosVal[key]);
@@ -164,11 +166,17 @@ function ProjectAdminCreate(props){
                 <div className="project-detail-titles">
                     <div className="project-detail-titles-divs">
                         <p>English Description</p>
-                        <textarea name="description_en" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})}  value={inputVal.description_en} />
+                        {/* <textarea name="description_en" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})}  value={inputVal.description_en} /> */}
+
+                        <ReactQuill theme="snow" name="description_en" value={inputVal.description_en}
+                        onChange={(e) => setInputVal({...inputVal, description_en: e})} />
                     </div>
                     <div className="project-detail-titles-divs">
                         <p>Arabic Description</p>
-                        <textarea name="description_ar" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})}  value={inputVal.description_ar} />
+                        {/* <textarea name="description_ar" onChange={(e) => setInputVal({...inputVal, [e.target.name]: e.target.value})}  value={inputVal.description_ar} /> */}
+
+                        <ReactQuill theme="snow" name="description_ar" value={inputVal.description_ar}
+                        onChange={(e) => setInputVal({...inputVal, description_ar: e})} />
                     </div>
                 </div>
 

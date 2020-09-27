@@ -28,6 +28,15 @@ function Projects(props) {
     function changePreviewNum(num) {
         setLoadedImage(false)
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
+        console.log(projects[previewNum])
+    }
+    function capitalizeTitle(text){
+        let sentence = text.toLowerCase().split(" ");
+        for(let i = 0; i< sentence.length; i++){
+           sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+        }
+     sentence = sentence.join(" ");
+     return sentence;
     }
     return(
         (projects.length === 1) ? <Loading /> :
@@ -51,7 +60,7 @@ function Projects(props) {
                 <div id="box-1" />
                 <div className={`yellow-box yellow-box-${lang}`}>
                     <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{categories[lang][projects[previewNum].category]}</p>
-                    <span className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{projects[previewNum].title[lang]}</span>
+                    <span className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{capitalizeTitle(projects[previewNum].title[lang])}</span>
                     <div>
                     <Link className="link" to={{
                         pathname: `/projects/${projects[previewNum]._id}`,

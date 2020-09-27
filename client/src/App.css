@@ -12,8 +12,7 @@ body::-webkit-scrollbar {
 
 .app-container {
   /* margin: 80px auto; */
-  margin-top: 80px;
-  margin-left: 7%;
+  /* margin-left: 7%; */
   overflow-x: hidden;
   color: white;
 }
@@ -25,7 +24,7 @@ body::-webkit-scrollbar {
 
 @media(max-width: 1024px) {
   .app-container {
-    margin-top: 46px;
+    margin-top: 50px;
     margin-left: 0;
   }
 }

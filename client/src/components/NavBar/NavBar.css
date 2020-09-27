@@ -32,7 +32,7 @@ a {
   ======================================================*/
 .navbar {
   background: #2d2d32;
-  transition-duration: 1s;
+  transition-duration: 0.3s;
   color: white;
   position: fixed;
   top: 0;
@@ -45,7 +45,7 @@ a {
 .navbar-special {
   transition-duration: 0.5s;
   background: url(/dots-bg.png) left top;
-  border-bottom: black 1px solid;
+  /* border-bottom: black 1px solid; */
 }
 
 .nav-wrapper {
@@ -61,7 +61,7 @@ a {
 /*   LOGO   */
 .logo {
   float: left;
-  margin-left: 45px;
+  margin-left: 20px;
   margin-top: 5px;
   font-size: 2em;
   height: 46px;
@@ -75,7 +75,7 @@ a {
   margin-right: 45px;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 823px) {
   .logo {
     margin-top: 0px;
     margin-left: 15px;
@@ -98,7 +98,7 @@ a {
   color: white;
   list-style: none;
   margin-left: 4%;
-  margin-top: 0.7%;
+  /* margin-top: 0.7%; */
   text-align: right;
   transition: transform 0.5s ease-out;
   -webkit-transition: transform 0.5s ease-out;
@@ -144,6 +144,9 @@ a {
   -webkit-transition: all 0.1s ease;
 }
 
+.navbar-special li span {
+  /* font-size: 10%; */
+}
 .navbar li span:hover {
   /* border-bottom: 1px solid rgb(28, 121, 184); */
   color: rgb(138, 138, 138);
