@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./Projects.css";
 
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
@@ -7,10 +7,25 @@ import { Link } from "react-router-dom";
 import dp from "./dummyProjects";
 import Loading from '../Loading/Loading';
 
+function useWindowSize() {
+    const [size, setSize] = useState(0);
+    useLayoutEffect(() => {
+      function updateSize() {
+        setSize(window.innerWidth);
+      }
+      window.addEventListener('resize', updateSize);
+      updateSize();
+      return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return size;
+  }
+
 function Projects(props) {
     const categories = dp.categories, subcategories = dp.subcategories;
     const globalState = useGlobalState(),
           projectsText = props.text,
+          width = useWindowSize(),
+          font_size = `${width / 40}px`,
           [projects, setProjects] = useState([{
               category: 0,
               title: {en:'', ar:''},
@@ -20,6 +35,8 @@ function Projects(props) {
           [loadedImage, setLoadedImage] = useState(false),
           lang = globalState.lang.lang;
     useEffect(() => {
+        console.log(window.screenX)
+        globalState.setPage('page');
         const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`
         fetch(api)
           .then(res => res.json())
@@ -29,14 +46,6 @@ function Projects(props) {
         setLoadedImage(false)
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
         console.log(projects[previewNum])
-    }
-    function capitalizeTitle(text){
-        let sentence = text.toLowerCase().split(" ");
-        for(let i = 0; i< sentence.length; i++){
-           sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-        }
-     sentence = sentence.join(" ");
-     return sentence;
     }
     return(
         (projects.length === 1) ? <Loading /> :
@@ -60,7 +69,8 @@ function Projects(props) {
                 <div id="box-1" />
                 <div className={`yellow-box yellow-box-${lang}`}>
                     <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{categories[lang][projects[previewNum].category]}</p>
-                    <span className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{capitalizeTitle(projects[previewNum].title[lang])}</span>
+                    <span style={{fontSize: font_size}}
+                    className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{projects[previewNum].title[lang]}</span>
                     <div>
                     <Link className="link" to={{
                         pathname: `/projects/${projects[previewNum]._id}`,

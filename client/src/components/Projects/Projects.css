@@ -306,7 +306,7 @@
     }
 
     .yellow-box span {
-        font-size: 4.3vh;
+        font-size: 4vh !important;
     }
 }
 
