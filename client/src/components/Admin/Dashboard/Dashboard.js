@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Dashboard.css';
 import HomeView from './HomeView/HomeView';
 import ProjectsView from './ProjectsView/ProjectsView';
 import ServicesView from './ServicesView/ServicesView';
 import MessagesView from './MessagesView/MessagesView';
 import TextView from './TextView/TextView';
+import { Link } from 'react-router-dom';
+import useGlobalState from '../../../useGlobalState';
 
 function Dashboard(props){
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api`;
     const admin = props.admin;
     const [page, setPage] = useState('home');
+    const globalState = useGlobalState();
     return (
         <div className="dashboard-body">
             <div className="admin-sidebar">
-                <img alt="logo" className="admin-sidebar-logo"src="/ndg.png" />
+                <Link
+                onClick={() => globalState.setPage({ page: "home" })}
+                to={{
+                    pathname: `/`,
+                }}
+                ><img alt="logo" className="admin-sidebar-logo"src="/ndg.png" /> </Link>
                 <div onClick={() => setPage('home')} className={`sidebar-button ${(page === 'home') ? 'sidebar-button-selected': ''}`}>Home</div>
                 <div onClick={() => setPage('projects')} className={`sidebar-button ${(page === 'projects') ? 'sidebar-button-selected': ''}`}>Projects</div>
                 <div onClick={() => setPage('services')} className={`sidebar-button ${(page === 'services') ? 'sidebar-button-selected': ''}`}>Services</div>

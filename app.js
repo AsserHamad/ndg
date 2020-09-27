@@ -16,7 +16,7 @@ const contactRouter = require('./routes/contact');
 
 var app = express();
 
-mongoose.connect("mongodb://asserhamad:abc123456@ds217799.mlab.com:17799/ndg-website", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(`mongodb+srv://asserhamad:abc123456@ndg-website.mf6gm.mongodb.net/ndg-website?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

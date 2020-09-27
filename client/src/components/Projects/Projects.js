@@ -68,7 +68,7 @@ function Projects(props) {
                 <div id="title-box">
                 <div id="box-1" />
                 <div className={`yellow-box yellow-box-${lang}`}>
-                    <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{categories[lang][projects[previewNum].category]}</p>
+                    <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{subcategories[lang][projects[previewNum].subcategory]}</p>
                     <span style={{fontSize: font_size}}
                     className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{projects[previewNum].title[lang]}</span>
                     <div>

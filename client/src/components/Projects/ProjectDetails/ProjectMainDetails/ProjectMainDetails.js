@@ -34,10 +34,10 @@ function ProjectMainDetails(props){
     return(
         <div className={`main-container main-container-${lang}`}>
             <div className="project-details">
-                    {details}
                     <div className="detail-description">
                         {ReactHtmlParser(project.description[lang]) || ReactHtmlParser(project.description)}
                     </div>
+            {details}
             </div>
             <div className="project-media">
                 <div className="select">

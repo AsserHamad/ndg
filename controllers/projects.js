@@ -3,6 +3,7 @@ const Errors = require('../errors/Errors');
 
 exports.getProjects = (req, res, next) => {
     Project.find({})
+    .sort({'subcategory' : 'ascending'})
     .then(resp => res.json(resp))
     .catch(err => {
         next(new Errors.InternalServerError());

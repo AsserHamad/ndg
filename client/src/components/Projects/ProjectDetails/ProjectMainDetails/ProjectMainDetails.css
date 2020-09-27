@@ -81,6 +81,7 @@
     border-bottom: 3px solid #eee;
     transition-duration: 0.2s;
     cursor: pointer;
+    padding: 6px;
 }
 
 .navbarItem:hover {

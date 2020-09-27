@@ -102,7 +102,7 @@ function ProjectsView(props){
                             <div onClick={() => {setViewingProject(element)}} className="viewed-project-div">
                                 <span className="viewed-project-title">{element.title.en}</span>
                                 <span className="viewed-project-sub-title"><FaMapPin /> {element.location.en}</span>
-                                <p className="viewed-project-subtitle">{categories[element.category]}, {subcategories[element.subcategory]}</p>
+                                <p className="viewed-project-subtitle">{subcategories[element.subcategory]}</p>
                                 <p className="viewed-project-description">{description}</p>
                             </div>
                             <div className="viewed-project-delete-div">
