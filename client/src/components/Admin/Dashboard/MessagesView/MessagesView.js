@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MessagesView.css';
 import swal from 'sweetalert';
 import Loading from '../../../Loading/Loading';
+import ReactHtmlParser from 'react-html-parser';
 
 function MessagesView(props){
     const
@@ -26,7 +27,7 @@ function MessagesView(props){
                         From: {msg.name} &lt;{msg.email}&gt;
                     </div>
                     <div>
-                        Message: {msg.message}
+                        {ReactHtmlParser(msg.message)}
                     </div>
                 </div>
                 )}

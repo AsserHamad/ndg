@@ -20,28 +20,62 @@ function useWindowSize() {
     return size;
   }
 
+function changeDescription(descr) {
+    descr = descr.replace(/<\/?[^>]+(>|$)/g, "");
+    if (descr.length > 60) {
+        descr = descr.substr(0, 300) + '...';
+    }
+    return descr;
+}
+
 function Projects(props) {
     const categories = dp.categories, subcategories = dp.subcategories;
     const globalState = useGlobalState(),
           projectsText = props.text,
           width = useWindowSize(),
-          font_size = `${width / 40}px`,
+          font_size = width / 40,
+          [allProjects, setAllProjects] = useState([{
+            category: 0,
+            subcategory: 0,
+            description: {en: '', ar: ''},
+            title: {en:'', ar:''},
+            isLoaded: false
+            }]),
           [projects, setProjects] = useState([{
               category: 0,
+              subcategory: 0,
+              description: {en: '', ar: ''},
               title: {en:'', ar:''},
               isLoaded: false
           }]),
           [previewNum, setPreviewNum] = useState(0),
+          [selectedCategory, setSelectedCategory] = useState(0),
           [loadedImage, setLoadedImage] = useState(false),
+          [title, setTitle] = useState({}),
           lang = globalState.lang.lang;
     useEffect(() => {
-        console.log(window.screenX)
         globalState.setPage('page');
         const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`
         fetch(api)
           .then(res => res.json())
-          .then(res => setProjects(res));
-    }, [])
+          .then(res => {
+              setAllProjects(res);
+              setProjects(res.filter(project => project.subcategory == selectedCategory));
+          });
+    }, []);
+    useEffect(() => {
+        let description = changeDescription(projects[previewNum].description[lang]);
+        let _title = projects[previewNum].title[lang].split(" ");
+        let half = _title.length / 2;
+        _title = {firstHalf: _title.slice(0, half).join(" "), secondHalf: _title.slice(half, _title.length).join(" "), description};
+        setTitle(_title);
+    }, [projects, previewNum])
+    useEffect(() => {
+        setLoadedImage(false);
+        setProjects(
+            allProjects.filter(project => project.subcategory == selectedCategory)
+        )
+    }, [selectedCategory])
     function changePreviewNum(num) {
         setLoadedImage(false)
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
@@ -50,18 +84,18 @@ function Projects(props) {
     return(
         (projects.length === 1) ? <Loading /> :
     <div>
-        <div className={`ndg-info ndg-info-${lang}`}>
-            <div id="ndg-info-text">
-                {projectsText.projectDescription}
-            </div>
-            <Link id="ndg-info-button" className="link" to={{pathname: "/projects/explore", projects}}>
-                <button>
-                    <div id="ndg-info-button-text">
-                        {projectsText.viewProjectsButton}
+        <div className="projects-categories">
+            {Object.keys(dp.subcategories[lang]).map(sub => {
+                let subcategory = dp.subcategories[lang][sub]
+                return(
+                    <div 
+                        className={`project-categories-element ${selectedCategory == sub ? 'project-categories-element-selected' : ''}`}
+                        key={subcategory}
+                        onClick={() => setSelectedCategory(sub)}>
+                            {subcategory}
                     </div>
-                    { (lang === 'en') ? <FaLongArrowAltRight /> : <FaLongArrowAltLeft /> }
-                </button>
-            </Link>
+                )
+            })}
         </div>
         <div className={`projects-container projects-container-${lang}`}>
             <div id="project-title">
@@ -69,27 +103,31 @@ function Projects(props) {
                 <div id="box-1" />
                 <div className={`yellow-box yellow-box-${lang}`}>
                     <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{subcategories[lang][projects[previewNum].subcategory]}</p>
-                    <span style={{fontSize: font_size}}
-                    className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{projects[previewNum].title[lang]}</span>
+                    <span style={{fontSize: `${font_size}px`}}
+                    className={loadedImage ? `yellow-box-animation-loaded title-first-half`:`yellow-box-animation-loading`}>{title.firstHalf}</span>
+                    <span style={{fontSize: `${font_size / 1.3}px`}}
+                    className={loadedImage ? `yellow-box-animation-loaded title-second-half`:`yellow-box-animation-loading`}>{title.secondHalf}</span>
+                    <span style={{fontSize: `${font_size / 3.3}px`}}
+                    className={loadedImage ? `yellow-box-animation-loaded title-description`:`yellow-box-animation-loading`}>{title.description}</span>
                     <div>
-                    <Link className="link" to={{
-                        pathname: `/projects/${projects[previewNum]._id}`,
-                        projectBlock:{
-                            project: projects[previewNum],
-                            category: categories[lang][projects[previewNum].category],
-                            subcategory: subcategories[lang][projects[previewNum].subcategory]
-                        }
-                    }}>
-                        <p>
-                        {projectsText.viewProjectLink} { (lang === 'en') ? <FaLongArrowAltRight /> : <FaLongArrowAltLeft /> }
-                        </p>
-                    </Link>
+                        <Link className="link" to={{
+                            pathname: `/projects/${projects[previewNum]._id}`,
+                            projectBlock:{
+                                project: projects[previewNum],
+                                category: categories[lang][projects[previewNum].category],
+                                subcategory: subcategories[lang][projects[previewNum].subcategory]
+                            }
+                        }}>
+                            <p>
+                            {projectsText.viewProjectLink} { (lang === 'en') ? <FaLongArrowAltRight /> : <FaLongArrowAltLeft /> }
+                            </p>
+                        </Link>
                     </div>
                 </div>
                 <div id="box-2" />
+                </div>
             </div>
-            </div>
-            {/* <div className={`project-image project-image-${lang}`} style={{backgroundImage: `url()`}} /> */}
+            <div className="view-projects-button">View All Projects</div>
             <div className={`project-image project-image-${lang}`}>
                 {!loadedImage ? <Loading /> : null}
                 <img
@@ -98,16 +136,6 @@ function Projects(props) {
                     src={projects[previewNum].preview} />
             </div>
         </div>
-            <Link to={{pathname: "/projects/explore", projects}}>
-                <button className={`explore-button explore-button-${lang}`}>
-                    <div id="ndg-info-button-text">
-                        {projectsText.startExploring}
-                    </div>
-                    <div id="ndg-info-button-arrow">
-                    { (lang === 'en') ? <FaLongArrowAltRight /> : <FaLongArrowAltLeft /> }
-                    </div>
-                </button>
-            </Link>
             <div className={`previewNavigatingDiv previewNavigatingDiv-${lang}`}>
                 <button onClick={() => changePreviewNum(-1)} className="previewNavigatingButtons">&lt; {projectsText.back}</button>
                 <button onClick={() => changePreviewNum(1)} className="previewNavigatingButtons">{projectsText.next} &gt;</button>

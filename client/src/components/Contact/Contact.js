@@ -5,19 +5,23 @@ import WrappedMap from './MyMapComponent/MyMapComponent';
 import { useForm } from 'react-hook-form'
 import swal from 'sweetalert';
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 function Contact(props){
     const globalState = useGlobalState(),
             lang = globalState.lang.lang,
-            contactText = props.text;
+            contactText = props.text,
+            [message, setMessage] = useState('');
 
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}`;
     const { register, handleSubmit, watch, errors } = useForm()
     const onSubmit = body => {
+      body.message = message;
       fetch(`${api}/api/contact`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body),
-
       })
       .then(res => res.json())
       .then(res => {
@@ -75,7 +79,9 @@ function Contact(props){
                       <option value="1">{contactText.support}</option>
                       <option value="2">{contactText.otherQuestions}</option>
                     </select></div>
-                    <div><textarea required placeholder={contactText.message} name="message" ref={register} /></div>
+                    {/* <div><textarea required placeholder={contactText.message} name="message" ref={register} /></div> */}
+                    <div><ReactQuill theme="snow" name="description_en" value={message}
+                    onChange={(e) => setMessage(e)} /></div>
                     <div><button className={`submitButton`}type="submit" >{contactText.send}</button></div>
                     {/* include validation with required or other standard HTML validation rules */}
                     {/* <input name="exampleRequired" ref={register({ required: true })} /> */}
