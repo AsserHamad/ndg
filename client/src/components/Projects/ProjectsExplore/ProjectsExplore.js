@@ -6,14 +6,15 @@ import dp from "../dummyProjects";
 import Loading from "../../Loading/Loading";
 
 function ProjectsExplore(props) {
-    const filter = props.text.filter;
+    const filter = props.text.filter,
+            defaultCategory = props.location.category;
     const [projects, setProjects] = useState([]),
           [viewedProjects, setViewedProjects] = useState([]),
-          [selectedCategory, setSelectedCategory] = useState(-1),
+          [selectedCategory, setSelectedCategory] = useState(!isNaN(defaultCategory) ? defaultCategory : -1),
           globalState = useGlobalState();
     useEffect(() => {
-        setViewedProjects(projects.filter(project => (project.subcategory == selectedCategory || selectedCategory == -1) ? project : false))
-    }, [selectedCategory])
+        setViewedProjects(projects.filter(project => (project.subcategory == selectedCategory || selectedCategory === -1) ? project : false))
+    }, [selectedCategory, projects])
     useEffect(() => {
         if(props.location.projects){
             setProjects(props.location.projects);

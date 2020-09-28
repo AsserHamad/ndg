@@ -113,11 +113,18 @@
         height: 40px;
         padding: 0px;
         margin: 0px;
-        font-size: 15px;
+        font-size: 1.8vh;
     }
 
     .explore-filter-numbers {
         display: none;
+    }
+
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    .explore-filter-categories {
+        font-size: 2vw;
     }
 
 }

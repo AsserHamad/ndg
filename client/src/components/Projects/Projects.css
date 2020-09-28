@@ -277,6 +277,12 @@
     padding: 1vh 3vh;
     background-color: #FABF27;
     cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.view-projects-button a:hover {
+    text-decoration: none;
+    color: white;
 }
 
 .previewNavigatingDiv {
@@ -319,18 +325,17 @@
 
 }
 
-@media (max-width: 1024px){
-}
-
 @media (max-width: 1024px) {
 
     .projects-categories {
         width: 100%;
         top: 50px;
     }
+
     #project-title {
         width: 0;
     }
+
     .project-image {
         width: 100%;
     }
@@ -341,6 +346,7 @@
         width: 50%;
         height: 45%;
     }
+
     .yellow-box-ar {
         left: auto;
         right: 0;
@@ -358,6 +364,11 @@
         font-size: 8px !important;
     }
 
+    .view-projects-button {
+        left: 10vw;
+        bottom: 20vh;
+    }
+
     .previewNavigatingDiv {
         width: 40%;
         height: 10%;
@@ -373,7 +384,13 @@
     }
     .previewNavigatingDiv {
         width: 40%;
-        height: 15%;
+        height: 15vh;
+    }
+
+    .view-projects-button {
+        left: 16vw;
+        bottom: 16vh;
+        font-size: 1.5vw;
     }
 
 }

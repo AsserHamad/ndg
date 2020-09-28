@@ -127,7 +127,10 @@ function Projects(props) {
                 <div id="box-2" />
                 </div>
             </div>
-            <div className="view-projects-button">View All Projects</div>
+            <div className="view-projects-button"><Link to={{
+                pathname: `/projects/explore`,
+                category: selectedCategory
+            }} > View All Projects</Link></div>
             <div className={`project-image project-image-${lang}`}>
                 {!loadedImage ? <Loading /> : null}
                 <img
