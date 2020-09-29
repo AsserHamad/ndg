@@ -1,41 +1,358 @@
-#videoDiv {
-  position: absolute;
-}
-
-video {
-    width: 100%;
-    min-height: 100%;
-    float: left;
-    /* margin-left: 7%; */
-}
-
-.videoDiv video {
-  opacity: 0.5;
-}
+/* Animations */
 
 @keyframes homepage-img-entry {
   0% {
     opacity: 0;
   }
   100% {
-    opacity: 0.7;
+    opacity: 0.5;
   }
 }
+
+@keyframes reverse-homepage-img-entry {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes homepage-circle-entry {
+  0% {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+  }
+  100% {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 0%;
+  }
+}
+
+@keyframes reverse-homepage-circle-entry {
+  0% {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 0%;
+  }
+  100% {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: -2500;
+  }
+}
+
+@keyframes homepage-text-entry {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reverse-homepage-text-entry {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes home-previous-hr-animation {
+  0% {width: 0}
+  100% {width: 20vw}
+}
+
+/* Container */
+
+.homepage-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* SVG Circle Strokes and Stuff */
+
+.circle-svg, .reverse-circle-svg, .circle-svg circle, .reverse-circle-svg circle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  z-index: 2;
+}
+.circle-svg circle {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 70;
+  transition: 1.5s;
+  animation: homepage-circle-entry 4s forwards;
+}
+.reverse-circle-svg circle {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 70;
+  transition: 1.5s;
+  animation: reverse-homepage-circle-entry 4s forwards;
+
+}
+
+/* Home */
 
 .homepage-img {
   position: absolute;
+  z-index: 1;
   width: 100%;
-  opacity: 0.5;
   height: 100%;
   object-fit: cover;
   overflow: hidden;
-  animation: homepage-img-entry 2s forwards;
+  animation: homepage-img-entry 3s forwards;
+}
+.reverse-homepage-img {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  opacity: 0.5;
+  animation: reverse-homepage-img-entry 1.4s forwards;
 }
 
-@media (max-width: 768px) {
-  video {
-      width: 100%;
-      float: left;
+/* Previous */
+
+.home-previous {
+  z-index: 2;
+  position: absolute;
+  top: 53%;
+  left: 6vw;
+  font-size: 13px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.reverse-home-previous {
+  z-index: 2;
+  position: absolute;
+  top: 53%;
+  left: 6vw;
+  font-size: 13px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  animation: reverse-homepage-text-entry 1s forwards;
+}
+.home-previous-hr {
+  /* transform: rotateZ(180deg); */
+  width: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 10px;
+  animation: home-previous-hr-animation 1s forwards;
+  animation-delay: 2s;
+}
+.home-previous-text {
+  opacity: 0;
+  animation: homepage-text-entry 1s forwards;
+  animation-delay: 3s;
+  border-radius: 400px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.home-previous-text:hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.507);
+}
+
+/* Next */
+
+.home-next {
+  z-index: 2;
+  position: absolute;
+  top: 53%;
+  left: 69vw;
+  font-size: 13px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.reverse-home-next {
+  z-index: 2;
+  position: absolute;
+  top: 53%;
+  left: 69vw;
+  font-size: 13px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  animation: reverse-homepage-text-entry 1s forwards;
+}
+.home-next-hr {
+  /* transform: rotateZ(180deg); */
+  width: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 20px;
+  animation: home-previous-hr-animation 1s forwards;
+  animation-delay: 2s;
+}
+.home-next-text {
+  opacity: 0;
+  animation: homepage-text-entry 1s forwards;
+  animation-delay: 3s;
+  border-radius: 400px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.home-next-text:hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.507);
+}
+
+/* Circle and content */
+
+.home-circle {
+  z-index: 2;
+  margin-top: 80px;
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 5.3vh;
+  animation-delay: 1s;
+}
+.home-title-first-half {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vw;
+  animation: homepage-text-entry 1.3s forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+.reverse-home-title-first-half {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vw;
+  animation: reverse-homepage-text-entry 1s forwards;
+  opacity: 1;
+}
+.home-title-second-half {
+  text-transform: uppercase;
+  font-size: 1.7vw;
+  animation: homepage-text-entry 1.3s forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+.reverse-home-title-second-half {
+  text-transform: uppercase;
+  font-size: 1.7vw;
+  animation: reverse-homepage-text-entry 1.3s forwards;
+  animation-delay: 0.2s;
+  opacity: 1;
+}
+.home-description {
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: 11px;
+  line-height: 100%;
+  width: 21vw;
+  line-height: 15px;
+  animation: homepage-text-entry 1.3s forwards;
+  animation-delay: 3.5s;
+  opacity: 0;
+}
+.reverse-home-description {
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: 11px;
+  line-height: 100%;
+  width: 21vw;
+  line-height: 15px;
+  animation: reverse-homepage-text-entry 1s forwards;
+  animation-delay: 0.5s;
+  opacity: 1;
+}
+
+.home-discover {
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.home-discover:hover {
+  color: #a6a6b4;
+  text-decoration: none;
+}
+
+/* Media Queries */
+
+@media (max-width: 1024px) {
+  /* TODO: Change this ASAP */
+  .homepage-container {
+    margin-top: -50px;
   }
+  .circle-svg circle {
+    stroke-width: 50;
+
+  }
+  .home-circle {
+    width: 300px;
+    height: 300px;
+    top: 19%;
+    line-height: 20px;
+  }
+  .home-title-first-half {
+    font-size: 3.5vh;
+  }
+  .home-title-second-half {
+    font-size: 2vh;
+  }
+  .home-description {
+    line-height: 10px;
+    font-size: 1.5vh;
+    width: 25vh;
+  }
+  .home-previous-hr {display: none;}
+  .home-next-hr {display: none;}
 }
 

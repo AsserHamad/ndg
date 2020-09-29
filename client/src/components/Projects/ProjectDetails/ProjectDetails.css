@@ -1,3 +1,12 @@
+@keyframes project-image-entrance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .project-details-container {
     display: flex;
     flex-direction: column;
@@ -23,6 +32,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    animation: project-image-entrance 1.5s forwards;
 }
 
 .project-title {
@@ -40,7 +51,9 @@
     height: 100%;
     /* letter-spacing: 0.4vh; */
     word-spacing: 2vh;
-    animation: project-title-entrance 1s forwards;
+    opacity: 0;
+    animation: project-title-entrance 0.7s forwards;
+    animation-delay: 1s;
 }
 
 @keyframes project-title-entrance {
@@ -88,14 +101,14 @@
 .downArrow {
     position: fixed;
     bottom: 1%;
-    left: 50%;
+    left: 49%;
     animation: 1s bounce infinite;
     font-size: 2em;
 }
 
 @keyframes bounce {
     0% {transform: translateY(0px)}
-    50% {transform: translateY(-5px)}
+    50% {transform: translateY(-8px)}
     100% {transform: translateY(0px)}
 }
 

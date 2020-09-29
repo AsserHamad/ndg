@@ -18,6 +18,7 @@ exports.getProject = (req, res, next) => {
 
 exports.getExampleProjects = (req, res, next) => {
     Project.find({})
+    .sort({'subcategory' : 'ascending'})
     .limit(3)
     .then(resp => res.json(resp))
     .catch(err => {
