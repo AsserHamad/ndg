@@ -38,7 +38,7 @@ function Homepage() {
     setTimeout(() => {
       setCurrentProject(currentProject === 0 && next === -1 ? 2 : (currentProject + next) % 3);
       setChangingProject('');
-    }, 1400);
+    }, 1500);
   }
 
   return (
