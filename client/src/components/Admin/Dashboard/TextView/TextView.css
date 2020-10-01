@@ -5,7 +5,7 @@
 
 .textedit-text-container {
     display: flex;
-    width: 70%;
+    width: 100%;
     margin: 20px 0;
 }
 
@@ -36,13 +36,14 @@
 }
 
 .textedit-key {
-    width: 30%;
+    width: 20%;
 }
 
 .textedit-input {
-    padding: 5px;
+    padding-bottom: 40px;
     border-radius: 5px;
-    width: 70%;
+    width: 80%;
+    height: 50vh;
     background-color: #0A1121;
     color: white;
 }

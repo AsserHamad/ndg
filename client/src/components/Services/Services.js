@@ -32,7 +32,7 @@ function Services(props){
                 {services.map((element) => 
                     <div key={element._id} className="service-div">
                         <p className={`service-title service-title-${lang}`}>{element.title[lang]}</p>
-                        <img alt="services pic" src={element.image} />
+                        <img className="service-img" alt="services pic" src={element.image} />
                         <ul className={`list list-${lang}`}>
                         {element.items[lang].map((item) =>
                             <li key={`item${Math.random()}`}>{item}</li>

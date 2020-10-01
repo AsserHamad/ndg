@@ -51,9 +51,6 @@
     height: 100%;
     /* letter-spacing: 0.4vh; */
     word-spacing: 2vh;
-    opacity: 0;
-    animation: project-title-entrance 0.7s forwards;
-    animation-delay: 1s;
 }
 
 @keyframes project-title-entrance {
@@ -75,13 +72,22 @@
         opacity: 1;
     }
 }
+.project-title-header {
+    animation: project-title-entrance 0.7s forwards;
+    animation-delay: 1s;
+    opacity: 0;
+
+}
 
 .project-subtitle {
     border-top: 3px solid #F9BF26;
     font-weight: 400;
     font-size: 0.4em;
     word-spacing: 0.5vh;
+    opacity: 0;
     padding: 1%;
+    animation: project-title-entrance 0.7s forwards;
+    animation-delay: 2s;
 }
 
 .title-ar {
@@ -113,6 +119,9 @@
 }
 
 @media (max-width: 1024px){
+    .project-details-container {
+        
+    }
     .background-video {
         width: 100%;
     }

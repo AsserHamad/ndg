@@ -3,6 +3,9 @@ import './TextView.css';
 import swal from 'sweetalert';
 import Loading from '../../../Loading/Loading';
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 function TextView(props) {
     const admin = props.admin,
             api = props.api,
@@ -41,8 +44,8 @@ function TextView(props) {
     
     const handleChange = (key, value, lang) => {
         (lang === 'en') ?
-        setEnglishInnerText({...englishInnerText, [key]: value.target.value})
-        : setArabicInnerText({...arabicInnerText, [key]: value.target.value})
+        setEnglishInnerText({...englishInnerText, [key]: value})
+        : setArabicInnerText({...arabicInnerText, [key]: value})
     }
 
     const handleSubmit = (() => {
@@ -83,7 +86,7 @@ function TextView(props) {
                 return (
                     <div key={key} className="textedit-text-container">
                         <span className="textedit-key">{key}</span>
-                        <textarea className="textedit-input" value={englishInnerText[key]} onChange={(value) => {handleChange(key, value, 'en')}} />
+                        <ReactQuill theme="snow" className="textedit-input" value={englishInnerText[key]} onChange={(value) => {handleChange(key, value, 'en')}} />
                     </div>
                 )
             })

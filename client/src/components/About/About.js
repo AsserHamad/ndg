@@ -57,25 +57,25 @@ function About(props){
                       {aboutText.corporateOverview}
                     </div>
                     <div className={`div22`}>
-                      {aboutText.corporateOverviewText}
+                      {ReactHtmlParser(aboutText.corporateOverviewText)}
                     </div>
                   </div>
                   <div>
                     <div className={`countup-div`}>
                       <div style={{marginRight: '5vw'}}>
-                        <CountUp className={`countups`} end={260} duration={15} />
+                        <CountUp className={`countups`} end={260} duration={10} />
                         <div>
                           <p className={`bua`}>{aboutText.bua}</p>
                         </div>
                       </div>
                       <div style={{marginRight: '5vw'}}>
-                        <CountUp className={`countups`} end={90} duration={15} />
+                        <CountUp className={`countups`} end={90} duration={10} />
                         <div>
                           <p className={`bua`}>{aboutText.projects}</p>
                         </div>
                       </div>
                       <div style={{marginRight: '5vw'}}>
-                        <CountUp className={`countups`} end={18} duration={15} />
+                        <CountUp className={`countups`} end={18} duration={10} />
                         <div>
                           <p className={`bua`}>{aboutText.years}</p>
                         </div>
@@ -101,7 +101,7 @@ function About(props){
                     {aboutText.motivation}
                     </div>
                     <div className={`div22`}>
-                    {aboutText.motivationText}
+                    {ReactHtmlParser(aboutText.motivationText)}
                     </div>
                   </div>
                 </div>

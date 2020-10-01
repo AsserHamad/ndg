@@ -27,6 +27,8 @@
 
 .service-div img{
     width: 100%;
+    height: 50vh;
+    object-fit: cover;
 }
 
 .service-title {
@@ -53,7 +55,7 @@
     right: 0;
     width: 35%;
     height: 100%;
-    background-image: url(/images/what-we-do.png);
+    background-image: url(https://res.cloudinary.com/duiexwi8t/image/upload/v1601570554/NDG%20Projects/Sample%20Images/what-we-do_zwqwnu.png);
     background-size: cover;
     z-index: 10;
 }

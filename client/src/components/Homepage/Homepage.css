@@ -330,9 +330,6 @@
 
 @media (max-width: 1024px) {
   /* TODO: Change this ASAP */
-  .homepage-container {
-    margin-top: -50px;
-  }
   .circle-svg circle {
     stroke-width: 50;
 
@@ -340,7 +337,7 @@
   .home-circle {
     width: 300px;
     height: 300px;
-    top: 19%;
+    top: 25vh;
     line-height: 20px;
   }
   .home-title-first-half {
@@ -350,11 +347,37 @@
     font-size: 2vh;
   }
   .home-description {
+    display: none;
     line-height: 10px;
     font-size: 1.5vh;
-    width: 25vh;
+    width: 50vw;
   }
   .home-previous-hr {display: none;}
   .home-next-hr {display: none;}
+  .home-previous {
+    display: none;
+  }
+  .home-next {
+    display: none;
+  }
 }
 
+@media (max-width: 1024px) and (orientation: landscape) {
+  .home-circle {
+    top: 3vh;
+  }
+  .home-title-first-half {
+    font-size: 1.5em;
+  }
+  .home-title-second-half {
+    font-size: 0.8em;
+  }
+  .home-description {
+    line-height: 100%;
+    font-size: 0.6em;
+    width: 25vw;
+  }
+  .home-discover {
+    font-size: 0.7em;
+  }
+}

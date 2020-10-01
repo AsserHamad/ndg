@@ -42,7 +42,7 @@ function ProjectDetails(props){
             <div className="project-header">
                 <div className={`project-title title-${lang}`}>
                     <div>
-                        <p>{project.title[lang]}</p>
+                        <p className={`project-title-header`}>{project.title[lang]}</p>
                         <div className={`project-subtitle subtitle-${lang}`}>
                             <p>{project.location[lang]} - {project.owner[lang]}</p>
                         </div>

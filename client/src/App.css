@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
 
 @media(max-width: 1024px) {
   .app-container {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     margin-left: 0;
   }
 }
