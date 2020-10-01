@@ -32,6 +32,7 @@ function Projects(props) {
     const categories = dp.categories, subcategories = dp.subcategories;
     const globalState = useGlobalState(),
           projectsText = props.text,
+          api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`,
           width = useWindowSize(),
           font_size = width / 40,
           [allProjects, setAllProjects] = useState([{
@@ -55,7 +56,6 @@ function Projects(props) {
           lang = globalState.lang.lang;
     useEffect(() => {
         globalState.setPage('page');
-        const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`
         fetch(api)
           .then(res => res.json())
           .then(res => {
@@ -64,39 +64,49 @@ function Projects(props) {
           });
     }, []);
     useEffect(() => {
+        setLoadedImage(false);
         let description = changeDescription(projects[previewNum].description[lang]);
         let _title = projects[previewNum].title[lang].split(" ");
-        let half = _title.length / 2;
+        let half = Math.ceil(_title.length / 2);
         _title = {firstHalf: _title.slice(0, half).join(" "), secondHalf: _title.slice(half, _title.length).join(" "), description};
         setTitle(_title);
     }, [projects, previewNum])
     useEffect(() => {
+        setPreviewNum(0);
         setLoadedImage(false);
         setProjects(
             allProjects.filter(project => project.subcategory == selectedCategory)
         )
     }, [selectedCategory])
-    function changePreviewNum(num) {
+    
+    // Functions
+    const changePreviewNum = (num) => {
         setLoadedImage(false)
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
         console.log(projects[previewNum])
+    }
+    const generateCategories = () => {
+        return Object.keys(dp.subcategories[lang]).map(sub => {
+            let subcategory = dp.subcategories[lang][sub]
+            return(
+                <div 
+                    className={`project-categories-element ${selectedCategory == sub ? 'project-categories-element-selected' : ''}`}
+                    key={subcategory}
+                    onClick={() => setSelectedCategory(sub)}>
+                        {subcategory}
+                </div>
+            )
+        })
     }
     return(
         (projects.length === 1) ? <Loading /> :
     <div>
         <div className="projects-categories">
-            {Object.keys(dp.subcategories[lang]).map(sub => {
-                let subcategory = dp.subcategories[lang][sub]
-                return(
-                    <div 
-                        className={`project-categories-element ${selectedCategory == sub ? 'project-categories-element-selected' : ''}`}
-                        key={subcategory}
-                        onClick={() => setSelectedCategory(sub)}>
-                            {subcategory}
-                    </div>
-                )
-            })}
+            {generateCategories()}
         </div>
+        <svg className="svg-container">
+            <rect className={`svg-rectangle ${loadedImage ? 'svg-rectangle-loaded' : 'svg-rectangle-loading'}`}/>
+        </svg>
         <div className={`projects-container projects-container-${lang}`}>
             <div id="project-title">
                 <div id="title-box">

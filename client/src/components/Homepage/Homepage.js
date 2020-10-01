@@ -80,7 +80,7 @@ function Homepage() {
 
 function changeTitle(title) {
   title = title.split(" ");
-  let half = title.length / 2;
+  let half = Math.ceil(title.length / 2);
   return {firstHalf: title.slice(0, half).join(" "), secondHalf: title.slice(half, title.length).join(" ")};
 }
 

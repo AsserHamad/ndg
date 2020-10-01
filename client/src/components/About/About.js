@@ -5,6 +5,8 @@ import { FaPlay } from 'react-icons/fa';
 import CountUp from 'react-countup';
 import Loading from '../Loading/Loading';
 
+import ReactHtmlParser from 'react-html-parser';
+
 function About(props){
     const globalState = useGlobalState(),
             aboutText = props.text,
@@ -32,7 +34,7 @@ function About(props){
                 <p className={`abtus abtus-${lang}`}>{aboutText.aboutUs}</p>
                 <div className={`todo-brownies todo-brownies-${lang}`}>
                     <p>
-                        {aboutText.corporateOverview}
+                        {ReactHtmlParser(aboutText.corporateOverview)}
                     </p>
                 </div>
             </div>
