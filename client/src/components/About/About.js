@@ -31,60 +31,65 @@ function About(props){
 
 
             <div className={`about-us-container about-us-container-${lang}`}>
-                <p className={`abtus abtus-${lang}`}>{aboutText.aboutUs}</p>
-                <div className={`todo-brownies todo-brownies-${lang}`}>
-                    <p>
-                        {ReactHtmlParser(aboutText.corporateOverview)}
-                    </p>
-                </div>
+              <div className="about-white-foreground-2" />
+              <p className={`abtus abtus-${lang}`}>
+                {aboutText.aboutUs}
+              </p>
+              <div className={`todo-brownies todo-brownies-${lang}`}>
+                <p>
+                    {ReactHtmlParser(aboutText.corporateOverview)}
+                </p>
+              </div>
             </div>
             <div className={`main-about-container main-about-container-${lang}`}>
-                <p className={`titleText`}>{aboutText.aboutUs}</p>
-                <div className={`about-div`}>
-                  <div>
-                    <img alt="About Page" src={`http://www.naturedesigngroup.com/web_test/public/Uploads/aboutus/image/en/1(1)1555170414.jpg`} />
-                    <button className={`button button-${lang}`} onClick={
-                                    (() => {
-                                        setModal({display: 'flex'})
-                                    }
-                                    )}>
-                      <div className={`button-about-us`}>{aboutText.aboutUs}</div>
-                      <div className={`button-play`}><FaPlay /></div>
-                    </button>
-                  </div>
-                  <div className={`corporate-overview`}>
-                    <div className={`div11`}>
-                      {aboutText.corporateOverview}
-                    </div>
-                    <div className={`div22`}>
-                      {ReactHtmlParser(aboutText.corporateOverviewText)}
-                    </div>
-                  </div>
-                  <div>
-                    <div className={`countup-div`}>
-                      <div style={{marginRight: '5vw'}}>
-                        <CountUp className={`countups`} end={260} duration={10} />
-                        <div>
-                          <p className={`bua`}>{aboutText.bua}</p>
+              <div className="about-white-foreground" />
+              <div className="about-content-container">
+                    <p className={`titleText`}>{aboutText.aboutUs}</p>
+                    <div className={`about-div`}>
+                      <div>
+                        <img alt="About Page" src={`http://www.naturedesigngroup.com/web_test/public/Uploads/aboutus/image/en/1(1)1555170414.jpg`} />
+                        <button className={`button button-${lang}`} onClick={
+                                        (() => {
+                                            setModal({display: 'flex'})
+                                        }
+                                        )}>
+                          <div className={`button-about-us`}>{aboutText.aboutUs}</div>
+                          <div className={`button-play`}><FaPlay /></div>
+                        </button>
+                      </div>
+                      <div className={`corporate-overview`}>
+                        <div className={`div11`}>
+                          {aboutText.corporateOverview}
+                        </div>
+                        <div className={`div22`}>
+                          {ReactHtmlParser(aboutText.corporateOverviewText)}
                         </div>
                       </div>
-                      <div style={{marginRight: '5vw'}}>
-                        <CountUp className={`countups`} end={90} duration={10} />
-                        <div>
-                          <p className={`bua`}>{aboutText.projects}</p>
-                        </div>
-                      </div>
-                      <div style={{marginRight: '5vw'}}>
-                        <CountUp className={`countups`} end={18} duration={10} />
-                        <div>
-                          <p className={`bua`}>{aboutText.years}</p>
+                      <div>
+                        <div className={`countup-div`}>
+                          <div style={{marginRight: '5vw'}}>
+                            <CountUp className={`countups`} end={260} duration={10} />
+                            <div>
+                              <p className={`bua`}>{aboutText.bua}</p>
+                            </div>
+                          </div>
+                          <div style={{marginRight: '5vw'}}>
+                            <CountUp className={`countups`} end={90} duration={10} />
+                            <div>
+                              <p className={`bua`}>{aboutText.projects}</p>
+                            </div>
+                          </div>
+                          <div style={{marginRight: '5vw'}}>
+                            <CountUp className={`countups`} end={18} duration={10} />
+                            <div>
+                              <p className={`bua`}>{aboutText.years}</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <p className={`titleText`} style={{marginTop: '10vh'}}>{aboutText.motivation}</p>
-                <div className={`about-div`}>
+                    <p className={`titleText`} style={{marginTop: '10vh'}}>{aboutText.motivation}</p>
+                    <div className={`about-div`}>
                   <div>
                     <img alt="About Page" src={`http://www.naturedesigngroup.com/web_test/public/Uploads/aboutus/image/en/1(1)1555170414.jpg`} />
                     <button className={`button button-${lang}`} onClick={
@@ -105,6 +110,7 @@ function About(props){
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
         </div>
     )

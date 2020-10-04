@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './HomeView.css';
-import { FaPlusCircle, FaEdit } from 'react-icons/fa';
+import { FaPlusCircle } from 'react-icons/fa';
 import AddAdmin from './AddAdmin/AddAdmin';
 
 function HomeView(props) {

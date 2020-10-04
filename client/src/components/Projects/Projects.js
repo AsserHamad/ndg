@@ -60,9 +60,9 @@ function Projects(props) {
           .then(res => res.json())
           .then(res => {
               setAllProjects(res);
-              setProjects(res.filter(project => project.subcategory == selectedCategory));
+              setProjects(res.filter(project => Number(project.subcategory) === Number(selectedCategory)));
           });
-    }, []);
+    }, [api, selectedCategory]);
     useEffect(() => {
         setLoadedImage(false);
         let description = changeDescription(projects[previewNum].description[lang]);
@@ -70,14 +70,14 @@ function Projects(props) {
         let half = Math.ceil(_title.length / 2);
         _title = {firstHalf: _title.slice(0, half).join(" "), secondHalf: _title.slice(half, _title.length).join(" "), description};
         setTitle(_title);
-    }, [projects, previewNum])
+    }, [projects, previewNum, lang])
     useEffect(() => {
         setPreviewNum(0);
         setLoadedImage(false);
         setProjects(
-            allProjects.filter(project => project.subcategory == selectedCategory)
+            allProjects.filter(project => Number(project.subcategory) === Number(selectedCategory))
         )
-    }, [selectedCategory])
+    }, [selectedCategory, allProjects])
     
     // Functions
     const changePreviewNum = (num) => {
@@ -90,7 +90,7 @@ function Projects(props) {
             let subcategory = dp.subcategories[lang][sub]
             return(
                 <div 
-                    className={`project-categories-element ${selectedCategory == sub ? 'project-categories-element-selected' : ''}`}
+                    className={`project-categories-element ${selectedCategory === sub ? 'project-categories-element-selected' : ''}`}
                     key={subcategory}
                     onClick={() => setSelectedCategory(sub)}>
                         {subcategory}
@@ -137,7 +137,7 @@ function Projects(props) {
                 <div id="box-2" />
                 </div>
             </div>
-            <Link className="" to={{
+            <Link className="view-projects-link" to={{
                 pathname: `/projects/explore`,
                 category: selectedCategory
             }} > 
@@ -146,6 +146,7 @@ function Projects(props) {
             <div className={`project-image project-image-${lang}`}>
                 {!loadedImage ? <Loading /> : null}
                 <img
+                    alt="proj-img"
                     className={`project-image-img ${!loadedImage ? `project-image-loading` : `project-image-loaded`}`} 
                     onLoad={() => setLoadedImage(true)}
                     src={projects[previewNum].preview} />

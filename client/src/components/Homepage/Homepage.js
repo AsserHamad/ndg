@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import './Homepage.css';
-import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 
 function Homepage() {
@@ -30,7 +29,7 @@ function Homepage() {
         setProjects(result)
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [api]);
   
   // Functions
   const handleNextPreviousClick = next => {
@@ -46,7 +45,7 @@ function Homepage() {
     <svg className={`${changingProject}circle-svg`} >
       <circle r={calculateRadius(width, height)} cx="50%" cy="55%"  />
     </svg> 
-      <img className={`${changingProject}homepage-img`} src={projects[currentProject].preview} />
+      <img className={`${changingProject}homepage-img`} src={projects[currentProject].preview} alt="Homepage" />
       <div className={`${changingProject}home-previous`}>
         <div onClick={() => handleNextPreviousClick(-1)} className={`${changingProject}home-previous-text`}>
           Previous

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './MessagesView.css';
-import swal from 'sweetalert';
 import Loading from '../../../Loading/Loading';
 import ReactHtmlParser from 'react-html-parser';
 
@@ -17,7 +16,7 @@ function MessagesView(props){
         })
         .then(res => res.json())
         .then(res => {setMessages(res);console.log(res)});
-    }, []);
+    }, [api, token]);
 
     return((!messages.length) ? <Loading /> :
         <div className="contact-container">

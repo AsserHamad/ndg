@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProjectsView.css';
-import { FaTrash, FaMapPin, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa';
+import { FaTrash, FaMapPin, FaSearch, FaArrowLeft } from 'react-icons/fa';
 import ProjectAdminDetails from './ProjectAdminDetails/ProjectAdminDetails';
 import swal from 'sweetalert';
 import ProjectAdminCreate from './ProjectAdminCreate/ProjectAdminCreate';
@@ -19,12 +19,12 @@ function ProjectsView(props){
         fetch(`${api}/projects`)
         .then(res => res.json())
         .then(res => {setProjects(res); setViewedProjects(res);});
-    }, []);
-   const categories = [
-       'Urban Design', 
-       'Master Planning', 
-       'Architecture'
-    ];
+    }, [api]);
+//    const categories = [
+//        'Urban Design', 
+//        'Master Planning', 
+//        'Architecture'
+//     ];
    const subcategories = [
        'Urban Design', 
        'Landscape', 
@@ -97,7 +97,7 @@ function ProjectsView(props){
                     return(
                         <div className="viewed-project" key={element._id}>
                             <div onClick={() => {setViewingProject(element)}} className="preview-div">
-                                <img src={element.preview} />
+                                <img alt="Preview" src={element.preview} />
                             </div>
                             <div onClick={() => {setViewingProject(element)}} className="viewed-project-div">
                                 <span className="viewed-project-title">{element.title.en}</span>

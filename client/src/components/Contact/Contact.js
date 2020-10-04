@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 import useGlobalState from "../../useGlobalState";
 import WrappedMap from './MyMapComponent/MyMapComponent';
@@ -15,7 +15,7 @@ function Contact(props){
             [message, setMessage] = useState('');
 
     const api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}`;
-    const { register, handleSubmit, watch, errors } = useForm()
+    const { register, handleSubmit } = useForm()
     const onSubmit = body => {
       body.message = message;
       fetch(`${api}/api/contact`, {
@@ -24,7 +24,7 @@ function Contact(props){
         body: JSON.stringify(body),
       })
       .then(res => res.json())
-      .then(res => {
+      .then(() => {
         swal({
             title: 'Message Sent Successfully',
             icon: "success"

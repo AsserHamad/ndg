@@ -13,7 +13,7 @@ function ProjectsExplore(props) {
           [selectedCategory, setSelectedCategory] = useState(!isNaN(defaultCategory) ? defaultCategory : -1),
           globalState = useGlobalState();
     useEffect(() => {
-        setViewedProjects(projects.filter(project => (project.subcategory == selectedCategory || selectedCategory === -1) ? project : false))
+        setViewedProjects(projects.filter(project => (Number(project.subcategory) === Number(selectedCategory) || selectedCategory === -1) ? project : false))
     }, [selectedCategory, projects])
     useEffect(() => {
         if(props.location.projects){
@@ -25,7 +25,7 @@ function ProjectsExplore(props) {
             .then(res => res.json())
             .then(res => {setProjects(res); setViewedProjects(res)});
         }
-    }, []);
+    }, [props.location.projects]);
     const lang = globalState.lang.lang;
     let categories = dp.categories[lang], subcategories = dp.subcategories[lang];
     useEffect(() => {
@@ -36,7 +36,7 @@ function ProjectsExplore(props) {
         let arrs = [
             `${1 + x} / 1 / ${2 + x} / 2`,
             `${2 + x} / 1 / ${3 + x} / 2`,
-            `${1 + x} / 2 / ${3 + x} / 3 `,
+            `${1 + x} / 2 / ${3 + x} / 3`,
             `${1 + x} / 3 / ${3 + x} / 4`,
             `${1 + x} / 4 / ${2 + x} / 5`,
             `${2 + x} / 4 / ${4 + x} / 5`,
@@ -65,12 +65,12 @@ function ProjectsExplore(props) {
             <div className="explore-filter">
                 <div className="explore-works-filter">{filter}</div>
                 <div className="explore-filter-categories">
-                    <div className={`explore-filter-categories-item ${(selectedCategory == -1) ? `explore-filter-categories-item-highlight` : ``}`} onClick={() => {setSelectedCategory(-1)}}>All Works</div>
+                    <div className={`explore-filter-categories-item ${(Number(selectedCategory) === -1) ? `explore-filter-categories-item-highlight` : ``}`} onClick={() => {setSelectedCategory(-1)}}>All Works</div>
                     {Object.keys(subcategories).map(key => {
                         return(
                             <div 
                                 key={key}
-                                className={`explore-filter-categories-item ${(selectedCategory == key) ? `explore-filter-categories-item-highlight` : ``}`}
+                                className={`explore-filter-categories-item ${(Number(selectedCategory) === key) ? `explore-filter-categories-item-highlight` : ``}`}
                                 onClick={() => {setSelectedCategory(key)}}>
                                     {subcategories[key]}</div>
                         )

@@ -42,10 +42,10 @@ function ProjectMainDetails(props){
             <div className="project-media">
                 <div className="select">
                     <div className="gallery-navbar">
-                        <div onClick={() => setCurrGallery(0)} className={(currGallery==0 ? "navbarItem highlighted-navbar": "navbarItem" )}>
+                        <div onClick={() => setCurrGallery(0)} className={(Number(currGallery) === 0 ? "navbarItem highlighted-navbar": "navbarItem" )}>
                             01. {projectDetails.images}
                         </div>
-                        <div onClick={() => setCurrGallery(1)} className={(currGallery==1 ? "navbarItem highlighted-navbar": "navbarItem" )}>
+                        <div onClick={() => setCurrGallery(1)} className={(Number(currGallery) === 1 ? "navbarItem highlighted-navbar": "navbarItem" )}>
                             02. {projectDetails.videos}
                         </div>
                     </div>

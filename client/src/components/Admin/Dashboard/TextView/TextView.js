@@ -7,8 +7,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function TextView(props) {
-    const admin = props.admin,
-            api = props.api,
+    const   api = props.api,
             token = localStorage.getItem('token'),
             [englishText, setEnglishText] = useState({}),
             [englishInnerText, setEnglishInnerText] = useState({}),
@@ -21,8 +20,8 @@ function TextView(props) {
         .then(res => {
             const [en, ar] = [res.en, res.ar];
             let iTextEn = {};
-            Object.keys(en).map(key => {
-                Object.keys(en[key]).map(innerKey => {
+            Object.keys(en).foreach(key => {
+                Object.keys(en[key]).foreach(innerKey => {
                     iTextEn = {...iTextEn, [innerKey]: en[key][innerKey]}
                 })
             })
@@ -30,8 +29,8 @@ function TextView(props) {
             setEnglishInnerText(iTextEn);
             
             let iTextAr = {};
-            Object.keys(ar).map(key => {
-                Object.keys(ar[key]).map(innerKey => {
+            Object.keys(ar).foreach(key => {
+                Object.keys(ar[key]).foreach(innerKey => {
                     iTextAr = {...iTextAr, [innerKey]: ar[key][innerKey]}
                 })
             })
@@ -40,7 +39,7 @@ function TextView(props) {
             
         })
         .catch(err => console.log(err))
-    }, []);
+    }, [api]);
     
     const handleChange = (key, value, lang) => {
         (lang === 'en') ?

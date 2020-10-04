@@ -12,7 +12,6 @@ function ServiceAdminCreate(props){
         api = props.api,
         refreshServices = props.refreshServices,
         token = localStorage.getItem('token'),
-        service = props.service,
         setViewingService = props.setViewingService,
         initialInputVal = {
             title_en: '',

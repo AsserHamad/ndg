@@ -16,31 +16,34 @@ function Services(props){
         .then(res => setServices(res));
       }, []);
     return(
-        (services.length === 0) ?
-        <Loading />
-        :
-        <div className={`services-container services-container-${lang}`}>
-            <div className={`what-we-do-container what-we-do-container-${lang}`}>
-                <p className={`wwd wwd-${lang}`}>{servicesText.whatWeDo}</p>
-                <div className={`todo-brownies todo-brownies-${lang}`}>
-                    <p>
-                        {servicesText.description}
-                    </p>
-                </div>
-            </div>
-            <div className="main-services-container">
-                {services.map((element) => 
-                    <div key={element._id} className="service-div">
-                        <p className={`service-title service-title-${lang}`}>{element.title[lang]}</p>
-                        <img className="service-img" alt="services pic" src={element.image} />
-                        <ul className={`list list-${lang}`}>
-                        {element.items[lang].map((item) =>
-                            <li key={`item${Math.random()}`}>{item}</li>
-                        )}
-                        </ul>
+        <div>
+            {services.length === 0 && <Loading />}
+            <div className={`services-container services-container-${lang}`}>
+                <div className={`what-we-do-container what-we-do-container-${lang}`}>
+                    <div className="services-white-foreground-2" />
+                        <p className={`wwd wwd-${lang}`}>{servicesText.whatWeDo}</p>
+                        <div className={`todo-brownies todo-brownies-${lang}`}>
+                            <p>
+                                {servicesText.description}
+                            </p>
+                        </div>
                     </div>
-            )}
-                
+                    <div className="main-services-container">
+                        <div className="services-white-foreground" />
+                        <div className="service-container-services">
+                            {services.map((element) => 
+                                <div key={element._id} className="service-div">
+                                    <p className={`service-title service-title-${lang}`}>{element.title[lang]}</p>
+                                    <img className="service-img" alt="services pic" src={element.image} />
+                                    <ul className={`list list-${lang}`}>
+                                    {element.items[lang].map((item) =>
+                                        <li key={`item${Math.random()}`}>{item}</li>
+                                    )}
+                                    </ul>
+                                </div>
+                            )}  
+                        </div>
+                </div>
             </div>
         </div>
     )

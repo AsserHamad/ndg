@@ -6,8 +6,8 @@ import { FaLongArrowAltRight } from 'react-icons/fa';
 
 function ProjectBlock(props) {
     const project = props.project, category = props.category, subcategory = props.subcategory, lang=props.lang;
-    const [description, setDescription] = useState(project.description[lang]);
-    let title = project.title[lang];
+    const [description, setDescription] = useState(project.description[lang]),
+          [title, setTitle] = useState(project.title[lang]);
     useEffect(() => {
         setDescription(descr => {
             descr = descr.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim();
@@ -17,9 +17,9 @@ function ProjectBlock(props) {
             setDescription(descr);
         });
         if (title.length > 20) {
-            title = title.substr(0, 20) + '...';
+            setTitle(title => title.substr(0, 20) + '...');
         }
-    }, [description]);
+    }, [description, title.length]);
     return(
         <Link
             to={{

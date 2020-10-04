@@ -38,7 +38,6 @@ function ProjectAdminDetails(props){
         [imagesVal, setImagesVal] = useState({}),
         [videosVal, setVideosVal] = useState({}),
         [editType, setEditType] = useState(0),
-        [currCategory, setCurrCategory] = useState(project.category),
         [currSubcategory, setCurrSubcategory] = useState(project.subcategory);
 
     useEffect(() => {
@@ -55,7 +54,7 @@ function ProjectAdminDetails(props){
             x = ({...x, [i] : project.videos[i]});
         }
         setVideosVal(x)
-    }, []);
+    }, [project.images, project.videos]);
     
     const updateProject = () => {
         let images = Object.keys(imagesVal).map(key => imagesVal[key]);
@@ -169,11 +168,6 @@ function ProjectAdminDetails(props){
         let x = JSON.parse(JSON.stringify(videosVal));
         x = {...videosVal, [Object.keys(videosVal).length]: 'https://static.videezy.com/system/resources/previews/000/043/910/original/Ball.mp4'};
         setVideosVal(x);
-    }
-
-    const changeCategory = (num) => {
-        setCurrCategory(num);
-        setInputVal(Object.assign(inputVal, {category: num}));
     }
 
     const changeSubcategory = (num) => {

@@ -287,6 +287,16 @@
     animation: loadedImage 0.5s forwards;
 }
 
+.view-projects-link {
+    text-decoration: none;
+    color: white;
+}
+
+.view-projects-link:hover {
+    text-decoration: none;
+    color: white;
+}
+
 .view-projects-button {
     font-size: 1.5vh;
     z-index: 90;
@@ -297,11 +307,6 @@
     background-color: #FABF27;
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.view-projects-button a:hover {
-    text-decoration: none;
-    color: white;
 }
 
 .previewNavigatingDiv {

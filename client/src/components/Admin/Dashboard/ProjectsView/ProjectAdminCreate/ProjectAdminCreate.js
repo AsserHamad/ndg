@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ProjectAdminCreate.css';
 import './EditType0.css';
 import './EditType1.css';
@@ -37,7 +37,6 @@ function ProjectAdminCreate(props){
         [imagesVal, setImagesVal] = useState({}),
         [videosVal, setVideosVal] = useState({}),
         [editType, setEditType] = useState(0),
-        [currCategory, setCurrCategory] = useState(0),
         [currSubcategory, setCurrSubcategory] = useState(0);
     const createProject = () => {
         let images = Object.keys(imagesVal).map(key => imagesVal[key]);
@@ -123,11 +122,6 @@ function ProjectAdminCreate(props){
         let x = JSON.parse(JSON.stringify(videosVal));
         x = {...videosVal, [Object.keys(videosVal).length]: 'https://static.videezy.com/system/resources/previews/000/043/910/original/Ball.mp4'};
         setVideosVal(x);
-    }
-
-    const changeCategory = (num) => {
-        setCurrCategory(num);
-        setInputVal(Object.assign(inputVal, {category: num}));
     }
 
     const changeSubcategory = (num) => {

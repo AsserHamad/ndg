@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ServicesView.css';
-import { FaTrash, FaMapPin, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa';
+import { FaTrash, FaSearch, FaArrowLeft, FaPlus } from 'react-icons/fa';
 import ServiceAdminDetails from './ServiceAdminDetails/ServiceAdminDetails';
 import swal from 'sweetalert';
 import ServiceAdminCreate from './ServiceAdminCreate/ServiceAdminCreate';
@@ -18,7 +18,7 @@ function ServicesView(props){
         fetch(`${api}/services`)
         .then(res => res.json())
         .then(res => {setServices(res); setViewedServices(res);});
-    }, []);
+    }, [api]);
 
    const deleteService = ((_id, title) => {
     swal({
@@ -77,7 +77,7 @@ function ServicesView(props){
                     return(
                         <div className="viewed-service" key={element._id}>
                             <div onClick={() => {setViewingService(element)}} className="preview-div">
-                                <img src={element.image} />
+                                <img alt="service" src={element.image} />
                             </div>
                             <div onClick={() => {setViewingService(element)}} className="viewed-service-div">
                                 <span className="viewed-service-title">{element.title.en}</span>

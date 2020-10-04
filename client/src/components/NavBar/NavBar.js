@@ -4,7 +4,6 @@ import "./NavBar.css";
 import Burger from "../Burger/Burger";
 import NavBarLink from "./NavBarLink/NavBarLink";
 import { Link } from 'react-router-dom';
-import  { Redirect } from 'react-router-dom'
 
 function NavBar(props) {
   const globalState = useGlobalState(),
@@ -12,11 +11,6 @@ function NavBar(props) {
         lang = globalState.lang.lang,
         page = globalState.page.page,
         [scrollPos, setScrollPos] = useState(0);
-
-  const changeLanguage = (language) => {
-      localStorage.setItem('language', language);
-      globalState.setLang(language);
-  }
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -33,7 +27,7 @@ function NavBar(props) {
 
   return (
     <div>
-      <nav className={`navbar ${(page === 'home' || page == 'project-details') && !scrollPos ? 'navbar-special' : ''}`}>
+      <nav className={`navbar ${(page === 'home' || page === 'project-details') && !scrollPos ? 'navbar-special' : ''}`}>
         <div className={`nav-wrapper nav-wrapper${lang}`}>
         <Link
         className={`logo logo-${lang}`}

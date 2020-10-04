@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProjectDetails.css';
 import useGlobalState from '../../../useGlobalState';
-import projects from '../dummyProjects';
 import Loading from '../../Loading/Loading';
 
 import { FaAngleDown } from 'react-icons/fa';
@@ -32,7 +31,7 @@ function ProjectDetails(props){
             .then(proj => {setProject(proj)})
             .catch((err) => props.history.push('/projects'));
         }
-    },[]);
+    },[id, props.history, props.location.projectBlock]);
 
     return(
         (!project.title.en) ?
@@ -49,7 +48,7 @@ function ProjectDetails(props){
                     </div>
                 </div>
                 <div className="preview-container">
-                    <img className="preview-image" src={project.preview} />
+                    <img alt="preview" className="preview-image" src={project.preview} />
                     {/* <video className="background-video" autoPlay loop muted src={project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"}/> */}
                 </div>
             </div>

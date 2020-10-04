@@ -41,7 +41,7 @@ function Admin(){
                 setAdmin(undefined);
             })
         }
-    }, [lang]);
+    }, [lang, admin, api, token]);
     const handleChange = (event) => {
         event.preventDefault();
         const username = event.target.username.value,
@@ -89,7 +89,7 @@ function Admin(){
                 </div>
                 <div className="login-info">
                     <div className="ndg-div">
-                        <img src="/ndg.png" />
+                        <img alt="ndg" src="/ndg.png" />
                         <p>NATURE DESIGN GROUP</p>
                     </div>
                 </div>

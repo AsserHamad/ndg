@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './Dashboard.css';
 import HomeView from './HomeView/HomeView';
 import ProjectsView from './ProjectsView/ProjectsView';

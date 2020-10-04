@@ -38,7 +38,7 @@ function ServiceAdminDetails(props){
                 x = ({...x, [i] : service.items.ar[i]});
             }
             setItemsAr(x)
-        }, [])
+        }, [service.items])
     
     const deleteItem = (key, type) => {
         let x = JSON.parse(JSON.stringify(itemsEn));
