@@ -49,7 +49,6 @@ function ProjectDetails(props){
                 </div>
                 <div className="preview-container">
                     <img alt="preview" className="preview-image" src={project.preview} />
-                    {/* <video className="background-video" autoPlay loop muted src={project.videoPreview || "https://i.imgur.com/83NMbaF.mp4"}/> */}
                 </div>
             </div>
             <ProjectMainDetails

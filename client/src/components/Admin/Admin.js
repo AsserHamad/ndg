@@ -18,19 +18,16 @@ function Admin(){
         if(token){
             fetch(`${api}/admin/verify`, {method: 'get', headers: {token}})
             .then((res) => {
-                console.log(res.ok)
                 if(res.ok)
                     return res.json();
                 else {
                     throw new Error();
                 }
             })
-            .then((res) => {
-                setAdmin(JSON.parse(admin));
-            })
-            .catch((err) => {
+            .then(res => setAdmin(res.admin))
+            .catch(err => {
                 swal({
-                    text: 'Please log in again',
+                    text: 'Token expired, please log in again',
                     icon: "warning",
                     dangerMode: true,
     
@@ -41,7 +38,7 @@ function Admin(){
                 setAdmin(undefined);
             })
         }
-    }, [lang, admin, api, token]);
+    }, [lang, api, token]);
     const handleChange = (event) => {
         event.preventDefault();
         const username = event.target.username.value,
@@ -61,9 +58,7 @@ function Admin(){
                 }
                 else throw new Error(res.message);
           })
-          .catch((err) => {
-              setError(err.message)
-          })
+          .catch(err => setError(err.message))
     };
     return ((token) ? 
         <Dashboard setToken={setToken} token={token} admin={admin} />

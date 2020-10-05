@@ -1,3 +1,58 @@
+/* Fix this shit */
+
+
+.Contact-container {
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 4% 3%;
+  background-color: white;
+  height: 100%;
+
+}
+
+.Contact-container-ar {
+  direction: rtl
+}
+
+
+.contact-us-container {
+  /* grid-area: 1 / 2 / 2 / 3; */
+  color: black;
+  position: fixed;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background-image: url(https://res.cloudinary.com/duiexwi8t/image/upload/v1601570512/NDG%20Projects/Sample%20Images/aboutus_b6wolw.png);
+  background-size: cover;
+  z-index: 10;
+}
+
+.contact-us-container-ar {
+  right: auto;
+  left: 7%;
+}
+
+.main-contact-container {
+  /* grid-area: 1 / 1 / 2 / 2; */
+  color: black;
+  width: 60%;
+  /* position: absolute; */
+  background-color: white;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-contact-container-ar {
+  direction: rtl;
+  text-align: right;
+  padding: 7% 3% 0 3%;
+}
+
+
+
+/*  */
+
 .black-box {
   background-color: #2A2A2E;
   color: white;
@@ -47,7 +102,7 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
@@ -71,16 +126,12 @@
     grid-area: 2 / 2 / 3 / 3;
     padding: 1vw;
   }
-  .contact-form div:nth-child(5) {
-    grid-area: 3 / 1 / 5 / 3;
-    padding: 1vw;
-  }
   .contact-form div:nth-child(6) {
     grid-area: 5 / 1 / 6 / 2;
     padding: 1vw;
   }
 
-  .contact-form input, .contact-form textarea, .contact-form select {
+  .contact-form input, .contact-form select {
     border: 1px solid #EEEEEE;
     padding: 1vw;
     width: 100%;
@@ -91,15 +142,21 @@
     font-size: 0.7em;
   }
 
+
+  .contact-div img{
+      width: 100%;
+      object-fit: cover;
+  }
+
   .submitButton {
     background-color: #2A2A2E;
     color: white;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 0.9em;
-    width: 50%;
+    width: 20%;
     transition-duration: 0.3s;
-    padding: 5% 10%;
+    padding: 1vw;
   }
   .submitButton:hover {
     background-color: #F9BF26;
@@ -133,4 +190,38 @@
     width: 100%;
     height: 90%;
   }
+}
+
+@media (max-width: 1024px) {
+  .Contact-container {
+      flex-direction: column;
+  }
+  .main-contact-container {
+      width: 100%;
+      position: initial;
+  }
+  .contact-us-container {
+      position: initial;
+      width: 100%;
+      height: 100vh;
+  }
+
+  .todo-brownies {
+      margin: 0 5vh 0 7vh;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  contact-us-container {
+      background-position-y: 100vh;
+  }
+
+  .abtus {
+      padding: 5% 10% 0 8vh;
+  }
+
+  .todo-brownies {
+      font-size: 4vh;
+  }
+  
 }

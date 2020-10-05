@@ -70,7 +70,7 @@ function ProjectsExplore(props) {
                         return(
                             <div 
                                 key={key}
-                                className={`explore-filter-categories-item ${(Number(selectedCategory) === key) ? `explore-filter-categories-item-highlight` : ``}`}
+                                className={`explore-filter-categories-item ${(Number(selectedCategory) === Number(key)) ? `explore-filter-categories-item-highlight` : ``}`}
                                 onClick={() => {setSelectedCategory(key)}}>
                                     {subcategories[key]}</div>
                         )
