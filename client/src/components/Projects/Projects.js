@@ -62,7 +62,7 @@ function Projects(props) {
               setAllProjects(res);
               setProjects(res.filter(project => Number(project.subcategory) === Number(selectedCategory)));
           });
-    }, [api, selectedCategory]);
+    }, [api]);
     useEffect(() => {
         setLoadedImage(false);
         let description = changeDescription(projects[previewNum].description[lang]);
@@ -73,7 +73,6 @@ function Projects(props) {
     }, [projects, previewNum, lang])
     useEffect(() => {
         setPreviewNum(0);
-        setLoadedImage(false);
         setProjects(
             allProjects.filter(project => Number(project.subcategory) === Number(selectedCategory))
         )
@@ -90,7 +89,7 @@ function Projects(props) {
             let subcategory = dp.subcategories[lang][sub]
             return(
                 <div 
-                    className={`project-categories-element ${selectedCategory === sub ? 'project-categories-element-selected' : ''}`}
+                    className={`project-categories-element ${Number(selectedCategory) === Number(sub) ? 'project-categories-element-selected' : ''}`}
                     key={subcategory}
                     onClick={() => setSelectedCategory(sub)}>
                         {subcategory}

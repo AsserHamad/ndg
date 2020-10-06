@@ -90,7 +90,7 @@
     justify-content: center;
     opacity: 0;
     animation: categories-entrance 1s forwards;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
 }
 
 .project-categories-element {
