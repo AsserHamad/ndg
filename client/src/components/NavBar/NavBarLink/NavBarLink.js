@@ -5,7 +5,9 @@ import useGlobalState from "../../../useGlobalState";
 import ReactHtmlParser from 'react-html-parser';
 
 function NavBarLink(props) {
-    const globalState = useGlobalState();
+    const globalState = useGlobalState(),
+          pageName = props.pageName;
+          console.log(pageName);
 
     return(
         <li>
@@ -14,7 +16,7 @@ function NavBarLink(props) {
                 onClick={() => globalState.setPage({ page: props.pageName })}
                 style={{ textDecoration: "inherit", fontSize: "inherit" }}
             >
-                <span className={props.lang + " " + ((props.page===props.pageName) ? props.pageName : "")}>{ReactHtmlParser(props.navbar[props.pageName])}</span>
+                <span className={`${props.lang} ${(props.page===props.pageName) ? props.pageName : ''}`}>{ReactHtmlParser(props.navbar[props.pageName])}</span>
             </Link>
         </li>
     );

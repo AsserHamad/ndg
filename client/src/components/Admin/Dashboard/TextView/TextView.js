@@ -20,8 +20,8 @@ function TextView(props) {
         .then(res => {
             const [en, ar] = [res.en, res.ar];
             let iTextEn = {};
-            Object.keys(en).foreach(key => {
-                Object.keys(en[key]).foreach(innerKey => {
+            Object.keys(en).forEach(key => {
+                Object.keys(en[key]).forEach(innerKey => {
                     iTextEn = {...iTextEn, [innerKey]: en[key][innerKey]}
                 })
             })
@@ -29,8 +29,8 @@ function TextView(props) {
             setEnglishInnerText(iTextEn);
             
             let iTextAr = {};
-            Object.keys(ar).foreach(key => {
-                Object.keys(ar[key]).foreach(innerKey => {
+            Object.keys(ar).forEach(key => {
+                Object.keys(ar[key]).forEach(innerKey => {
                     iTextAr = {...iTextAr, [innerKey]: ar[key][innerKey]}
                 })
             })

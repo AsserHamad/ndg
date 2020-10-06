@@ -19,12 +19,10 @@
   .burger{
     display: block;
   }
-  .menu {
-    display: block;
-  }
 
   .menu {
     list-style: none;
+    display: block;
   }
   
   .menu li {
