@@ -5,6 +5,8 @@ const GlobalStateContext = createContext();
 
 const SET_LANG = 'SET_LANG';
 const SET_PAGE = 'SET_PAGE';
+const SET_CATEGORY = 'SET_CATEGORY';
+const SET_PREVIEW = 'SET_PREVOEW';
 
 const initialState = {
     lang: {
@@ -12,6 +14,12 @@ const initialState = {
     },
     page: {
         page: window.location.pathname.substr(1, window.location.pathname.length) || 'home'
+    },
+    category: {
+        category: 0
+    },
+    preview: {
+        preview: 0
     }
 };
 
@@ -26,6 +34,16 @@ const globalStateReducer = (state, action) => {
             return {
                 ...state,
                 page: action.payload
+            };
+        case SET_CATEGORY:
+            return {
+                ...state,
+                category: action.payload
+            };
+        case SET_PREVIEW:
+            return {
+                ...state,
+                preview: action.payload
             };
         default:
             return state;
@@ -63,11 +81,33 @@ const useGlobalState = () => {
       });
     };
   
+    const setCategory = (category) => {
+      dispatch({ 
+        type: SET_CATEGORY, 
+        payload: { 
+          category
+        } 
+      });
+    };
+  
+    const setPreview = (preview) => {
+      dispatch({ 
+        type: SET_PREVIEW, 
+        payload: { 
+          preview
+        } 
+      });
+    };
+  
     return {
       setLang,
       setPage,
+      setCategory,
+      setPreview,
       lang: state.lang,
-      page: state.page
+      page: state.page,
+      category: state.category,
+      preview: state.preview
     };
   };
   

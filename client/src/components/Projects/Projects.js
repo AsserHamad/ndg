@@ -6,6 +6,7 @@ import useGlobalState from "../../useGlobalState";
 import { Link } from "react-router-dom";
 import dp from "./dummyProjects";
 import Loading from '../Loading/Loading';
+import qs from 'query-string';
 
 function useWindowSize() {
     const [size, setSize] = useState(0);
@@ -20,12 +21,20 @@ function useWindowSize() {
     return size;
   }
 
-function changeDescription(descr) {
-    descr = descr.replace(/<\/?[^>]+(>|$)/g, "");
-    if (descr.length > 60) {
-        descr = descr.substr(0, 300) + '...';
+function changeTitleAndDescription(title, description) {
+    description = description.replace(/<\/?[^>]+(>|$)/g, "");
+    if (description.length > 360) {
+        description = description.substr(0, 360) + '...';
     }
-    return descr;
+    
+    title = title.split(" ");
+    let half = Math.ceil(title.length / 2);
+    title = {firstHalf: title.slice(0, half).join(" "), secondHalf: title.slice(half, title.length).join(" "), description};
+    return title;
+}
+
+function checkCategory(category) {
+    return (!isNaN(category) && category < 6 && category >= 0) ? category : 0;
 }
 
 function Projects(props) {
@@ -35,12 +44,13 @@ function Projects(props) {
           api = `${(process.env.NODE_ENV === 'development') ? 'http://localhost:5000' : ''}/api/projects/`,
           width = useWindowSize(),
           font_size = width / 40,
+          [loadedImages, setLoadedImages] = useState([]),
           [allProjects, setAllProjects] = useState([{
             category: 0,
             subcategory: 0,
             description: {en: '', ar: ''},
             title: {en:'', ar:''},
-            isLoaded: false
+            isLoaded: false,
             }]),
           [projects, setProjects] = useState([{
               category: 0,
@@ -51,11 +61,9 @@ function Projects(props) {
           }]),
           [previewNum, setPreviewNum] = useState(0),
           [selectedCategory, setSelectedCategory] = useState(0),
-          [loadedImage, setLoadedImage] = useState(false),
           [title, setTitle] = useState({}),
           lang = globalState.lang.lang;
     useEffect(() => {
-        globalState.setPage('page');
         fetch(api)
           .then(res => res.json())
           .then(res => {
@@ -64,12 +72,9 @@ function Projects(props) {
           });
     }, [api]);
     useEffect(() => {
-        setLoadedImage(false);
-        let description = changeDescription(projects[previewNum].description[lang]);
-        let _title = projects[previewNum].title[lang].split(" ");
-        let half = Math.ceil(_title.length / 2);
-        _title = {firstHalf: _title.slice(0, half).join(" "), secondHalf: _title.slice(half, _title.length).join(" "), description};
-        setTitle(_title);
+        setTitle(
+            changeTitleAndDescription(projects[previewNum].title[lang], projects[previewNum].description[lang])
+            );
     }, [projects, previewNum, lang])
     useEffect(() => {
         setPreviewNum(0);
@@ -80,7 +85,6 @@ function Projects(props) {
     
     // Functions
     const changePreviewNum = (num) => {
-        setLoadedImage(false)
         setPreviewNum((previewNum === 0 && num === -1) ? projects.length-1 : (previewNum + num) % projects.length);
         console.log(projects[previewNum])
     }
@@ -91,8 +95,9 @@ function Projects(props) {
                 <div 
                     className={`project-categories-element ${Number(selectedCategory) === Number(sub) ? 'project-categories-element-selected' : ''}`}
                     key={subcategory}
-                    onClick={() => setSelectedCategory(sub)}>
-                        {subcategory}
+                    onClick={() => {setSelectedCategory(sub)}}
+                >
+                    {subcategory}
                 </div>
             )
         })
@@ -104,20 +109,20 @@ function Projects(props) {
             {generateCategories()}
         </div>
         <svg className="svg-container">
-            <rect className={`svg-rectangle ${loadedImage ? 'svg-rectangle-loaded' : 'svg-rectangle-loading'}`}/>
+            <rect className={`svg-rectangle ${(loadedImages.includes(projects[previewNum].preview)) ? 'svg-rectangle-loaded' : 'svg-rectangle-loading'}`}/>
         </svg>
         <div className={`projects-container projects-container-${lang}`}>
             <div id="project-title">
                 <div id="title-box">
                 <div id="box-1" />
                 <div className={`yellow-box yellow-box-${lang}`}>
-                    <p className={loadedImage ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{subcategories[lang][projects[previewNum].subcategory]}</p>
-                    <span style={{fontSize: `${font_size}px`}}
-                    className={loadedImage ? `yellow-box-animation-loaded title-first-half`:`yellow-box-animation-loading`}>{title.firstHalf}</span>
-                    <span style={{fontSize: `${font_size / 1.3}px`}}
-                    className={loadedImage ? `yellow-box-animation-loaded title-second-half`:`yellow-box-animation-loading`}>{title.secondHalf}</span>
+                    <p className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded`:`yellow-box-animation-loading`}>{subcategories[lang][projects[previewNum].subcategory]}</p>
+                    <span style={{fontSize: `${font_size / 1.2}px`}}
+                    className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-first-half`:`yellow-box-animation-loading`}>{title.firstHalf}</span>
+                    <span style={{fontSize: `${font_size / 1.6}px`}}
+                    className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-second-half`:`yellow-box-animation-loading`}>{title.secondHalf}</span>
                     <span style={{fontSize: `${font_size / 3.3}px`}}
-                    className={loadedImage ? `yellow-box-animation-loaded title-description`:`yellow-box-animation-loading`}>{title.description}</span>
+                    className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-description`:`yellow-box-animation-loading`}>{title.description}</span>
                     <div>
                         <Link className="link" to={{
                             pathname: `/projects/${projects[previewNum]._id}`,
@@ -143,11 +148,14 @@ function Projects(props) {
                 <div className="view-projects-button">View All Projects</div>
             </Link>
             <div className={`project-image project-image-${lang}`}>
-                {!loadedImage ? <Loading /> : null}
+                {!(loadedImages.includes(projects[previewNum].preview)) ? <Loading /> : null}
                 <img
                     alt="proj-img"
-                    className={`project-image-img ${!loadedImage ? `project-image-loading` : `project-image-loaded`}`} 
-                    onLoad={() => setLoadedImage(true)}
+                    className={`project-image-img ${!(loadedImages.includes(projects[previewNum].preview)) ? `project-image-loading` : `project-image-loaded`}`} 
+                    onLoad={(img) => {
+                        const src = img.target.src;
+                        setLoadedImages(loadedImages => loadedImages.concat(src))    
+                    }}
                     src={projects[previewNum].preview} />
             </div>
         </div>

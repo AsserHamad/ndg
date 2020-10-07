@@ -90,14 +90,14 @@
     justify-content: center;
     opacity: 0;
     animation: categories-entrance 1s forwards;
-    animation-delay: 1.5s;
+    animation-delay: 0.5s;
 }
 
 .project-categories-element {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 9px;
+    font-size: 0.4em;
     width: 20%;
     border-left: 1px solid gray;
     cursor: pointer;
@@ -143,13 +143,13 @@
     margin-left: -1px;
     border: 1px solid #2D2D32;
     /* background-color: #2D2D32; */
-    z-index: 1;
+    z-index: -1;
 }
 
 #box-2 {
     position: absolute;
-    width: 25%;
-    z-index: 1;
+    width: 22%;
+    z-index: -2;
     height: 65%;
     margin-left: 4em;
     border: 1px solid #2D2D32;
@@ -160,21 +160,21 @@
     position: absolute;
     top: 20vh;
     left: 5%;
-    z-index: -1;
+    z-index: 0;
     width: 20vw;
     height: 80vh;
 }
 
-/*  style={{fill:'rgb(0,0,255)', strokeWidth: 3, stroke:'rgb(0,0,0)'}} */
 .svg-rectangle {
-    fill: transparent;
+    fill: none;
     stroke-width: 4;
     stroke: yellow;
-    width: 17vw;
+    width: 18vw;
     height: 60vh;
     stroke-dasharray: 2500;
     transform: translate(1vw, 4vh);
     pointer-events: none;
+
 }
 
 .svg-rectangle-loading {
@@ -187,7 +187,7 @@
 
 .yellow-box {
     position: absolute;
-    z-index: 3;
+    z-index: 4;
     width: 15%;
     height: 55%;
     display: flex;
@@ -245,6 +245,7 @@
     /* justify-content: ; */
     height: 100%;
     font-size: 0.7em;
+    z-index: 99;
 }
 
 .link:hover {
@@ -256,13 +257,13 @@
     /* TODO: remove this ^ */
     width: 71%;
     height: 100%;
-    opacity: 0.4;
-    z-index: 1;
+    /* opacity: 0.4; */
     position: absolute;
     right: 0;
     bottom: 0;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -1;
 }
 
 .project-image-ar {
@@ -379,11 +380,13 @@
         width: 70vw;
         height: 80vh;
         left: 0vw;
+        z-index: 0;
     }
     .svg-rectangle {
         transform: translate(2vw, 5vh);
         height: 47vh;
         width: 53vw;
+        z-index: 0;
     }
 
     .title-first-half {

@@ -17,6 +17,7 @@ const projects = {
             1 : "Landscape",
             2 : "Master Planning",
             3 : "Housing",
+            4 : "Interior Design",
             5 : "Architecture"
         },
         ar: {
