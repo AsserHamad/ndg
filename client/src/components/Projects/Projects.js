@@ -6,7 +6,6 @@ import useGlobalState from "../../useGlobalState";
 import { Link } from "react-router-dom";
 import dp from "./dummyProjects";
 import Loading from '../Loading/Loading';
-import qs from 'query-string';
 
 function useWindowSize() {
     const [size, setSize] = useState(0);
@@ -23,8 +22,8 @@ function useWindowSize() {
 
 function changeTitleAndDescription(title, description) {
     description = description.replace(/<\/?[^>]+(>|$)/g, "");
-    if (description.length > 360) {
-        description = description.substr(0, 360) + '...';
+    if (description.length > 250) {
+        description = description.substr(0, 250) + '...';
     }
     
     title = title.split(" ");
@@ -121,7 +120,7 @@ function Projects(props) {
                     className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-first-half`:`yellow-box-animation-loading`}>{title.firstHalf}</span>
                     <span style={{fontSize: `${font_size / 1.6}px`}}
                     className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-second-half`:`yellow-box-animation-loading`}>{title.secondHalf}</span>
-                    <span style={{fontSize: `${font_size / 3.3}px`}}
+                    <span style={{fontSize: `${font_size / 2.8}px`}}
                     className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-description`:`yellow-box-animation-loading`}>{title.description}</span>
                     <div>
                         <Link className="link" to={{
@@ -159,7 +158,7 @@ function Projects(props) {
                     src={projects[previewNum].preview} />
             </div>
         </div>
-            <div className={`previewNavigatingDiv previewNavigatingDiv-${lang}`}>
+        <div className={`previewNavigatingDiv previewNavigatingDiv-${lang}`}>
                 <button onClick={() => changePreviewNum(-1)} className="previewNavigatingButtons">&lt; {projectsText.back}</button>
                 <button onClick={() => changePreviewNum(1)} className="previewNavigatingButtons">{projectsText.next} &gt;</button>
             </div>
