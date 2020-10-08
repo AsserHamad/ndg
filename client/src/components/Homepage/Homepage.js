@@ -14,13 +14,18 @@ function Homepage() {
         [preview, setPreview] = useState(0);
 
   return (
-    <div className="homepage-container">
-      <div className="homepage-project-container">
-        <div className="homepage-project-title">{projects[preview].title}</div>
-        <div className="homepage-project-location">{projects[preview].location}</div>
-        <div className="homepage-project-description">{projects[preview].description.en}</div>
-        <div className="homepage-project-button">Discover More</div>
+    <div>
+      <div className="homepage-container">
+        <div className="homepage-project-container">
+          <div className="homepage-project-title">{projects[preview].title}</div>
+          <div className="homepage-project-location">{projects[preview].location}</div>
+          <div className="homepage-project-description">{projects[preview].description.en}</div>
+          <div className="homepage-project-button">Discover More</div>
+        </div>
       </div>
+      {/* <div className="other">
+        Helloooo
+      </div> */}
     </div>
   );
 }

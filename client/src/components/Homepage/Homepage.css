@@ -7,23 +7,6 @@
   }
 }
 
-@keyframes homepage-container-roll-in {
-  0% {
-    opacity: 0.3;
-    width: 0vw;
-    height: 1vw
-  }
-  50% {
-    opacity: 1;
-    width: 37vw;
-    height: 1vw;
-  }
-  100% {
-    opacity: 1;
-    width: 37vw;
-    height: 34vh;
-  }
-}
 
 .homepage-container {
   width: 100%;
@@ -44,13 +27,13 @@
   top: 26vh;
   background-color: rgba(70, 70, 70, 0.1);
   opacity: 0;
-  width: 0;
-  height: 1vw;
+  width: 37vw;
+  height: auto;
   padding: 15px;
   font-family: Tahoma, Geneva, Verdana, sans-serif;
   /* opacity: 0; */
-  animation: homepage-container-roll-in 2s forwards;
-  animation-delay: 0.5s;
+  animation: homepage-fade-in 1.5s forwards;
+  animation-delay: 0.6s;
 }
 
 .homepage-project-title {
@@ -58,9 +41,6 @@
   font-size: 2em;
   text-transform: uppercase;
   margin: 0;
-  opacity: 0;
-  animation: homepage-fade-in 0.5s forwards;
-  animation-delay: 2.2s;
 }
 
 .homepage-project-location {
@@ -68,18 +48,12 @@
   font-size: 0.8em;
   padding: 2px 5px;
   width: 14em;
-  opacity: 0;
-  animation: homepage-fade-in 0.5s forwards;
-  animation-delay: 2.5s;
 }
 
 .homepage-project-description {
   font-size: 0.8em;
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
   margin: 2vh 0;
-  opacity: 0;
-  animation: homepage-fade-in 0.5s forwards;
-  animation-delay: 2.5s;
 }
 
 .homepage-project-button {
@@ -88,7 +62,50 @@
   width: 9em;
   padding: 0.6em 1.2em;
   cursor: pointer;
-  opacity: 0;
-  animation: homepage-fade-in 0.5s forwards;
-  animation-delay: 2.5s;
+}
+
+/* .other {
+  position: absolute;
+  top: 100%;
+} */
+
+@media (max-width: 1024px){
+  .homepage-container {
+    background-position: -55%;
+  }
+
+  .homepage-project-container {
+    left: 5vw;
+    top: 20vh;
+    width: 50vw;
+    background-color: rgba(70, 70, 70, 0.4);
+  }
+
+  .homepage-project-title {
+    font-size: 1em;
+  }
+
+  .homepage-project-location {
+    font-size: 0.6em;
+  }
+
+  .homepage-project-description {
+    font-size: 0.7em;
+  }
+
+  .homepage-project-button {
+    padding: 0.2em 0.8em;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape){
+
+  .homepage-container {
+    background-position: 0;
+  }
+
+  .homepage-project-container {
+    width: 70vw;
+  }
+
 }
