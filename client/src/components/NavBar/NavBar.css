@@ -105,7 +105,7 @@ a {
   }
 }
 /*   NAVBAR LIST   */
-.navbar ul {
+.navbar #menu {
   margin-top: 5px;
   float: left;
   color: white;
@@ -122,6 +122,19 @@ a {
   float: right;
   margin-right: 0.7%;
   direction: rtl;
+}
+
+.navbar-logos {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 10vw;
+}
+
+.navbar-logos li {
+  margin: 0 9px;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 
 @media (max-width: 824px) {

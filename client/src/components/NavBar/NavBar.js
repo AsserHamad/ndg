@@ -4,6 +4,7 @@ import "./NavBar.css";
 import Burger from "../Burger/Burger";
 import NavBarLink from "./NavBarLink/NavBarLink";
 import { Link } from 'react-router-dom';
+import { FaFacebook, FaFacebookF, FaInstagram, FaLinkedin, FaLinkedinIn, FaPinterest, FaPinterestP, FaTwitter, FaVimeo, FaVimeoV, FaYoutube } from "react-icons/fa";
 
 function NavBar(props) {
   const globalState = useGlobalState(),
@@ -29,7 +30,7 @@ function NavBar(props) {
     <div>
       <nav className={`navbar ${(page === 'home' || page === 'project-details') && !scrollPos ? 'navbar-special' : ''}`}>
         <div className={`nav-wrapper nav-wrapper${lang}`}>
-        <Link
+          <Link
         className={`logo logo-${lang}`}
         to="/"
         onClick={() => globalState.setPage({ page: "home" })}
@@ -45,6 +46,15 @@ function NavBar(props) {
             <NavBarLink page={page} pageName="contact" navbar={navbar} link="/contact" lang={lang} />
             {/* <li onClick={() => changeLanguage(lang==='en' ? 'ar':'en')}><span className={` ${lang} change-language change-language-${lang}`}>{(lang === 'en') ? 'العربية' : 'English'}</span></li> */}
           </ul>
+          <div className="navbar-logos">
+            <li><FaPinterestP /></li>
+            <li><FaVimeoV /></li>
+            <li><FaLinkedinIn /></li>
+            <li><FaYoutube /></li>
+            <li><FaTwitter /></li>
+            <li><FaInstagram /></li>
+            <li><FaFacebookF /></li>
+          </div>
         </div>
       </nav>
       <Burger navbar={navbar} />
