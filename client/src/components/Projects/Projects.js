@@ -108,7 +108,7 @@ function Projects(props) {
             {generateCategories()}
         </div>
         <svg className="svg-container">
-            <rect className={`svg-rectangle ${(loadedImages.includes(projects[previewNum].preview)) ? 'svg-rectangle-loaded' : 'svg-rectangle-loading'}`}/>
+            <rect className={`svg-rectangle svg-rectangle-loaded`}/>
         </svg>
         <div className={`projects-container projects-container-${lang}`}>
             <div id="project-title">
