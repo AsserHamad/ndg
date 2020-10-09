@@ -4,7 +4,7 @@ import "./NavBar.css";
 import Burger from "../Burger/Burger";
 import NavBarLink from "./NavBarLink/NavBarLink";
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaFacebookF, FaInstagram, FaLinkedin, FaLinkedinIn, FaPinterest, FaPinterestP, FaTwitter, FaVimeo, FaVimeoV, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP, FaTwitter, FaVimeoV, FaYoutube } from "react-icons/fa";
 
 function NavBar(props) {
   const globalState = useGlobalState(),
