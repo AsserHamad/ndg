@@ -141,6 +141,10 @@ a {
   .navbar ul {
     display: none;
   }
+
+  .navbar-logos {
+    display: none;
+  }
 }
 
 @media (orientation: landscape) and (min-width: 1024px) {
@@ -219,20 +223,8 @@ a {
 }
 
 .change-language {
-}
-
-.change-language {
   /* margin-left: 35vw !important; */
   font-size: 0.8em !important;
   transition: none !important;
   cursor: pointer;
-}
-
-@media(min-width: 1367px) {
-  .change-language-en {
-    /* margin-left: 50vw !important; */
-  }
-  .change-language-ar {
-    /* margin-right: 50vw !important; */
-  }
 }
