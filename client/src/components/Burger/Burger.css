@@ -21,6 +21,7 @@
   }
 
   .menu {
+    margin-top: 1em;
     list-style: none;
     display: block;
   }
@@ -44,13 +45,18 @@
   }
   
   .menu li:hover {
-    color: #C94C4D;
+    color: #E39E03;
     cursor: pointer;
   }
   
   .menu li span:hover {
-    color: #C94C4D;
+    color: #E39E03;
     cursor: pointer;
+  }
+
+  .burger-selected {
+    color: #E39E03;
+
   }
 
   .icon {
@@ -85,19 +91,21 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #E39E03;
   transition-duration: 0.2s;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #C94C4D;
+  background: #E39E03;
 }
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 24px;
   width: 24px;
+  right: 17px;
+  top: 12px;
 }
 
 /* Color/shape of close button cross */
@@ -116,8 +124,8 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: #2d2d32;
-  padding: 2.5em 1.5em 0;
+  background: #2d2d32d0;
+  padding: 2em 1em 0;
   font-size: 1.15em;
 }
 

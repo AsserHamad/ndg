@@ -6,7 +6,6 @@ import ReactHtmlParser from 'react-html-parser';
 
 function NavBarLink(props) {
     const globalState = useGlobalState();
-    console.log(props.page, props.pageName)
     return(
         <li>
             <Link

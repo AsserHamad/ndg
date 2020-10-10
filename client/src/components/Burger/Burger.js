@@ -10,6 +10,7 @@ import ReactHtmlParser from 'react-html-parser';
 function Burger(props) {
     const globalState = useGlobalState(),
             lang = globalState.lang.lang,
+            page = globalState.page.page,
             navbar = props.navbar,
             items = [{
                 to: '/',
@@ -51,7 +52,7 @@ function Burger(props) {
                             style={{ textDecoration: "inherit", fontSize: "inherit" }}
                             >
                                 <li>
-                                    <div className={`menuText menuText-${lang}`}><div className="icon">{item.icon}</div>{ReactHtmlParser(item.text)}</div>
+                                    <div className={`menuText menuText-${lang} ${item.page === page && 'burger-selected'}`}><div className="icon">{item.icon}</div>{ReactHtmlParser(item.text)}</div>
                                 </li>
                             </Link>
                         )

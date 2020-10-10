@@ -80,6 +80,7 @@ function Projects(props) {
         setProjects(
             allProjects.filter(project => Number(project.subcategory) === Number(selectedCategory))
         )
+        console.log(allProjects.filter(project => Number(project.subcategory) === Number(selectedCategory)))
     }, [selectedCategory, allProjects])
     
     // Functions
