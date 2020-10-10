@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './ProjectDetails.css';
 import useGlobalState from '../../../useGlobalState';
-import Loading from '../../Loading/Loading';
 
-import { FaAngleDown } from 'react-icons/fa';
+import Loading from '../../Loading/Loading';
 import ProjectMainDetails from './ProjectMainDetails/ProjectMainDetails';
+import DownArrow from '../../DownArrow/DownArrow';
 
 function ProjectDetails(props){
     let id = props.location.pathname.split('/')[2];
@@ -56,9 +56,7 @@ function ProjectDetails(props){
                 projectDetails={projectDetails}
                 lang={lang}
             />
-            <div className="downArrow">
-                <FaAngleDown />
-            </div>
+            <DownArrow />
         </div>
     )
 }

@@ -104,19 +104,6 @@
     text-align: right;
 }
 
-.downArrow {
-    position: fixed;
-    bottom: 1%;
-    left: 49%;
-    animation: 1s bounce infinite;
-    font-size: 2em;
-}
-
-@keyframes bounce {
-    0% {transform: translateY(0px)}
-    50% {transform: translateY(-8px)}
-    100% {transform: translateY(0px)}
-}
 
 @media (max-width: 1024px){
     .project-details-container {

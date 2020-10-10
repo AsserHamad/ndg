@@ -4,6 +4,7 @@ import useGlobalState from "../../useGlobalState";
 import { FaPlay } from 'react-icons/fa';
 import CountUp from 'react-countup';
 import Loading from '../Loading/Loading';
+import DownArrow from '../DownArrow/DownArrow';
 
 import ReactHtmlParser from 'react-html-parser';
 
@@ -19,6 +20,7 @@ function About(props){
       <Loading />
       :
         <div className={`about-container about-container-${lang}`}>
+        <DownArrow />
 
             {/* Modal Shit */}
             <div className="modal" style={{display: modal.display}}>
