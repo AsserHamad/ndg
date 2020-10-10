@@ -34,6 +34,9 @@
     animation-name: come-through-bottom;
     animation-duration: 2s;
     background-color: #2D2D32;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 .explore-works-filter {
     width: 25%;

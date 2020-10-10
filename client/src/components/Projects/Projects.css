@@ -359,6 +359,10 @@
 }
 
 @media (max-width: 1024px) {
+    @keyframes fade-in-mobile {
+        0% {opacity: 0}
+        100% { opacity: 0.6}
+    }
 
     #box-1, #box-2 {
         display: none
@@ -375,6 +379,10 @@
 
     .project-image {
         width: 100%;
+    }
+
+    .project-image-loaded {
+        animation: fade-in-mobile 1s forwards;
     }
 
     .yellow-box {
