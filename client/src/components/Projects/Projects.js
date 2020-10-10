@@ -107,10 +107,10 @@ function Projects(props) {
         <div className="projects-categories">
             {generateCategories()}
         </div>
+        <div className={`projects-container projects-container-${lang}`}>
         <svg className="svg-container">
             <rect className={`svg-rectangle svg-rectangle-loaded`}/>
         </svg>
-        <div className={`projects-container projects-container-${lang}`}>
             <div id="project-title">
                 <div id="title-box">
                 <div id="box-1" />

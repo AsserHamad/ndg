@@ -360,6 +360,10 @@
 
 @media (max-width: 1024px) {
 
+    #box-1, #box-2 {
+        display: none
+    }
+
     .projects-categories {
         width: 100%;
         top: 50px;
