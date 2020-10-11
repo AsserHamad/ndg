@@ -185,7 +185,7 @@ a {
 }
 
 .home, .about, .projects, .contact, .services {
-  border-bottom :2px solid #F9BF26;
+  border-bottom: 2px solid #F9BF26;
 }
 
 /* Animated Bottom Line */
@@ -194,7 +194,7 @@ a {
   content: "";
   position: absolute;
   width: 0%;
-  height: 1.5px;
+  height: 2px;
   bottom: -2px;
 }
 

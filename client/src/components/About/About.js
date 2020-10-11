@@ -21,17 +21,6 @@ function About(props){
       :
         <div className={`about-container about-container-${lang}`}>
         <DownArrow />
-
-            {/* Modal Shit */}
-            <div className="modal" style={{display: modal.display}}>
-                <span className="close" onClick={() => setModal({display: 'none'})}>&times;</span>
-                <video className={`motivation-video`} controls>
-                    <source src={`https://static.videezy.com/system/resources/previews/000/043/910/original/Ball.mp4`} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-
             <div className={`about-us-container about-us-container-${lang}`}>
               <div className="about-white-foreground-2" />
               <p className={`abtus abtus-${lang}`}>
@@ -46,18 +35,10 @@ function About(props){
             <div className={`main-about-container main-about-container-${lang}`}>
               <div className="about-white-foreground" />
               <div className="about-content-container">
-                    <p className={`titleText`}>{aboutText.aboutUs}</p>
+                    {/* <p className={`titleText`}>{aboutText.aboutUs}</p> */}
                     <div className={`about-div`}>
                       <div>
                         <img alt="About Page" src={`http://www.naturedesigngroup.com/web_test/public/Uploads/aboutus/image/en/1(1)1555170414.jpg`} />
-                        <button className={`button button-${lang}`} onClick={
-                                        (() => {
-                                            setModal({display: 'flex'})
-                                        }
-                                        )}>
-                          <div className={`button-about-us`}>{aboutText.aboutUs}</div>
-                          <div className={`button-play`}><FaPlay /></div>
-                        </button>
                       </div>
                       <div className={`corporate-overview`}>
                         <div className={`div11`}>
@@ -90,23 +71,12 @@ function About(props){
                         </div>
                       </div>
                     </div>
-                    <p className={`titleText`} style={{marginTop: '10vh'}}>{aboutText.motivation}</p>
+                    {/* <p className={`titleText`} style={{marginTop: '10vh'}}>{aboutText.motivation}</p> */}
                     <div className={`about-div`}>
-                  <div>
-                    <img alt="About Page" src={`http://www.naturedesigngroup.com/web_test/public/Uploads/aboutus/image/en/1(1)1555170414.jpg`} />
-                    <button className={`button button-${lang}`} onClick={
-                                    (() => {
-                                        setModal({display: 'flex'})
-                                    }
-                                    )}>
-                      <div className={`button-about-us`}>{aboutText.motivation}</div>
-                      <div className={`button-play`}><FaPlay /></div>
-                    </button>
-                  </div>
                   <div className={`corporate-overview`}>
-                    <div className={`div11`}>
+                    {/* <div className={`div11`}>
                     {aboutText.motivation}
-                    </div>
+                    </div> */}
                     <div className={`div22`}>
                     {ReactHtmlParser(aboutText.motivationText)}
                     </div>

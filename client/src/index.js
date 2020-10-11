@@ -9,7 +9,7 @@ import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Oswald:700,400', 'sans-serif']
+    families: ['Oswald:700,400', 'Barlow:300,400,700', 'sans-serif']
   }
 });
 
