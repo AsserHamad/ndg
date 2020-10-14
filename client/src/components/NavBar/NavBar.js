@@ -28,7 +28,7 @@ function NavBar(props) {
 
   return (
     <div>
-      <nav className={`navbar ${(page === 'home' || page === 'project-details') && !scrollPos ? 'navbar-special' : ''}`}>
+      <nav className={`navbar ${(page === 'home' || page === 'project-details' || page === 'deepdesign') && !scrollPos ? 'navbar-special' : ''}`}>
         <div className={`nav-wrapper nav-wrapper${lang}`}>
           <Link
         className={`logo logo-${lang}`}
@@ -40,7 +40,8 @@ function NavBar(props) {
         </Link>
           <ul id="menu" className={`menu-${lang}`}>
             <NavBarLink page={page} pageName="home" navbar={navbar} link="/" lang={lang} />
-            <NavBarLink page={page} pageName="projects" navbar={navbar} link="/projects" lang={lang} />
+            <NavBarLink page={page} pageName="expertise" navbar={navbar} link="/expertise" lang={lang} />
+            <NavBarLink page={page} pageName="deepdesign" navbar={navbar} link="/deepdesign" lang={lang} />
             <NavBarLink page={page} pageName="about" navbar={navbar} link="/about" lang={lang} />
             <NavBarLink page={page} pageName="services" navbar={navbar} link="/services" lang={lang} />
             <NavBarLink page={page} pageName="contact" navbar={navbar} link="/contact" lang={lang} />

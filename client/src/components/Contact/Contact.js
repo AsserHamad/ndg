@@ -89,7 +89,7 @@ function Contact(props){
                         <option value="2">{contactText.otherQuestions}</option>
                       </select>
                     </div>
-                    <div><ReactQuill theme="snow" name="description_en" value={message}
+                    <div><ReactQuill className="contact-form-text" theme="snow" name="description_en" value={message}
                     onChange={(e) => setMessage(e)} /></div>
                     <div>
                       <button className={`submitButton`}type="submit" >{contactText.send}</button>

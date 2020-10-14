@@ -125,7 +125,7 @@ function Projects(props) {
                     className={(loadedImages.includes(projects[previewNum].preview)) ? `yellow-box-animation-loaded title-description`:`yellow-box-animation-loading`}>{title.description}</span>
                     <div>
                         <Link className="link" to={{
-                            pathname: `/projects/${projects[previewNum]._id}`,
+                            pathname: `/expertise/${projects[previewNum]._id}`,
                             projectBlock:{
                                 project: projects[previewNum],
                                 category: categories[lang][projects[previewNum].category],
@@ -142,7 +142,7 @@ function Projects(props) {
                 </div>
             </div>
             <Link className="view-projects-link" to={{
-                pathname: `/projects/explore`,
+                pathname: `/expertise/explore`,
                 category: selectedCategory
             }} > 
                 <div className="view-projects-button">View All Projects</div>

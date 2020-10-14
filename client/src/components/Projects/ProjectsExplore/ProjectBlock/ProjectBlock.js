@@ -23,7 +23,7 @@ function ProjectBlock(props) {
     return(
         <Link
             to={{
-                pathname: `/projects/${project._id}`,
+                pathname: `/expertise/${project._id}`,
                 projectBlock:{ project, category, subcategory}
             }}
             style={props.style}

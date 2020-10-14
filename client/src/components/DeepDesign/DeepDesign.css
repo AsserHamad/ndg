@@ -1,0 +1,44 @@
+.deep-design-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.deep-design-container > img {
+    object-fit: cover;
+    filter: brightness(50%);
+    z-index: 1;
+}
+
+.deep-design-coming-soon {
+    position: absolute;
+    font-family: Barlow;
+    display: flex;
+    flex-direction: column;
+    align-self: left;
+    text-align: left;
+    justify-content: left;
+    font-size: 2em;
+    z-index: 2;
+    margin-top: 140px;
+    padding: 40px 80px;
+}
+
+.deep-design-logo {
+    width: 13vw;
+}
+
+.deep-design-title {
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 2em;
+}
+
+.deep-design-subtitle {
+    font-weight: bold;
+}
+
+.deep-design-text {
+    font-size: 0.4em;
+    width: 50vw;
+}

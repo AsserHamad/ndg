@@ -109,65 +109,57 @@
   grid-row-gap: 0px;
   width: 100%;
   }
-  
-  .contact-form div:nth-child(1) {
-    grid-area: 1 / 1 / 2 / 2;
-    padding: 1vw;
-  }
-  .contact-form div:nth-child(2) {
-    grid-area: 1 / 2 / 2 / 3;
-    padding: 1vw;
-  }
-  .contact-form div:nth-child(3) {
-    grid-area: 2 / 1 / 3 / 2;
-    padding: 1vw;
-  }
-  .contact-form div:nth-child(4) {
-    grid-area: 2 / 2 / 3 / 3;
-    padding: 1vw;
-  }
-  .contact-form div:nth-child(6) {
-    grid-area: 5 / 1 / 6 / 2;
-    padding: 1vw;
-  }
 
-  .contact-form input, .contact-form select {
-    border: 1px solid #EEEEEE;
-    padding: 1vw;
-    width: 100%;
-  }
+.contact-form div:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 2;
+  padding: 1vw;
+}
+.contact-form div:nth-child(2) {
+  grid-area: 1 / 2 / 2 / 3;
+  padding: 1vw;
+}
+.contact-form div:nth-child(3) {
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 1vw;
+}
+.contact-form div:nth-child(4) {
+  grid-area: 2 / 2 / 3 / 3;
+  padding: 1vw;
+}
+.contact-form div:nth-child(6) {
+  grid-area: 5 / 1 / 6 / 2;
+  padding: 1vw;
+}
 
-  .contact-form input::placeholder, .contact-form textarea::placeholder, .select-placeholder {
-    font-weight: bold;
-    font-size: 0.7em;
-  }
-
-
-  .contact-div img{
-      width: 100%;
-      object-fit: cover;
-  }
-
-  .submitButton {
-    background-color: #2A2A2E;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.9em;
-    width: 20%;
-    transition-duration: 0.3s;
-    padding: 1vw;
-  }
-  .submitButton:hover {
-    background-color: #F9BF26;
-  }
-
-.contact-form textarea {
+.contact-form input, .contact-form select {
+  border: 1px solid #EEEEEE;
+  padding: 1vw;
   width: 100%;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;
-  resize: none;
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder, .select-placeholder {
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
+
+.contact-div img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.submitButton {
+  background-color: #2A2A2E;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.9em;
+  width: 20%;
+  transition-duration: 0.3s;
+  padding: 1vw;
+}
+.submitButton:hover {
+  background-color: #F9BF26;
 }
 
 @media (max-width: 1024px) {
@@ -190,11 +182,15 @@
     width: 100%;
     height: 90%;
   }
+
+  .contact-form-text {
+
+  }
 }
 
 @media (max-width: 1024px) {
   .Contact-container {
-      flex-direction: column;
+      flex-direction: column-reverse;
   }
   .main-contact-container {
       width: 100%;

@@ -18,8 +18,8 @@ function Burger(props) {
                 icon: <FaHome />,
                 text: navbar.home
             }, {
-                to: '/projects',
-                page: 'projects',
+                to: '/expertise',
+                page: 'expertise',
                 icon: <FaProjectDiagram />,
                 text: navbar.projects
             }, {

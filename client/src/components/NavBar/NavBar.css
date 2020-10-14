@@ -145,6 +145,13 @@ a {
   .navbar-logos {
     display: none;
   }
+  
+  .logo {
+    float: none;
+    margin-top: -20px;
+    margin-left: 0;
+    height: 40px;
+  }
 }
 
 @media (orientation: landscape) and (min-width: 1024px) {
@@ -184,7 +191,7 @@ a {
   -webkit-transition: all 1s ease;
 }
 
-.home, .about, .projects, .contact, .services {
+.home, .about, .expertise, .contact, .services, .deepdesign {
   border-bottom: 2px solid #F9BF26;
 }
 

@@ -29,7 +29,7 @@ function ProjectDetails(props){
             fetch(`${api}/api/projects/${id}`)
             .then(res => res.json())
             .then(proj => {setProject(proj)})
-            .catch((err) => props.history.push('/projects'));
+            .catch((err) => props.history.push('/expertise'));
         }
     },[id, props.history, props.location.projectBlock]);
 

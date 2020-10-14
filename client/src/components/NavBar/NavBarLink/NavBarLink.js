@@ -6,6 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 function NavBarLink(props) {
     const globalState = useGlobalState();
+    console.log(props.page, props.pageName)
     return(
         <li>
             <Link
@@ -13,8 +14,8 @@ function NavBarLink(props) {
                 onClick={() => globalState.setPage({ page: props.pageName })}
                 style={{ textDecoration: "inherit", fontSize: "inherit" }}
             >
-                <span className={`${props.lang} ${(props.page===props.pageName) || (props.page === 'project-details' && props.pageName === 'projects') ? props.pageName : ''}`}>
-                    {ReactHtmlParser(props.navbar[props.pageName])}
+                <span className={`${props.lang} ${(props.page===props.pageName) || (props.page === 'project-details' && props.pageName === 'expertise') ? props.pageName : ''}`}>
+                    {ReactHtmlParser(props.pageName === 'expertise' ? 'Expertise' : props.navbar[props.pageName])}
                 </span>
             </Link>
         </li>

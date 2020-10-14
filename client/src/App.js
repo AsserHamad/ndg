@@ -15,6 +15,7 @@ import Services from './components/Services/Services';
 import Contact from './components/Contact/Contact';
 import Admin from './components/Admin/Admin';
 import Loading from './components/Loading/Loading';
+import DeepDesign from './components/DeepDesign/DeepDesign';
 
 function App() {
   const globalState = useGlobalState(),
@@ -51,9 +52,10 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/about" render={(props) => <About {...props} setLoading={setLoading} text={text.about}/>} />
-          <Route exact path="/projects" render={(props) => <Projects {...props} setLoading={setLoading} text={text.projects} />} />
-          <Route exact path="/projects/explore" render={(props) => <ProjectsExplore {...props} setLoading={setLoading} text={text.projects} />} />
-          <Route exact path="/projects/:id" render={(props) => <ProjectDetails {...props} setLoading={setLoading} text={text.projectDetails} />} />
+          <Route exact path="/expertise" render={(props) => <Projects {...props} setLoading={setLoading} text={text.projects} />} />
+          <Route exact path="/expertise/explore" render={(props) => <ProjectsExplore {...props} setLoading={setLoading} text={text.projects} />} />
+          <Route exact path="/expertise/:id" render={(props) => <ProjectDetails {...props} setLoading={setLoading} text={text.projectDetails} />} />
+          <Route exact path="/deepdesign" render={(props) => <DeepDesign {...props} setLoading={setLoading} />} />
           <Route exact path="/services" render={(props) => <Services {...props} setLoading={setLoading} text={text.services} />} />
           <Route exact path="/contact" render={(props) => <Contact {...props} setLoading={setLoading} text={text.contact} />} />
           <Route exact path="/admin" render={(props) => <Admin {...props} setLoading={setLoading} />} />
