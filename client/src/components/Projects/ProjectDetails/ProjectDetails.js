@@ -4,7 +4,21 @@ import useGlobalState from '../../../useGlobalState';
 
 import Loading from '../../Loading/Loading';
 import ProjectMainDetails from './ProjectMainDetails/ProjectMainDetails';
+import ProjectDetailsHeader from './ProjectDetailsHeader/ProjectDetailsHeader';
 import DownArrow from '../../DownArrow/DownArrow';
+
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+const changeDescription = (description) => {
+    description = description.replace(/<\/?[^>]+(>|$)/g, "");
+    if (description.length > 250) {
+        description = description.substr(0, 250) + '...';
+    }
+    return description;
+}
 
 function ProjectDetails(props){
     let id = props.location.pathname.split('/')[2];
@@ -40,16 +54,36 @@ function ProjectDetails(props){
         <div className={`project-details-container project-details-container-${lang}`}>
             <div className="project-header">
                 <div className={`project-title title-${lang}`}>
-                    <div>
-                        <p className={`project-title-header`}>{project.title[lang]}</p>
-                        <div className={`project-subtitle subtitle-${lang}`}>
-                            <p>{project.location[lang]} - {project.owner[lang]}</p>
-                        </div>
+                    <svg preserveAspectRatio="none" className={`project-details-header-svg`}>
+                        <line x1="13%" x2="20%" y1="20%" y2="20%" className={`project-details-header-rectangle`}/>
+                        <line x1="13%" x2="13%" y1="20%" y2="40%" className={`project-details-header-rectangle`}/>
+                        <line x1="13%" x2="20%" y1="80%" y2="80%" className={`project-details-header-rectangle`}/>
+                        <line x1="13%" x2="13%" y1="80%" y2="60%" className={`project-details-header-rectangle`}/>
+
+                        <line x1="80%" x2="87%" y1="20%" y2="20%" className={`project-details-header-yellow-line`}/>
+                    </svg>
+                    <div className={`project-title-header`}>{project.title[lang]}</div>
+                    <div className={`project-title-subtitle subtitle-${lang}`}>
+                        <div>{project.location[lang]}</div>
+                        <div>{project.owner[lang]}</div>
+                        <div>{changeDescription(project.description[lang])}</div>
                     </div>
                 </div>
-                <div className="preview-container">
+            <Swiper
+            lazy
+                navigation
+                pagination={{ clickable: true, type: 'progressbar' }}
+                slidesPerView={'auto'}
+            >
+                {project.images.map(image => (
+                    <SwiperSlide style={{width: 'auto'}}>
+                        <ProjectDetailsHeader image={image} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+                {/* <div className="preview-container">
                     <img alt="preview" className="preview-image" src={project.preview} />
-                </div>
+                </div> */}
             </div>
             <ProjectMainDetails
                 project={project}

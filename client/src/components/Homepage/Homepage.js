@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import HomepageProject from './HomepageProject/HomepageProject';
+import './Homepage.css';
 
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,9 +12,8 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 
-import './Homepage.css';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+SwiperCore.use([Navigation, Pagination]);
 
 function Homepage() {
   const [projects] = useState([{
@@ -38,7 +38,6 @@ function Homepage() {
             en: 'Airport lake land, Alexandria airport land, Al Nozha airport land or Airport farm land are all the names of the project’s site, these names are attributed to the site’s HISTORICAL BACKGROUND and the significant events that occurred in this place.The project is located in Alexandria and is 6 km from the city center within the administration of Al Nozha district.'
           }
         }]);
-
   return (
     <div>
       <Swiper
@@ -46,7 +45,6 @@ function Homepage() {
       navigation
       loop
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
       slidesPerView={1}
     >
       <SwiperSlide>
