@@ -1,3 +1,9 @@
 .project-details-header-image {
     height: calc(100vh - 80px);
 }
+
+@media (max-width: 1024px){
+    .project-details-header-image {
+        height: 40vh;
+    }
+}

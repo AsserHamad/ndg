@@ -28,7 +28,7 @@ function NavBar(props) {
 
   return (
     <div>
-      <nav className={`navbar ${(page === 'home' || page === 'project-details' || page === 'deepdesign') && !scrollPos ? 'navbar-special' : ''}`}>
+      <nav className={`navbar ${(page === 'home' || page === 'deepdesign') && !scrollPos ? 'navbar-special' : ''}`}>
         <div className={`nav-wrapper nav-wrapper${lang}`}>
           <Link
         className={`logo logo-${lang}`}

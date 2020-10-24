@@ -40,6 +40,7 @@
 }
 .explore-works-filter {
     width: 25%;
+    height: 100%;
     background-color: #F9BF26;
     text-transform: uppercase;
     font-weight: bold;

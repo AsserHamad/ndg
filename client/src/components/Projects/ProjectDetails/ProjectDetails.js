@@ -7,8 +7,6 @@ import ProjectMainDetails from './ProjectMainDetails/ProjectMainDetails';
 import ProjectDetailsHeader from './ProjectDetailsHeader/ProjectDetailsHeader';
 import DownArrow from '../../DownArrow/DownArrow';
 
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -55,12 +53,14 @@ function ProjectDetails(props){
             <div className="project-header">
                 <div className={`project-title title-${lang}`}>
                     <svg preserveAspectRatio="none" className={`project-details-header-svg`}>
-                        <line x1="13%" x2="20%" y1="20%" y2="20%" className={`project-details-header-rectangle`}/>
-                        <line x1="13%" x2="13%" y1="20%" y2="40%" className={`project-details-header-rectangle`}/>
-                        <line x1="13%" x2="20%" y1="80%" y2="80%" className={`project-details-header-rectangle`}/>
-                        <line x1="13%" x2="13%" y1="80%" y2="60%" className={`project-details-header-rectangle`}/>
+                        <line x1="10%" x2="15%" y1="20%" y2="20%" className={`project-details-header-line`}/>
+                        <line x1="10%" x2="10%" y1="20%" y2="40%" className={`project-details-header-line`}/>
+                        <line x1="10%" x2="15%" y1="80%" y2="80%" className={`project-details-header-line`}/>
+                        <line x1="10%" x2="10%" y1="80%" y2="60%" className={`project-details-header-line`}/>
 
-                        <line x1="80%" x2="87%" y1="20%" y2="20%" className={`project-details-header-yellow-line`}/>
+                        <line x1="40%" x2="45%" y1="20%" y2="20%" className={`project-details-header-yellow-line`}/>
+
+                        <rect x="60vw" y="9vh" className={`project-details-header-rectangle`} />
                     </svg>
                     <div className={`project-title-header`}>{project.title[lang]}</div>
                     <div className={`project-title-subtitle subtitle-${lang}`}>
@@ -70,10 +70,14 @@ function ProjectDetails(props){
                     </div>
                 </div>
             <Swiper
-            lazy
+                lazy
+                freeMode
                 navigation
+                grabCursor
+                spaceBetween={8}
                 pagination={{ clickable: true, type: 'progressbar' }}
                 slidesPerView={'auto'}
+                className="project-details-swiper"
             >
                 {project.images.map(image => (
                     <SwiperSlide style={{width: 'auto'}}>

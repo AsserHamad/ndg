@@ -23,6 +23,8 @@
 .project-details-container {
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    animation: project-title-entrance 1s forwards;
 }
 
 .project-details-container-ar {
@@ -32,12 +34,12 @@
 /* SWIPER */
 
 .project-details-swiper {
-    height: 100vh;
-    width: 100vw;
+    opacity: 0;
+    animation: project-title-entrance 1s forwards;
+    animation-delay: 1.5s;
 }
 
 .swiper-container-horizontal > .swiper-pagination-progressbar, 
-
 .swiper-container-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
     top: auto;
     bottom: 0;
@@ -54,11 +56,11 @@
 
 .project-details-header-svg {
     position: absolute;
-    width: 50vw;
-    height: 40%;
+    width: 100vw;
+    height: 15%;
 }
 
-.project-details-header-rectangle {
+.project-details-header-line {
     width: 100%;
     height: 80%;
     stroke: #414145;
@@ -71,6 +73,12 @@
     stroke: #F9BF26;
     fill: transparent;
     stroke-width: 1px;
+}
+
+.project-details-header-rectangle {
+    width: 50vw;
+    height: 22vh;
+    fill: #323236;
 }
 
 .project-header {
@@ -96,7 +104,7 @@
     width: 40vw;
     padding: 5% 10%;
     padding-left: 15%;
-    padding-right: 0;
+    padding-right: 5%;
     text-align: left;
 }
 
@@ -107,13 +115,21 @@
     opacity: 0;
     display: flex;
     font-family: Barlow;
-    color: #535356;
+    color: #8B8B8D;
     flex-direction: column;
     justify-content: left;
     text-align: left;
     align-items: left;
     animation: project-title-entrance 0.7s forwards;
-    animation-delay: 2s;
+    animation-delay: 1.2s;
+}
+
+.project-title-subtitle :nth-child(1) {
+    color: white;
+}
+
+.project-title-subtitle :nth-child(2) {
+    color: #F9BF26;
 }
 
 .title-ar {
@@ -132,6 +148,10 @@
 
 
 @media (max-width: 1024px){
+
+    .project-details-header-svg {
+        height: 18%;
+    }
     .project-details-container {
         
     }
@@ -140,11 +160,22 @@
     }
 
     .project-title {
-        width: 96%;
+        margin-top: 50px;
         height: 100%;
-        font-size: 7vh;
-        justify-content: left;
+        font-size: 2em;
+        flex-direction: column;
         animation: project-title-entrance-mobile 1s forwards;
+    }
+
+    .project-title-header {
+        /* background-color: red; */
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+    .project-title-subtitle {
+        padding: 5%;
+        width: 80%;
     }
 
     .downArrow {
@@ -154,9 +185,16 @@
 
 
 @media (max-width: 1024px) and (orientation: landscape) {
-    .project-title {
-        height: 100%;
-        font-size: 10vh;
+
+    .project-title-header {
+        /* background-color: red; */
+        width: 100%;
+        margin-top: 4vh;
+    }
+
+    .project-title-subtitle {
+        padding: 3%;
+        width: 80%;
     }
 
     .downArrow {

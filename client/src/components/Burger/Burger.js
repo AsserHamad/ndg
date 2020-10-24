@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useGlobalState from "../../useGlobalState";
 import './Burger.css';
 
-import { FaHome, FaProjectDiagram, FaInfoCircle, FaServicestack, FaPhone } from 'react-icons/fa';
+import { FaHome, FaProjectDiagram, FaInfoCircle, FaServicestack, FaPhone, FaFacebook, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import ReactHtmlParser from 'react-html-parser';
 
 function Burger(props) {
@@ -52,12 +52,19 @@ function Burger(props) {
                             style={{ textDecoration: "inherit", fontSize: "inherit" }}
                             >
                                 <li>
-                                    <div className={`menuText menuText-${lang} ${item.page === page && 'burger-selected'}`}><div className="icon">{item.icon}</div>{ReactHtmlParser(item.text)}</div>
+                                    <div className={`menuText menuText-${lang} ${item.page === page && 'burger-selected'}`}>{ReactHtmlParser(item.text)}</div>
                                 </li>
                             </Link>
                         )
                     })}
                 </ul>
+                <div className="burger-socials">
+                    <div><FaFacebookF /></div>
+                    <div><FaTwitter /></div>
+                    <div><FaInstagram /></div>
+                    <div><FaYoutube /></div>
+                    
+                </div>
             </Menu> : 
             <Menu left>
                 <ul className="menu">

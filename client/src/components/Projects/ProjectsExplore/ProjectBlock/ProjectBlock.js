@@ -11,14 +11,14 @@ function ProjectBlock(props) {
     useEffect(() => {
         setDescription(descr => {
             descr = descr.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim();
-            if (descr.length > 60) {
-                descr = descr.substr(0, 60) + '...';
+            if (descr.length > 200) {
+                descr = descr.substr(0, 200) + '...';
             }
             setDescription(descr);
         });
-        if (title.length > 20) {
-            setTitle(title => title.substr(0, 20) + '...');
-        }
+        // if (title.length > 30) {
+        //     setTitle(title => title.substr(0, 30) + '...');
+        // }
     }, [description, title.length]);
     return(
         <Link
@@ -28,16 +28,16 @@ function ProjectBlock(props) {
             }}
             style={props.style}
             className={props._className + " project-block-container"}>
-            <div className="projectBlocks-cover"></div>
             <div className="project-brief">
+                <div className="project-brief-info">
+                    {title}
+                </div>
                 <div className="project-brief-categories">
                     <span>{subcategory}</span>
+                    <span>{project.location[lang]}</span>
                 </div>
                 <div className="project-brief-description">
                     {description}
-                </div>
-                <div className="project-brief-info">
-                    {title} - {project.location[lang]} <span><FaLongArrowAltRight /></span>
                 </div>
             </div>
             <img alt="Project Preview" src={project.preview} />

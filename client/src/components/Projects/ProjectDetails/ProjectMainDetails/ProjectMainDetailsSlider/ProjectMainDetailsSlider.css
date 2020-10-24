@@ -1,0 +1,29 @@
+.project-main-details-slider {
+    height: 100%;
+    margin-bottom: 20vh;
+}
+
+.project-main-details-slider-slide > img {
+    width: 50vw;
+}
+
+
+
+/* ///////////////////////////////////////////// */
+
+.project-main-details-gallery {
+    display: block;
+    margin-bottom: 10vh;
+}
+
+.project-main-details-image {
+    width: 25vw;
+    min-height: 90px;
+    padding: 20px;
+}
+
+@media (max-width: 1024px) {
+    .project-main-details-image {
+        width: 10vh;
+    }
+}

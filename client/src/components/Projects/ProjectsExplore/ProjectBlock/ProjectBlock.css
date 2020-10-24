@@ -1,6 +1,6 @@
 @keyframes reveal-cover {
-    from {width: 110%}
-    to {width: 0}
+    from {opacity: 0}
+    to {opacity: 1}
 }
 
 .project-block-container {
@@ -12,19 +12,9 @@
     overflow: hidden;
     z-index: 1;
     position: relative;
-}
-
-.projectBlocks-cover {
-    float: right;
-    width: 110%;
-    height: 120%;
-    position: absolute;
-    z-index: 101;
-    background-color: #2D2D32;
-    border: none;
+    opacity: 0;
     animation-name: reveal-cover;
     animation-duration: 0.9s;
-    animation-delay: 0.2s;
     animation-fill-mode: forwards;
 }
 
@@ -45,9 +35,9 @@
     position: absolute;
     z-index: 100;
     background-color: rgba(45,45,50,0.81);
-    padding: 8%;
-    width: 90%;
-    height: 90%;
+    padding: 5%;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     transition-duration: 0.2s;
 }
@@ -61,12 +51,31 @@
     text-shadow: 0px 0px 2px black;
     color: rgba(241, 192, 57, 0.747);
     letter-spacing: 0.1em;
-    font-size: 1.5vh;
+    font-size: 0.5em;
     text-transform: uppercase;
 }
 
 .project-brief-categories span {
-    margin-right: 2vh;
+    margin-right: 1.5vw;
+}
+
+.project-brief-description {
+    margin-top: 1.3vh;
+    font-size: 0.6em;
+    color: white;
+}
+
+.project-brief-info {
+    /* margin-top: 3.5vh; */
+    font-size: 1em;
+    text-shadow: 0px 0px 3px black;
+    letter-spacing: 0.1em;
+    color: white;
+    /* font-weight: bold; */
+}
+
+.project-brief-info span{
+    color: rgba(249, 193, 38, 0.788);
 }
 
 @media (max-width: 411px){
@@ -77,25 +86,6 @@
     .projectBlocks {
         height: 50px;
     }
-}
-
-.project-brief-description {
-    margin-top: 1.3vh;
-    font-size: 1.6vh;
-    color: white;
-}
-
-.project-brief-info {
-    margin-top: 3.5vh;
-    font-size: 1.6vh;
-    text-shadow: 0px 0px 3px black;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: white;
-}
-
-.project-brief-info span{
-    color: rgba(249, 193, 38, 0.788);
 }
 
 @media (max-width: 812px) and (orientation: landscape), (min-width: 768px) and (max-width: 1024px){
