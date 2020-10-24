@@ -19,11 +19,11 @@
 .project-main-details-image {
     width: 25vw;
     min-height: 90px;
-    padding: 20px;
+    padding: 5px;
 }
 
 @media (max-width: 1024px) {
     .project-main-details-image {
-        width: 10vh;
+        width: 40vw;
     }
 }

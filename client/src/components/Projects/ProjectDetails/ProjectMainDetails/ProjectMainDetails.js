@@ -10,7 +10,7 @@ function ProjectMainDetails(props){
     const  project = props.project,
             projectDetails = props.projectDetails,
             lang = props.lang,
-            [currNavigation, setCurrNavigation] = useState(1);
+            [currNavigation, setCurrNavigation] = useState(0);
             const images = project.images.map(image => {return {original: image, thumbnail: image}})
             const videos = project.videos.map(video => {
                 return {
@@ -46,7 +46,7 @@ function ProjectMainDetails(props){
                     <div onClick={() => setCurrNavigation(1)} className={currNavigation === 1 ? 'project-media-navigation-selected' : ''}>Gallery</div>
                 </div>
                 {currNavigation === 0 && 
-                <div>
+                <div className="project-media-info">
                     <div className="project-details-info">Project Info</div>
                     <div className="detail-description">
                         {ReactHtmlParser(project.description[lang]) || ReactHtmlParser(project.description)}
@@ -54,7 +54,7 @@ function ProjectMainDetails(props){
                 </div>
                 }
                 {currNavigation === 1 && 
-                <div>
+                <div className="project-media-info">
                         <ProjectMainDetailsSlider project={project} />
                 </div>}
                 {/* <div className="gallery">

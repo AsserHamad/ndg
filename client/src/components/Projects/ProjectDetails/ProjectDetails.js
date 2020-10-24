@@ -60,7 +60,7 @@ function ProjectDetails(props){
 
                         <line x1="40%" x2="45%" y1="20%" y2="20%" className={`project-details-header-yellow-line`}/>
 
-                        <rect x="60vw" y="9vh" className={`project-details-header-rectangle`} />
+                        <rect x="60vw" y="7vh" className={`project-details-header-rectangle`} />
                     </svg>
                     <div className={`project-title-header`}>{project.title[lang]}</div>
                     <div className={`project-title-subtitle subtitle-${lang}`}>
@@ -80,7 +80,7 @@ function ProjectDetails(props){
                 className="project-details-swiper"
             >
                 {project.images.map(image => (
-                    <SwiperSlide style={{width: 'auto'}}>
+                    <SwiperSlide key={image} style={{width: 'auto'}}>
                         <ProjectDetailsHeader image={image} />
                     </SwiperSlide>
                 ))}

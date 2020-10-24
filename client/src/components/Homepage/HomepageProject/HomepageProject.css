@@ -63,6 +63,12 @@
     width: 9em;
     padding: 0.6em 1.2em;
     cursor: pointer;
+    transition-duration: 0.2s;
+  }
+
+  .homepage-project-button:hover {
+    color: white;
+    background-color: #c98c00;
   }
   
   /* .other {
