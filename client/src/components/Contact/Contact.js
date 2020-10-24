@@ -46,7 +46,6 @@ function Contact(props){
             </div>
             <div className={`main-contact-container main-contact-container-${lang}`}>
               <div className="contact-div">
-                  <p className={`service-title service-title-${lang}`}>{contactText.contactUs}</p>
                   <img alt="services pic" src="http://www.naturedesigngroup.com/web_test/public/Uploads/pages/en/171555132651.jpg" />
                   <div className={`black-box black-box-${lang}`}>
                     <div className={`black-box-text`}>
