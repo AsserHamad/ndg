@@ -32,7 +32,7 @@
     height: 60px;
     display: flex;
     animation-name: come-through-bottom;
-    animation-duration: 2s;
+    animation-duration: 0.8s;
     background-color: #2D2D32;
     justify-content: center;
     text-align: center;

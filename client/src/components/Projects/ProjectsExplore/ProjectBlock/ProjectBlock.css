@@ -15,7 +15,9 @@
     opacity: 0;
     animation-name: reveal-cover;
     animation-duration: 0.9s;
+    animation-delay: 0.2s;
     animation-fill-mode: forwards;
+    transition-duration: 0.2s;
 }
 
 .project-block-container img {
@@ -25,6 +27,7 @@
     transition-duration: 0.2s;
     object-fit: cover;
     transition-duration: 1s;
+    transition-duration: 0.2s;
 }
 
 .project-block-container:hover img{

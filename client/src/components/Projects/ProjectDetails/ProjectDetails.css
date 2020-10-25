@@ -101,7 +101,7 @@
 }
 .project-title-header {
     animation: project-title-entrance 0.7s forwards;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     opacity: 0;
     width: 40vw;
     padding: 5% 10%;
@@ -123,7 +123,7 @@
     text-align: left;
     align-items: left;
     animation: project-title-entrance 0.7s forwards;
-    animation-delay: 1.2s;
+    animation-delay: 1s;
 }
 
 .project-title-subtitle :nth-child(1) {
