@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import HomepageProject from './HomepageProject/HomepageProject';
 import './Homepage.css';
 
-import SwiperCore, { EffectCoverflow, Navigation, Pagination, Thumbs } from 'swiper';
+import SwiperCore, { EffectCoverflow, Navigation, Pagination, Thumbs, Autoplay } from 'swiper';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,7 +13,7 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 
 
-SwiperCore.use([Navigation, Pagination, EffectCoverflow, Thumbs]);
+SwiperCore.use([Navigation, Pagination, EffectCoverflow, Thumbs, Autoplay]);
 
 function Homepage() {
   const [projects] = useState([

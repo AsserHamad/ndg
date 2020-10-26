@@ -51,25 +51,8 @@ function ProjectDetails(props){
         :
         <div className={`project-details-container project-details-container-${lang}`}>
             <div className="project-header">
-                <div className={`project-title title-${lang}`}>
-                    <svg preserveAspectRatio="none" className={`project-details-header-svg`}>
-                        <line x1="10%" x2="15%" y1="20%" y2="20%" className={`project-details-header-line`}/>
-                        <line x1="10%" x2="10%" y1="20%" y2="40%" className={`project-details-header-line`}/>
-                        <line x1="10%" x2="15%" y1="80%" y2="80%" className={`project-details-header-line`}/>
-                        <line x1="10%" x2="10%" y1="80%" y2="60%" className={`project-details-header-line`}/>
-
-                        <line x1="40%" x2="45%" y1="20%" y2="20%" className={`project-details-header-yellow-line`}/>
-
-                        <rect x="60vw" y="7vh" className={`project-details-header-rectangle`} />
-                    </svg>
-                    <div className={`project-title-header`}>{project.title[lang]}</div>
-                    <div className={`project-title-subtitle subtitle-${lang}`}>
-                        <div>{project.location[lang]}</div>
-                        <div>{project.owner[lang]}</div>
-                        <div>{changeDescription(project.description[lang])}</div>
-                    </div>
-                </div>
-            <Swiper
+                <Swiper
+                autoplay={{delay: 3000}}
                 lazy
                 freeMode
                 navigation
@@ -85,6 +68,16 @@ function ProjectDetails(props){
                     </SwiperSlide>
                 ))}
             </Swiper>
+                <div className={`project-title title-${lang}`}>
+                    <div className={`project-title-header`}>
+                        <div>{project.title[lang]}</div>
+                        <div>{project.location[lang]}</div>
+                    </div>
+                    <div className={`project-title-subtitle subtitle-${lang}`}>
+                        <div>Built Up Area:</div>
+                        <div>{project.builtUpArea}</div>
+                    </div>
+                </div>
                 {/* <div className="preview-container">
                     <img alt="preview" className="preview-image" src={project.preview} />
                 </div> */}
